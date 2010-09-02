@@ -71,7 +71,7 @@
    "<div class='check-links_result-data'><div class='check-links_link'><span class='link_url'>http://google.ru</span><span class='link_gap'>&nbsp;</span><span class='link_valid-p'>true</span></div><div class='check-links_link'><span class='link_url'>http://bad~link.ru</span><span class='link_gap'>&nbsp;</span><span class='link_valid-p'>true</span></div></div>"))
 
 (defun check-links-js-proxy (data)
-  (format nil "checkLinksResult = \"~a\";" (check-links-route data)))
+  (format nil "\"~a\";" (check-links-route data)))
 #|(defun test-check-links (data)
   (print-to-string data))
 |#
