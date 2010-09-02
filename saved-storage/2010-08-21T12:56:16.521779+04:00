@@ -1,0 +1,1102 @@
+
+((:URL "ftp://anime-storage.media.lan/12/Avatar%20The%20Last%20Airbender1/"
+  :TIME 3491369749 :VALID-P NIL)
+ (:URL "http://anime.media.lan/cgi-bin/anime?action=info&id=1396" :TIME
+  3491369749 :VALID-P NIL)
+ (:URL "http://wishfeeds.com/archimag/blogs/" :TIME 3491369747 :VALID-P NIL)
+ (:URL "http://anime.media.lan/cgi-bin/anime?action=info&id=154" :TIME
+  3491369745 :VALID-P NIL)
+ (:URL "about:blank" :TIME 3491369743 :VALID-P NIL)
+ (:URL "http://anime.media.lan/cgi-bin/anime?action=info&id=1425" :TIME
+  3491369743 :VALID-P NIL)
+ (:URL "http://anime.media.lan/cgi-bin/anime?action=info&id=517" :TIME
+  3491369741 :VALID-P NIL)
+ (:URL "http://anime.media.lan/cgi-bin/anime?action=info&id=250" :TIME
+  3491369739 :VALID-P NIL)
+ (:URL "http://dvd.media.lan/cgi-bin/dvd?action=info&id=1221" :TIME 3491369737
+  :VALID-P NIL)
+ (:URL "http://fullhd.media.lan/cgi-bin/fullhd?action=info&id=328" :TIME
+  3491369735 :VALID-P NIL)
+ (:URL "http://anime.media.lan/cgi-bin/anime?find=%E0%EB%F5%E8%EC%E8%EA" :TIME
+  3491369733 :VALID-P NIL)
+ (:URL "http://localhost:8000/trac-env" :TIME 3491369731 :VALID-P NIL)
+ (:URL "place:sort=8&maxResults=10" :TIME 3491369731 :VALID-P NIL)
+ (:URL "https://stat.birulevo.net/cgi-bin/userstat" :TIME 3491369731 :VALID-P
+  NIL)
+ (:URL "http://fido-online.com/" :TIME 3491369729 :VALID-P NIL)
+ (:URL "place:sort=8&redirectsMode=2&maxResults=10" :TIME 3491369727 :VALID-P
+  NIL)
+ (:URL "http://unixstuff.ru/2009/02/rsync.html" :TIME 3491369727 :VALID-P NIL)
+ (:URL "https://trac-hacks.org/" :TIME 3491369725 :VALID-P NIL)
+ (:URL "http://vm.swingrider.net/ubuntu/910/" :TIME 3491369723 :VALID-P NIL)
+ (:URL "http://torrents.ru/forum/viewtopic.php?t=2059088" :TIME 3491369721
+  :VALID-P NIL)
+ (:URL
+  "http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=1006543"
+  :TIME 3491369719 :VALID-P NIL)
+ (:URL "http://fido-online.com/x/_-0?Msg?8Q9QQ_&523&1947&" :TIME 3491369717
+  :VALID-P NIL)
+ (:URL "http://www-formal.stanford.edu/jmc/history/lisp/lisp.html" :TIME
+  3491369717 :VALID-P NIL)
+ (:URL "http://news.ycombinator.com/item?id=843223" :TIME 3491369716 :VALID-P
+  NIL)
+ (:URL "http://ynniv.com/blog/2005/12/lisp-in-games-naughty-dogs-jax-and.html"
+  :TIME 3491369716 :VALID-P NIL)
+ (:URL "http://letoverlambda.com/index.cl/toc" :TIME 3491369716 :VALID-P NIL)
+ (:URL "http://schemecookbook.org/Cookbook/TOC" :TIME 3491369715 :VALID-P NIL)
+ (:URL "http://clisp.linkfly.ru/" :TIME 3491369713 :VALID-P NIL)
+ (:URL "http://gazette.linux.ru.net/rus/articles/lkmpg.html" :TIME 3491369711
+  :VALID-P NIL)
+ (:URL "https://adwords.google.com/select/snapshot" :TIME 3491369709 :VALID-P
+  NIL)
+ (:URL "http://94.158.187.24/" :TIME 3491369707 :VALID-P NIL)
+ (:URL
+  "http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=287"
+  :TIME 3491369707 :VALID-P NIL)
+ (:URL "http://philip.greenspun.com/sql/data-modeling.html" :TIME 3491369705
+  :VALID-P NIL)
+ (:URL "http://anime.media.lan/cgi-bin/anime?find=avatar" :TIME 3491369704
+  :VALID-P NIL)
+ (:URL "http://www.drdobbs.com/architect/199702507" :TIME 3491369702 :VALID-P
+  NIL)
+ (:URL
+  "place:folder=BOOKMARKS_MENU&folder=UNFILED_BOOKMARKS&folder=TOOLBAR&sort=12&excludeQueries=1&excludeItemIfParentHasAnnotation=livemark%2FfeedURI&maxResults=10&queryType=1"
+  :TIME 3491369700 :VALID-P NIL)
+ (:URL "place:sort=14&type=6&maxResults=10&queryType=1" :TIME 3491369700
+  :VALID-P NIL)
+ (:URL
+  "http://www.pearsonhighered.com/educator/academic/product/0,,0201083191,00%2ben-USS_01DBC.html"
+  :TIME 3491364314 :VALID-P T)
+ (:URL "http://progn.podzone.net:3000/book/get_chapter/18" :TIME 3491362328
+  :VALID-P NIL)
+ (:URL "http://www.vmware.com/appliances/directory/cat/0?k=oracle" :TIME
+  3491362317 :VALID-P T)
+ (:URL "http://www.livejournal.com/search/?area=default&p=4&q=lisp" :TIME
+  3491362312 :VALID-P T)
+ (:URL
+  "http://creativecompany.ru/read/seo/118-prodvizhenie-sajjta-putem-dobavlenija-v-rss.html"
+  :TIME 3491362225 :VALID-P T)
+ (:URL "https://addons.mozilla.org/ru/firefox/bookmarks/" :TIME 3491361638
+  :VALID-P T)
+ (:URL
+  "http://www.ibm.com/developerworks/edu/l-dw-linux-lpic1109-i.html?S_TACT=105AGX99&S_CMP=CP"
+  :TIME 3491361632 :VALID-P T)
+ (:URL "http://www.is-research.de/info/vmlanguages/tag/lisp/" :TIME 3491361616
+  :VALID-P T)
+ (:URL "http://axiger.livejournal.com/" :TIME 3491361609 :VALID-P T)
+ (:URL "http://blog.endflow.net/?p=143" :TIME 3491361577 :VALID-P T)
+ (:URL "http://www.incaseofstairs.com/firefocus/" :TIME 3491361575 :VALID-P T)
+ (:URL
+  "https://addons.mozilla.org/en-US/firefox/browse/type:1/cat:22/sort:popular"
+  :TIME 3491361549 :VALID-P T)
+ (:URL "http://mail.qip.ru/mailbox/folder/INBOX/" :TIME 3491361282 :VALID-P T)
+ (:URL "http://www.lisp.ru/forums.php?m=posts&q=39" :TIME 3491361282 :VALID-P
+  T)
+ (:URL "http://cygwin.com/cygwin-ug-net/" :TIME 3491361281 :VALID-P T)
+ (:URL "http://cygwin.com/faq.html" :TIME 3491361281 :VALID-P T)
+ (:URL "http://lostfilm.tv/browse.php?cat=51" :TIME 3491361277 :VALID-P T)
+ (:URL "http://libcl.com/libcl-current/INSTALL.txt" :TIME 3491361277 :VALID-P
+  T)
+ (:URL "http://libcl.com/libcl-current/index.html" :TIME 3491361277 :VALID-P T)
+ (:URL "http://community.livejournal.com/fprog/tag/%234" :TIME 3491361276
+  :VALID-P T)
+ (:URL "http://community.livejournal.com/fprog/7453.html" :TIME 3491361275
+  :VALID-P T)
+ (:URL "http://fprog.ru/" :TIME 3491361274 :VALID-P T)
+ (:URL "http://www.linux.org.ru/news/opensource/3299938" :TIME 3491361272
+  :VALID-P T)
+ (:URL "http://cluecc.sourceforge.net/" :TIME 3491361272 :VALID-P T)
+ (:URL "http://www.snapetales.com/index.php?id=37" :TIME 3491361257 :VALID-P T)
+ (:URL "http://www.snapetales.com/index.php?auth_id=536" :TIME 3491361257
+  :VALID-P T)
+ (:URL
+  "http://www.google.ru/search?hl=ru&client=firefox&rls=org.mozilla%3Aru%3Aofficial&newwindow=1&q=%22%D0%A7%D0%B5%D1%82%D1%8B%D1%80%D0%B5+%D0%B2%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%B8+%D0%B3%D0%BE%D0%B4%D0%B0%22+%D0%B3%D0%BF&btnG=%D0%9F%D0%BE%D0%B8%D1%81%D0%BA&lr=&aq=&oq=%D1%87%D1%83%D0%B4%D0%B8%D0%BA+%D0%B3%D0%BF"
+  :TIME 3491361257 :VALID-P T)
+ (:URL "http://www.diary.ru/~Darkplace111/?favorite" :TIME 3491361257 :VALID-P
+  T)
+ (:URL "http://www.xmarks.com/firefox/success/3.5.10" :TIME 3491361254 :VALID-P
+  T)
+ (:URL "http://en.wikipedia.org/wiki/RabbitVCS" :TIME 3491361254 :VALID-P T)
+ (:URL "https://addons.mozilla.org/en-US/firefox/bookmarks/" :TIME 3491361254
+  :VALID-P T)
+ (:URL "http://www.yandex.ru/" :TIME 3491361253 :VALID-P T)
+ (:URL "http://mail.yandex.ru/neo/messages?current_folder=2040001010003043481"
+  :TIME 3491361253 :VALID-P T)
+ (:URL
+  "http://www.google.ru/reader/view/#stream/feed%2Fhttp%3A%2F%2Flisper.ru%2Fforum%2Frss%2Fall.rss"
+  :TIME 3491361253 :VALID-P T)
+ (:URL "http://www.mari-el.ru/mmlab/home/lisp/title.htm" :TIME 3491361252
+  :VALID-P T)
+ (:URL "http://kosmopoisk.rpod.ru/" :TIME 3491361252 :VALID-P T)
+ (:URL "http://fxfeeds.mozilla.com/ru/firefox/livebookmarks/" :TIME 3491361252
+  :VALID-P T)
+ (:URL "http://www.mozilla.com/ru/firefox/central/" :TIME 3491361250 :VALID-P
+  T)
+ (:URL "http://lostfilm.tv/" :TIME 3491361250 :VALID-P T)
+ (:URL "http://fprog.ru/wiki/AuthorsArea" :TIME 3491361250 :VALID-P T)
+ (:URL
+  "http://www.google.ru/reader/view/#stream/feed%2Fhttp%3A%2F%2Flisper.ru%2Fplanet%2Fatom.xml"
+  :TIME 3491361247 :VALID-P T)
+ (:URL "http://qip.ru/" :TIME 3491361245 :VALID-P T)
+ (:URL "http://www.bbc.co.uk/go/rss/int/news/-/news/" :TIME 3491361244 :VALID-P
+  T)
+ (:URL "http://www.google.com/dictionary?hl=ru" :TIME 3491361244 :VALID-P T)
+ (:URL "http://eli.thegreenplace.net/2008/04/18/sicp-conclusion/#fn2" :TIME
+  3491361244 :VALID-P T)
+ (:URL "http://elementy.ru/posters/spectrum/nature" :TIME 3491361243 :VALID-P
+  T)
+ (:URL "http://m.habrahabr.ru/post/85555/" :TIME 3491361243 :VALID-P T)
+ (:URL "http://my-hit.ru/films" :TIME 3491361243 :VALID-P T)
+ (:URL "http://cybertiggyr.com/gene/fmt/" :TIME 3491361242 :VALID-P T)
+ (:URL "http://common-lisp.net/projects/teepeedee2/" :TIME 3491361242 :VALID-P
+  T)
+ (:URL "http://www.cs.yale.edu/homes/dvm/format-stinks.html" :TIME 3491361242
+  :VALID-P T)
+ (:URL "http://www.lambdassociates.org/" :TIME 3491361241 :VALID-P T)
+ (:URL "http://github.com/vii/teepeedee2#readme" :TIME 3491361241 :VALID-P T)
+ (:URL "http://www.aics.ru/books.shtml?action=showbookcont&id=117" :TIME
+  3491361240 :VALID-P T)
+ (:URL "http://homelisp.ru/help/index.html" :TIME 3491361240 :VALID-P T)
+ (:URL "http://v-alksnis2.livejournal.com/168623.html" :TIME 3491361240
+  :VALID-P T)
+ (:URL "http://www.artofprogramming.com/bb/viewtopic.php?t=169" :TIME
+  3491361239 :VALID-P T)
+ (:URL "http://carcaddar.blogspot.com/search/label/lisp-ru" :TIME 3491361239
+  :VALID-P T)
+ (:URL "http://schemeway.dyndns.org/mslug/mslug-home" :TIME 3491361238 :VALID-P
+  T)
+ (:URL "http://www.realcoding.net/article/view/6853" :TIME 3491361237 :VALID-P
+  T)
+ (:URL "http://hoytech.com/antiweb/" :TIME 3491361236 :VALID-P T)
+ (:URL "http://common-lisp.net/project/teepeedee2/" :TIME 3491361236 :VALID-P
+  T)
+ (:URL "http://john.freml.in/teepeedee2-c10k" :TIME 3491361235 :VALID-P T)
+ (:URL "http://wiki.github.com/vsedach/HTTP-DOHC/" :TIME 3491361235 :VALID-P T)
+ (:URL "http://www.vmware.com/appliances/directory/va/375123/download" :TIME
+  3491361235 :VALID-P T)
+ (:URL "http://github.com/vsedach/HTTP-DOHC" :TIME 3491361235 :VALID-P T)
+ (:URL
+  "https://www.blogger.com/comment.g?blogID=5728814948530385321&postID=2841085877441268583"
+  :TIME 3491361234 :VALID-P T)
+ (:URL "http://habrahabr.ru/blogs/lisp/" :TIME 3491361233 :VALID-P T)
+ (:URL "http://vsedach.googlepages.com/code.html" :TIME 3491361233 :VALID-P T)
+ (:URL "http://www.rsdn.ru/forum/job.offers/3706342.1.aspx" :TIME 3491361232
+  :VALID-P T)
+ (:URL "http://budam.rpod.ru/119345.html" :TIME 3491361232 :VALID-P T)
+ (:URL
+  "http://communities.vmware.com/thread/172395;jsessionid=612587A6185C518CB432366E66075E33"
+  :TIME 3491361230 :VALID-P T)
+ (:URL "http://www.ibm.com/developerworks/ru/library/l-bash-test/" :TIME
+  3491361230 :VALID-P T)
+ (:URL
+  "http://www.ibm.com/developerworks/ru/library/l-bash-parameters/index.html"
+  :TIME 3491361229 :VALID-P T)
+ (:URL "http://tlanvar.blogspot.com/2007/08/bash-5.html" :TIME 3491361229
+  :VALID-P T)
+ (:URL "http://puzan-linux.blogspot.com/2009/08/emacs-daemon.html" :TIME
+  3491361229 :VALID-P T)
+ (:URL "http://myemacs.ru/search/label/ssh" :TIME 3491361228 :VALID-P NIL)
+ (:URL "http://www.kernel-api.org/docs/online/2.6.12/index.html" :TIME
+  3491361228 :VALID-P NIL)
+ (:URL
+  "http://satsky.spb.ru/codestore/DaemonFramework/DaemonFrameworkArticle.php"
+  :TIME 3491361228 :VALID-P T)
+ (:URL "http://satsky.spb.ru/codestore/DaemonFrameworkEng.php" :TIME 3491361228
+  :VALID-P T)
+ (:URL
+  "http://web.archive.org/web/20060603181849/http:/www.linuxprofilm.com/articles/linux-daemon-howto.html#ss4.2"
+  :TIME 3491361227 :VALID-P T)
+ (:URL "https://help.ubuntu.com/8.04/serverguide/C/ubuntu-vm-builder.html"
+  :TIME 3491361225 :VALID-P T)
+ (:URL "http://dmitry-vk.livejournal.com/" :TIME 3491361225 :VALID-P T)
+ (:URL "http://carcaddar.blogspot.com/" :TIME 3491361225 :VALID-P T)
+ (:URL
+  "http://www.ubuntugeek.com/running-internet-explorer-in-ubuntu-linux.html"
+  :TIME 3491361224 :VALID-P T)
+ (:URL "http://appdb.winehq.org/appview.php?versionId=469" :TIME 3491361223
+  :VALID-P T)
+ (:URL
+  "http://www.ibm.com/developerworks/ru/library/l-posixcap/l-posixcap.html#"
+  :TIME 3491361223 :VALID-P T)
+ (:URL "http://moikompas.ru/compas/lisp" :TIME 3491361222 :VALID-P T)
+ (:URL "http://www.defmacro.org/ramblings/lisp.html" :TIME 3491361222 :VALID-P
+  T)
+ (:URL "http://www.linux.org.ru/books/GNU/gdb/gdb_toc.html" :TIME 3491361222
+  :VALID-P T)
+ (:URL "http://www.csm.ornl.gov/pvm/" :TIME 3491361222 :VALID-P T)
+ (:URL "http://www.friedhoff.org/posixfilecaps.html" :TIME 3491361222 :VALID-P
+  T)
+ (:URL "https://answers.launchpad.net/sbcl/+question/74497" :TIME 3491361219
+  :VALID-P T)
+ (:URL "http://rsync.samba.org/ftp/rsync/rsync.html" :TIME 3491361219 :VALID-P
+  T)
+ (:URL "http://manual.sidux.com/ru/sys-admin-rsync-ru.htm" :TIME 3491361219
+  :VALID-P T)
+ (:URL "http://opennet.ru/man.shtml?topic=rsync&category=1&russian=0" :TIME
+  3491361219 :VALID-P T)
+ (:URL "http://www.linux.org.ru/forum/development/4424113" :TIME 3491361218
+  :VALID-P T)
+ (:URL "http://alexott.net/ru/writings/emacs-devenv/EmacsSLIME.html" :TIME
+  3491361218 :VALID-P T)
+ (:URL "http://archimag-dev.blogspot.com/2010/03/slime.html" :TIME 3491361217
+  :VALID-P T)
+ (:URL "http://lisper.ru/forum/thread/114" :TIME 3491361281 :VALID-P T)
+ (:URL "http://axiger.livejournal.com/17393.html" :TIME 3491361563 :VALID-P T)
+ (:URL "http://www.anrichter.net/projects/qsvn" :TIME 3491361217 :VALID-P T)
+ (:URL "http://digilander.libero.it/mcostalba/" :TIME 3491361217 :VALID-P T)
+ (:URL "http://www.cliki.net/SLIME" :TIME 3491361216 :VALID-P T)
+ (:URL "http://www.cliki.net/SLIME-HOWTO" :TIME 3491361216 :VALID-P T)
+ (:URL "http://www.clozure.com/index.html" :TIME 3491361216 :VALID-P T)
+ (:URL "http://ru.wikipedia.org/wiki/Subversion" :TIME 3491361215 :VALID-P T)
+ (:URL
+  "http://www.simplecoding.org/subversion-ispolzovanie-vetok-razrabotki.html"
+  :TIME 3491361214 :VALID-P T)
+ (:URL
+  "http://www.simplecoding.org/upravlenie-proectami-subversion-rabochie-kopii.html"
+  :TIME 3491361214 :VALID-P T)
+ (:URL "http://www.simplecoding.org/upravlenie-proectami-subversion.html" :TIME
+  3491361214 :VALID-P T)
+ (:URL
+  "http://alexsnet.ru/2009/01/setting-up-subversion-server-using-apache-in-debian-or-ubuntu/"
+  :TIME 3491361213 :VALID-P NIL)
+ (:URL "http://lispjobs.wordpress.com/2010/03/24/lisp-developer-raleigh-nc/"
+  :TIME 3491361210 :VALID-P T)
+ (:URL
+  "http://www.1gb.ru/wiki/index.php?title=Trac_-_%D0%B1%D1%8B%D1%81%D1%82%D1%80%D1%8B%D0%B9_%D1%81%D1%82%D0%B0%D1%80%D1%82"
+  :TIME 3491361210 :VALID-P T)
+ (:URL "http://trac.edgewall.org/wiki/TranslationRu/TracAdmin" :TIME 3491361209
+  :VALID-P T)
+ (:URL
+  "http://lispjobs.wordpress.com/2010/03/17/lisp-internships-and-jobs-at-hpc-platform-boston-and-paris/"
+  :TIME 3491361209 :VALID-P T)
+ (:URL "http://jooble.ru/search-vacancy-rossiya/ctg-all/kw-lisp" :TIME
+  3491361207 :VALID-P T)
+ (:URL "http://www.pchristensen.com/blog/lisp-companies/" :TIME 3491361207
+  :VALID-P T)
+ (:URL "http://www.rusdoc.ru/articles/motivatsija_udalennyx_sotrudnikov/18896/"
+  :TIME 3491361207 :VALID-P T)
+ (:URL "http://lambda-the-ultimate.org/classic/message6049.html" :TIME
+  3491361204 :VALID-P T)
+ (:URL "http://github.com/aerique/clois-lane#readme" :TIME 3491361280 :VALID-P
+  T)
+ (:URL
+  "http://www.lispcast.com/drupal/9-Tips-for-the-aspiring-Emacs-playboy.html"
+  :TIME 3491361202 :VALID-P T)
+ (:URL "http://www.vbstreets.ru/VB/Articles/66541.aspx" :TIME 3491361202
+  :VALID-P T)
+ (:URL "http://communities.vmware.com/community/beta/ws" :TIME 3491361202
+  :VALID-P T)
+ (:URL "http://www.lispcast.com/" :TIME 3491361201 :VALID-P T)
+ (:URL
+  "http://www.reddit.com/r/lisp/comments/91x7g/reddit_lispers_maybe_you_would_like_to_introduce/"
+  :TIME 3491361197 :VALID-P T)
+ (:URL
+  "http://www.reddit.com/r/programming/comments/8kuvw/cltl3_codifying_modern_common_lisp/"
+  :TIME 3491361196 :VALID-P T)
+ (:URL
+  "http://happyrouter.com/running-vmware-esx-35-and-esxi-in-workstation-on-your-desktop-pc"
+  :TIME 3491361192 :VALID-P T)
+ (:URL "http://www.cliki.net/Lisp%20-%20Next%20Generation" :TIME 3491361191
+  :VALID-P T)
+ (:URL "http://github.com/archimag/clbuild-archimag/blob/master/doc/index.html"
+  :TIME 3491361190 :VALID-P T)
+ (:URL "http://lisper.ru/articles/connect-to-remote-lisp" :TIME 3491361189
+  :VALID-P T)
+ (:URL "http://briancarper.net/blog/rss-feed-common-lisp" :TIME 3491361546
+  :VALID-P T)
+ (:URL
+  "http://blog.ponto-dot.com/2009/08/14/setting-up-common-lisp-on-a-web-server"
+  :TIME 3491361186 :VALID-P T)
+ (:URL "http://archimag-dev.blogspot.com/2009/10/hunchentoot-apache.html" :TIME
+  3491361184 :VALID-P T)
+ (:URL
+  "http://www.reddit.com/r/programming/comments/ajuco/how_to_write_and_deploy_a_common_lisp_webapp_for/?sort=hot"
+  :TIME 3491361184 :VALID-P T)
+ (:URL "http://dcgrendel.thewaffleiron.net/vmbuilder/" :TIME 3491361184
+  :VALID-P T)
+ (:URL
+  "http://avodonosov.blogspot.com/2008/01/it-is-problematic-at-first-sight-to-use.html"
+  :TIME 3491361183 :VALID-P T)
+ (:URL "http://storinka.com.ua/using_lisp_for_web/" :TIME 3491361282 :VALID-P
+  T)
+ (:URL "http://archimag-dev.blogspot.com/2010/03/hunchentoot.html" :TIME
+  3491361182 :VALID-P T)
+ (:URL
+  "http://www.cs.northwestern.edu/academics/courses/325/readings/web-servers.html"
+  :TIME 3491361182 :VALID-P T)
+ (:URL "http://homepage.mac.com/svc/LispMovies/index.html" :TIME 3491361182
+  :VALID-P T)
+ (:URL "http://www.adampetersen.se/articles/lispweb.htm" :TIME 3491361181
+  :VALID-P T)
+ (:URL "http://github.com/vseloved/rutils#readme" :TIME 3491361181 :VALID-P T)
+ (:URL
+  "http://common-lisp.net/project/asdf-install/tutorial/index-save.html#url"
+  :TIME 3491361180 :VALID-P T)
+ (:URL "http://www.vmgu.ru/" :TIME 3491361180 :VALID-P T)
+ (:URL "http://common-lisp.net/project/asdf/manual.html" :TIME 3491361180
+  :VALID-P T)
+ (:URL "http://www.vm4.ru/" :TIME 3491361180 :VALID-P T)
+ (:URL "http://www.ixbt.com/cm/vmware-server-esx-server.shtml" :TIME 3491361179
+  :VALID-P T)
+ (:URL "http://habrahabr.ru/blogs/virtualization/71709/" :TIME 3491361179
+  :VALID-P T)
+ (:URL
+  "http://www.ibm.com/developerworks/ru/library/os-eclipse-clojure/index.html"
+  :TIME 3491361179 :VALID-P T)
+ (:URL "http://vimeo.com/channels/fulldisclojure" :TIME 3491361178 :VALID-P T)
+ (:URL "http://impromptu.moso.com.au/" :TIME 3491361177 :VALID-P T)
+ (:URL "http://citforum.univ.kiev.ua/programming/digest/scheme/#5.3." :TIME
+  3491361177 :VALID-P T)
+ (:URL "http://sassy.sourceforge.net/" :TIME 3491361177 :VALID-P T)
+ (:URL "http://www.osp.ru/os/1997/06/179299/" :TIME 3491361177 :VALID-P T)
+ (:URL "http://www.stripedgazelle.org/joey/dreamos.html" :TIME 3491361176
+  :VALID-P T)
+ (:URL "http://community.livejournal.com/ru_scheme" :TIME 3491361176 :VALID-P
+  T)
+ (:URL "http://turtle-bazon.blogspot.com/2010/06/icfpc-2010.html" :TIME
+  3491361176 :VALID-P T)
+ (:URL "http://en.wikiquote.org/wiki/Lisp_programming_language" :TIME
+  3491361175 :VALID-P T)
+ (:URL "http://itasoftware.com/solutions/" :TIME 3491361175 :VALID-P T)
+ (:URL "http://briancarper.net/blog/386/practicality-php-vs-lisp" :TIME
+  3491361175 :VALID-P T)
+ (:URL "http://bc.tech.coop/blog/040128.html" :TIME 3491361174 :VALID-P T)
+ (:URL
+  "http://blogs.msdn.com/b/patrick_dussud/archive/2006/11/21/how-it-all-started-aka-the-birth-of-the-clr.aspx"
+  :TIME 3491361174 :VALID-P T)
+ (:URL "http://community.schemewiki.org/?The-Scheme-Cookbook" :TIME 3491361173
+  :VALID-P T)
+ (:URL "http://bc.tech.coop/blog/050711.html" :TIME 3491361173 :VALID-P T)
+ (:URL
+  "http://online.wsj.com/article/SB10001424052748703279704575335301017621606.html"
+  :TIME 3491361173 :VALID-P T)
+ (:URL "http://www.lispdoc.com/" :TIME 3491361172 :VALID-P T)
+ (:URL "http://www.itasoftware.com/careers/l_e_t_lisp.html?catid=8" :TIME
+  3491361172 :VALID-P T)
+ (:URL "http://gitorious.org/iolib/texinfo-docstrings" :TIME 3491361172
+  :VALID-P T)
+ (:URL "http://homelisp.ru/help/lisp.html" :TIME 3491361172 :VALID-P T)
+ (:URL "http://www.ozon.ru/context/detail/id/4459637/" :TIME 3491361172
+  :VALID-P T)
+ (:URL "http://gitorious.org/cffi" :TIME 3491361171 :VALID-P T)
+ (:URL
+  "http://lichteblau.blogspot.com/2009/08/cl-perec-blog-series-by-pinterface.html"
+  :TIME 3491361171 :VALID-P T)
+ (:URL "http://www.metabang.com/open-source-software.html" :TIME 3491361171
+  :VALID-P T)
+ (:URL "http://www.ozon.ru/context/detail/id/1862340/" :TIME 3491361171
+  :VALID-P T)
+ (:URL "http://bknr.net/trac/browser/trunk/thirdparty/hunchentoot" :TIME
+  3491361170 :VALID-P T)
+ (:URL "http://c2.com/cgi/wiki?LispSchemeDifferences" :TIME 3491361167 :VALID-P
+  T)
+ (:URL "http://www.dreamsongs.com/Separation.html" :TIME 3491361166 :VALID-P T)
+ (:URL
+  "http://groups.google.ru/group/comp.lang.lisp/msg/0fea7c3633c2e72c?pli=1"
+  :TIME 3491361165 :VALID-P T)
+ (:URL "http://www.metabang.com/" :TIME 3491361165 :VALID-P T)
+ (:URL "http://swizard.livejournal.com/" :TIME 3491361160 :VALID-P T)
+ (:URL "http://posix.ru/freenotes/linux/51" :TIME 3491361222 :VALID-P T)
+ (:URL "https://help.ubuntu.com/8.04/serverguide/C/virtualization.html" :TIME
+  3491361225 :VALID-P T)
+ (:URL "http://lisp.narod.ru/" :TIME 3491361222 :VALID-P T)
+ (:URL "http://tymmym.blogspot.com/" :TIME 3491361159 :VALID-P T)
+ (:URL "http://www.pps.jussieu.fr/~jch/software/cl-yacc/cl-yacc.html" :TIME
+  3491361221 :VALID-P T)
+ (:URL "http://lisp-univ-etc.blogspot.com/" :TIME 3491361158 :VALID-P T)
+ (:URL "http://www.knowledgetools.de/darcs/darcsweb.cgi" :TIME 3491361221
+  :VALID-P T)
+ (:URL "http://archimag-dev.blogspot.com/" :TIME 3491361158 :VALID-P T)
+ (:URL "http://www.ibm.com/developerworks/ru/library/j-cb02067/index.html"
+  :TIME 3491361157 :VALID-P T)
+ (:URL "http://www.sbcl.org/manual/index.html#Debugger-Policy-Control" :TIME
+  3491361220 :VALID-P T)
+ (:URL
+  "http://jsnell.iki.fi/blog/archive/2007-12-19-pretty-sbcl-backtraces.html"
+  :TIME 3491361220 :VALID-P T)
+ (:URL "http://lisp.ru/page.php?id=11" :TIME 3491361157 :VALID-P T)
+ (:URL "http://community.livejournal.com/ru_lisp/" :TIME 3491361156 :VALID-P T)
+ (:URL "http://sbcl10.sbcl.org/materials/ndl/" :TIME 3491361219 :VALID-P T)
+ (:URL "http://lisper.ru/forum/thread/368#comment-3978" :TIME 3491361155
+  :VALID-P T)
+ (:URL "http://axiger.livejournal.com/17598.html" :TIME 3491361154 :VALID-P T)
+ (:URL
+  "http://www.regatta.cs.msu.su/doc/usr/share/man/info/ru_RU/a_doc_lib/aixuser/glossary/S.htm"
+  :TIME 3491361218 :VALID-P T)
+ (:URL "http://qct.sourceforge.net/" :TIME 3491361218 :VALID-P T)
+ (:URL "http://community.livejournal.com/ru_lisp/34736.html" :TIME 3491361154
+  :VALID-P T)
+ (:URL "http://love5an.livejournal.com/316933.html" :TIME 3491361153 :VALID-P
+  T)
+ (:URL "http://www.lisp.ru/forums.php?m=posts&q=274&n=last#bottom" :TIME
+  3491361217 :VALID-P T)
+ (:URL "http://zoneit.free.fr/esvn/" :TIME 3491361217 :VALID-P T)
+ (:URL "http://lispnik.livejournal.com/242522.html" :TIME 3491361153 :VALID-P
+  T)
+ (:URL "http://ru.wikipedia.org/wiki/Git" :TIME 3491361216 :VALID-P T)
+ (:URL "http://virtlib.odessa.net/subbook/svn-book-html-chunk/index.html" :TIME
+  3491361216 :VALID-P T)
+ (:URL
+  "http://coding.derkeiler.com/Archive/Lisp/comp.lang.lisp/2004-10/0699.html"
+  :TIME 3491361216 :VALID-P T)
+ (:URL
+  "http://www.linux.org.ru/news/opensource/972888;jsessionid=7BF7E6035E03962A7808E31487693CB3"
+  :TIME 3491361152 :VALID-P T)
+ (:URL "http://love5an.livejournal.com/344353.html" :TIME 3491361607 :VALID-P
+  T)
+ (:URL "http://forum.codenet.ru/showthread.php?t=60051" :TIME 3491361213
+  :VALID-P T)
+ (:URL "http://lisperati.planvita.com/" :TIME 3491361606 :VALID-P T)
+ (:URL "http://bc.tech.coop/blog/xml-xform/resume-detail.html" :TIME 3491361212
+  :VALID-P T)
+ (:URL "http://forum.codeby.net/topic21177.html" :TIME 3491361211 :VALID-P T)
+ (:URL
+  "http://forum.vingrad.ru/forum/s/b97cab5ade7e020da32920e339991f94/topic-138895/anchor-entry1052071/0.html"
+  :TIME 3491361211 :VALID-P T)
+ (:URL "http://rabota.ua/company203681/vacancy4401282" :TIME 3491361211
+  :VALID-P T)
+ (:URL "http://www.itasoftware.com/careers/jlisting.html?uid=718870" :TIME
+  3491361211 :VALID-P T)
+ (:URL "http://trac.edgewall.org/wiki/TracTermsRu" :TIME 3491361209 :VALID-P T)
+ (:URL "http://trac-hacks.org/wiki/GitPlugin" :TIME 3491361209 :VALID-P T)
+ (:URL "http://restas.lisper.ru/" :TIME 3491361603 :VALID-P T)
+ (:URL "http://www.franz.com/support/documentation/6.2/doc/debugger-api.htm"
+  :TIME 3491361603 :VALID-P T)
+ (:URL "http://planet.lisp.org/" :TIME 3491361602 :VALID-P T)
+ (:URL "http://cdr.eurolisp.org/" :TIME 3491361601 :VALID-P T)
+ (:URL "http://lispdoc.com/" :TIME 3491361601 :VALID-P T)
+ (:URL "http://www.cl-user.net/" :TIME 3491361600 :VALID-P T)
+ (:URL
+  "http://en.wikipedia.org/wiki/Comparison_of_issue_tracking_systems#Bug_tracking_systems"
+  :TIME 3491361206 :VALID-P T)
+ (:URL "http://hh.ru/vacancy/2650832?from=jooble.ru" :TIME 3491361206 :VALID-P
+  T)
+ (:URL "http://common-lisp.net/" :TIME 3491361599 :VALID-P T)
+ (:URL "http://lisper.ru/apps/format/127" :TIME 3491361599 :VALID-P T)
+ (:URL
+  "http://tream.dreamhosters.com/tream/musings/49-lisp/76-analysis-of-existing-asdf-files"
+  :TIME 3491361598 :VALID-P T)
+ (:URL "http://www.lemonodor.com/" :TIME 3491361597 :VALID-P T)
+ (:URL "http://bc.tech.coop/blog/" :TIME 3491361597 :VALID-P T)
+ (:URL "http://lichteblau.blogspot.com/" :TIME 3491361597 :VALID-P T)
+ (:URL "http://13-49-ru.blogspot.com/2010/06/repl.html" :TIME 3491361597
+  :VALID-P T)
+ (:URL "http://13-49-ru.blogspot.com/2009/12/lisp.html" :TIME 3491361596
+  :VALID-P T)
+ (:URL "http://13-49-ru.blogspot.com/2010/07/blog-post_21.html" :TIME
+  3491361596 :VALID-P T)
+ (:URL "http://13-49-ru.blogspot.com/2010/03/sbcl.html" :TIME 3491361595
+  :VALID-P T)
+ (:URL "http://formlis.wordpress.com/2010/06/30/forth-in-lisp/" :TIME
+  3491361595 :VALID-P T)
+ (:URL "http://bc.tech.coop/blog/040430.html" :TIME 3491361593 :VALID-P T)
+ (:URL "http://onjava.com/pub/a/onjava/2004/03/24/lisp.html" :TIME 3491361592
+  :VALID-P T)
+ (:URL "http://www.parkscomputing.com/lisptest.html" :TIME 3491361592 :VALID-P
+  T)
+ (:URL "http://lwn.net/Articles/374424/" :TIME 3491361591 :VALID-P T)
+ (:URL "http://pcl.catap.ru/doku.php?id=pcl" :TIME 3491361276 :VALID-P T)
+ (:URL "http://www.kernel.org/doc/" :TIME 3491361591 :VALID-P T)
+ (:URL "http://kernel.org/" :TIME 3491361590 :VALID-P T)
+ (:URL "http://www.dynamiclearningcenter.com/" :TIME 3491361198 :VALID-P T)
+ (:URL
+  "http://www.reddit.com/r/lisp/comments/9gic3/cltl3devel_rfc_cltl3_charter/"
+  :TIME 3491361197 :VALID-P T)
+ (:URL "http://ubuntueasy.com/teorija/svoj-distributiv-ubuntu" :TIME 3491361587
+  :VALID-P T)
+ (:URL "http://wiki.alu.org/CLtL3%20Manifesto?v=10" :TIME 3491361197 :VALID-P
+  T)
+ (:URL "http://aima.cs.berkeley.edu/" :TIME 3491361583 :VALID-P T)
+ (:URL "http://my.xmarks.com/" :TIME 3491361583 :VALID-P T)
+ (:URL "http://ilc2009.scheming.org/node/48" :TIME 3491361195 :VALID-P T)
+ (:URL
+  "http://pipes.yahoo.com/pipes/pipe.run?_id=po8sPivt2xGVMQcW6kjTQA&_render=rss"
+  :TIME 3491361195 :VALID-P T)
+ (:URL "http://www.google.ru/ig?hl=ru&source=iglk" :TIME 3491361582 :VALID-P T)
+ (:URL "http://www.speedtest.net/" :TIME 3491361581 :VALID-P T)
+ (:URL "http://www.sqlite.org/foreignkeys.html" :TIME 3491361581 :VALID-P T)
+ (:URL "http://www.sqlite.org/inmemorydb.html" :TIME 3491361580 :VALID-P T)
+ (:URL "http://fatheronwork.ru/?p=94" :TIME 3491361580 :VALID-P T)
+ (:URL "http://13-49.blogspot.com/2009_08_01_archive.html" :TIME 3491361191
+  :VALID-P T)
+ (:URL "http://lisp.tomsk.ru/" :TIME 3491361594 :VALID-P T)
+ (:URL "http://cyber.law.harvard.edu/rss/rss.html" :TIME 3491361577 :VALID-P T)
+ (:URL "http://lisper.ru/articles/eval-when" :TIME 3491361189 :VALID-P T)
+ (:URL "http://www.vmware.com/ru/products/vi/esx/esx3i.html" :TIME 3491361189
+  :VALID-P T)
+ (:URL "http://www.formlis.com/" :TIME 3491361189 :VALID-P T)
+ (:URL "http://archimag-dev.blogspot.com/2010/01/restas.html" :TIME 3491361188
+  :VALID-P T)
+ (:URL "http://bc.tech.coop/blog/051219.html" :TIME 3491361187 :VALID-P T)
+ (:URL
+  "http://wbruschi.blogspot.com/2009/02/install-hunchentoot-on-ubuntu.html"
+  :TIME 3491361187 :VALID-P T)
+ (:URL "http://firerainbow.binaryage.com/" :TIME 3491361576 :VALID-P T)
+ (:URL
+  "http://www.newartisans.com/2007/11/running-common-lisp-behind-apache.html"
+  :TIME 3491361185 :VALID-P T)
+ (:URL "http://www.ibm.com/developerworks/ru/library/l-linuxvirt/index.html"
+  :TIME 3491361184 :VALID-P T)
+ (:URL "http://firequery.binaryage.com/" :TIME 3491361574 :VALID-P T)
+ (:URL "http://www.softwareishard.com/blog/firecookie/" :TIME 3491361574
+  :VALID-P T)
+ (:URL "https://help.ubuntu.com/community/JeOSVMBuilder" :TIME 3491361183
+  :VALID-P T)
+ (:URL "http://www.it.uc3m.es/jaf/html2xhtml/" :TIME 3491361571 :VALID-P T)
+ (:URL "http://bc.tech.coop/blog/050727.html" :TIME 3491361182 :VALID-P T)
+ (:URL "http://www.vm-help.com/esx/esx3i/ESXi_PXE_install.html" :TIME
+  3491361182 :VALID-P T)
+ (:URL "http://wiki.vm4.ru/system/app/pages/sitemap/hierarchy" :TIME 3491361181
+  :VALID-P T)
+ (:URL "http://www.newartisans.com/2007/12/common-lisp-web-servers.html" :TIME
+  3491361181 :VALID-P T)
+ (:URL "http://www.vmware.com/resources/compatibility/search.php" :TIME
+  3491361181 :VALID-P T)
+ (:URL
+  "http://ru.intel.com/business/community/?automodule=blog&blogid=9063&showentry=1030"
+  :TIME 3491361569 :VALID-P T)
+ (:URL "http://rutracker.org/forum/viewtopic.php?t=2059088" :TIME 3491361180
+  :VALID-P T)
+ (:URL "http://www.delorie.com/gnu/docs/elisp-manual-21/elisp.html#SEC_Top"
+  :TIME 3491361568 :VALID-P T)
+ (:URL "http://www.vm4.ru/2008/12/vmfs_20.html" :TIME 3491361180 :VALID-P T)
+ (:URL "http://typedef.ru/tag/emacs/" :TIME 3491361568 :VALID-P T)
+ (:URL "http://community.livejournal.com/ru_lisp/30368.html" :TIME 3491361567
+  :VALID-P T)
+ (:URL "http://www.dwheeler.com/innovation/innovation.html" :TIME 3491361178
+  :VALID-P T)
+ (:URL "http://astoon.livejournal.com/71654.html" :TIME 3491361179 :VALID-P T)
+ (:URL "http://lisper.ru/wiki/Libraries" :TIME 3491361178 :VALID-P T)
+ (:URL "http://alexott.net/ru/emacs/elisp-intro/elisp-intro-ru.html" :TIME
+  3491361177 :VALID-P T)
+ (:URL "http://habrahabr.ru/blogs/crazydev/56849/" :TIME 3491361177 :VALID-P T)
+ (:URL "http://alexott.net/ru/writings/emacs-devenv/EmacsScheme.html" :TIME
+  3491361177 :VALID-P T)
+ (:URL "http://www.wasm.ru/article.php?article=1021020" :TIME 3491361177
+  :VALID-P T)
+ (:URL
+  "http://research.microsoft.com/en-us/um/people/simonpj/papers/supercompilation/"
+  :TIME 3491361176 :VALID-P T)
+ (:URL
+  "http://habrahabr.ru/blogs/Haskell/98063/?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+fp-planet-ru+%28Russian+Lambda+Planet%29&utm_content=Google+Reader"
+  :TIME 3491361176 :VALID-P T)
+ (:URL "http://shounen.ru/docs/guile-ref/" :TIME 3491361176 :VALID-P T)
+ (:URL "http://paragent.com/" :TIME 3491361175 :VALID-P T)
+ (:URL "http://hyperpolyglot.wikidot.com/lisp" :TIME 3491361562 :VALID-P T)
+ (:URL "http://dmitry-vk.livejournal.com/28621.html?view=85709#t85709" :TIME
+  3491361561 :VALID-P T)
+ (:URL "http://fprog.ru/wiki/StartPage" :TIME 3491361560 :VALID-P T)
+ (:URL "http://www.lispworks.com/documentation/HyperSpec/Body/c_object.htm"
+  :TIME 3491361560 :VALID-P T)
+ (:URL "http://www.rampant-books.com/book_0801_oracle_vmware.htm" :TIME
+  3491361559 :VALID-P T)
+ (:URL "http://www.bertscalzo.com/page5.html" :TIME 3491361559 :VALID-P T)
+ (:URL "http://www.incaseofstairs.com/firediff/" :TIME 3491361575 :VALID-P T)
+ (:URL
+  "http://www.springerlink.com/content/100308/?p=86a6b92d62694c8caae237fb45595a24&pi=0"
+  :TIME 3491361170 :VALID-P T)
+ (:URL "http://avodonosov.blogspot.com/2008/12/hunchentoot-on-ecl.html" :TIME
+  3491361170 :VALID-P T)
+ (:URL
+  "http://www.google.ru/search?q=vmware+appliance&ie=utf-8&oe=utf-8&aq=t&rls=com.ubuntu:en-US:official&client=firefox-a"
+  :TIME 3491361556 :VALID-P T)
+ (:URL
+  "http://download.oracle.com/docs/cd/B28359_01/server.111/b28322/man_gen_rep.htm#i1019206"
+  :TIME 3491361556 :VALID-P T)
+ (:URL "http://trac.edgewall.org/demo-0.12/browser#trunk/trac" :TIME 3491361554
+  :VALID-P T)
+ (:URL "http://github.com/archimag/hunchentoot" :TIME 3491361169 :VALID-P T)
+ (:URL "http://fprog.ru/contests/2009/" :TIME 3491361168 :VALID-P T)
+ (:URL "http://bc.tech.coop/blog/040315.html" :TIME 3491361168 :VALID-P T)
+ (:URL "http://www.lisphacker.com/" :TIME 3491361168 :VALID-P T)
+ (:URL "http://www.stud.uni-karlsruhe.de/~unk6/closure/" :TIME 3491361167
+  :VALID-P T)
+ (:URL "http://bc.tech.coop/lisp-books.htm" :TIME 3491361167 :VALID-P T)
+ (:URL "http://clsql.b9.com/manual/oracle.html" :TIME 3491361552 :VALID-P T)
+ (:URL "http://www.cyberforum.ru/oracle/" :TIME 3491361551 :VALID-P T)
+ (:URL
+  "http://mail.yandex.ru/?retpath=http%3A%2F%2Fmail.yandex.ru%2Fneo%2Fmessages%3Fcurrent_folder%3D2040001010003043481"
+  :TIME 3491361550 :VALID-P T)
+ (:URL "http://www.lispworks.com/documentation/sql-tutorial/index.html" :TIME
+  3491361550 :VALID-P T)
+ (:URL "http://spb.rbc.ru/topnews/02/07/2010/430289.shtml" :TIME 3491361164
+  :VALID-P T)
+ (:URL "http://archimag-dev.blogspot.com/2010/07/blog-post.html" :TIME
+  3491361163 :VALID-P T)
+ (:URL
+  "http://archimag-dev.blogspot.com/2010/06/common-lisp.html?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+fp-planet-ru+%28Russian+Lambda+Planet%29&utm_content=Google+Reader"
+  :TIME 3491361163 :VALID-P T)
+ (:URL "http://rigidus.ru/" :TIME 3491361163 :VALID-P T)
+ (:URL "http://13-49-ru.blogspot.com/search/label/lisp" :TIME 3491361163
+  :VALID-P T)
+ (:URL "http://sheepsystems.com/bookdog/HelpBook/BookmarkOrg.html" :TIME
+  3491361547 :VALID-P T)
+ (:URL
+  "https://www.google.com/accounts/ServiceLogin?hl=en&continue=https://www.google.com/bookmarks/&nui=1&service=bookmarks"
+  :TIME 3491361546 :VALID-P T)
+ (:URL "https://www.vmware.com/tryvmware/activate_login.php" :TIME 3491361187
+  :VALID-P T)
+ (:URL "http://lisp.tomsk.ru/wordpress/" :TIME 3491361222 :VALID-P NIL)
+ (:URL "http://www.cl-user.net/asp/u5s/sdataQI5qSGcm-sx9DM==/sdataQo5Y-1Mh9urk"
+  :TIME 3491361545 :VALID-P T)
+ (:URL "http://common-lisp.net/project/iolib/" :TIME 3491361221 :VALID-P T)
+ (:URL "http://urvancevav.blogspot.com/2009/06/kvm-ubuntu-jaunty.html" :TIME
+  3491361225 :VALID-P T)
+ (:URL "http://linkfly.livejournal.com/friends" :TIME 3491361544 :VALID-P T)
+ (:URL "https://addons.mozilla.org/en-US/firefox" :TIME 3491361543 :VALID-P T)
+ (:URL "http://article.gmane.org/gmane.lisp.steel-bank.devel/4964" :TIME
+  3491361220 :VALID-P T)
+ (:URL "http://dmitry-vk.livejournal.com/28621.html?thread=84429#t84941" :TIME
+  3491361542 :VALID-P T)
+ (:URL "http://habrahabr.ru/blogs/programming/65791/" :TIME 3491361157 :VALID-P
+  T)
+ (:URL "http://system-administrators.info/?p=2553" :TIME 3491361219 :VALID-P T)
+ (:URL "http://www.lisp.ru/page.php?id=7&ratings=1" :TIME 3491361157 :VALID-P
+  T)
+ (:URL "http://www.lisp.ru/page.php?id=14" :TIME 3491361157 :VALID-P T)
+ (:URL "http://rigidus.ru/articles/lispfeatures" :TIME 3491361156 :VALID-P T)
+ (:URL "http://rigidus.ru/articles/closuretemplate" :TIME 3491361156 :VALID-P
+  T)
+ (:URL "http://www.linux.org.ru/forum/general/3175960" :TIME 3491361541
+  :VALID-P T)
+ (:URL
+  "http://www.google.ru/search?q=oracle+%D0%BA%D0%B0%D0%BA%D0%B8%D0%BC+%D0%B4%D0%BE%D0%BB%D0%B6%D0%B5%D0%BD+%D0%B1%D1%8B%D1%82%D1%8C+connect+identifier&ie=utf-8&oe=utf-8&aq=t&rls=com.ubuntu:en-US:official&client=firefox-a"
+  :TIME 3491361541 :VALID-P T)
+ (:URL "http://www.softtreetech.com/support/phpBB2/viewtopic.php?p=21765" :TIME
+  3491361541 :VALID-P T)
+ (:URL "http://ora-12154.ora-code.com/msg/58509.html" :TIME 3491361540 :VALID-P
+  T)
+ (:URL "http://chatlogs.jabber.ru/lisp@conference.jabber.ru/" :TIME 3491361155
+  :VALID-P T)
+ (:URL "http://www.slideshare.net/chaitanyagupta/slime-1180051" :TIME
+  3491361218 :VALID-P T)
+ (:URL "http://sql.ru/forum/actualthread.aspx?tid=627611&hl=12154" :TIME
+  3491361540 :VALID-P T)
+ (:URL "http://forums.oracle.com/forums/thread.jspa?threadID=280913" :TIME
+  3491361539 :VALID-P T)
+ (:URL "http://www.linux.org.ru/forum/general/2976371" :TIME 3491361218
+  :VALID-P T)
+ (:URL "http://www.rapidsvn.org/index.php/Main_Page" :TIME 3491361217 :VALID-P
+  T)
+ (:URL "http://clsql.b9.com/manual/oracle.html#id447301" :TIME 3491361539
+  :VALID-P T)
+ (:URL "http://www.interface.ru/iservices/messages.asp?forumId=591&topicId=657"
+  :TIME 3491361538 :VALID-P T)
+ (:URL "http://svnbook.red-bean.com/nightly/ru/index.html" :TIME 3491361215
+  :VALID-P T)
+ (:URL "http://technosaratov.ru/thread/view/70" :TIME 3491361213 :VALID-P T)
+ (:URL "http://swizard.livejournal.com/tag/dependent%20type" :TIME 3491361607
+  :VALID-P T)
+ (:URL "http://www.apl.jhu.edu/~hall/lisp.html" :TIME 3491361213 :VALID-P T)
+ (:URL "http://rigidus.ru/onlisp/doku.php" :TIME 3491361606 :VALID-P T)
+ (:URL
+  "http://www.google.ru/search?hl=ru&newwindow=1&client=firefox-a&hs=5i7&rls=com.ubuntu:en-US:official&ei=XteLS6fEKoqCnQOqj-i1BA&sa=X&oi=spell&resnum=0&ct=result&cd=1&ved=0CAUQBSgA&q=oracle+documentation+configure+tnsnames&spell=1"
+  :TIME 3491361535 :VALID-P T)
+ (:URL
+  "http://download.oracle.com/docs/cd/B28359_01/appdev.111/b31695/index.htm"
+  :TIME 3491361535 :VALID-P T)
+ (:URL "http://hpcu.ru/courses/13" :TIME 3491361534 :VALID-P T)
+ (:URL "http://lisper.ru/" :TIME 3491361603 :VALID-P T)
+ (:URL "http://lisp.ru/" :TIME 3491361603 :VALID-P T)
+ (:URL "http://lispjobs.wordpress.com/" :TIME 3491361208 :VALID-P T)
+ (:URL
+  "http://risupu.blogspot.com/2009/05/parallel-programming-in-common-lisp.html"
+  :TIME 3491361531 :VALID-P T)
+ (:URL "http://www.dreamsongs.com/10ideas.html" :TIME 3491361530 :VALID-P T)
+ (:URL "http://www.cliki.net/concurrency" :TIME 3491361530 :VALID-P T)
+ (:URL "http://code.google.com/p/cl-mpi/" :TIME 3491361530 :VALID-P T)
+ (:URL "http://bc.tech.coop/blog/040628.html" :TIME 3491361602 :VALID-P T)
+ (:URL "http://www.cliki.net/cl-future" :TIME 3491361529 :VALID-P T)
+ (:URL "http://common-lisp.net/project/ssc/" :TIME 3491361529 :VALID-P T)
+ (:URL "http://common-lisp.net/project/erlisp/" :TIME 3491361528 :VALID-P T)
+ (:URL "http://axiger.livejournal.com/tag/lisp" :TIME 3491361527 :VALID-P T)
+ (:URL "http://lisp.org/alu/home" :TIME 3491361599 :VALID-P T)
+ (:URL "http://lisper.ru/apps/format/117" :TIME 3491361599 :VALID-P T)
+ (:URL
+  "http://www.jet.msk.su/vacancy_detail/?nid=5adaf00470c6e9753324140f17930ac3&pid=22a224e647a3dd5f873ebe5740d49cd1"
+  :TIME 3491361206 :VALID-P NIL)
+ (:URL "http://lisp-univ-etc.blogspot.com/2009/03/cl-who-macros.html" :TIME
+  3491361599 :VALID-P T)
+ (:URL "http://www.wasm.ru/forum/viewtopic.php?pid=338276" :TIME 3491361205
+  :VALID-P T)
+ (:URL "http://www.nhplace.com/kent/Papers/Condition-Handling-2001.html" :TIME
+  3491361598 :VALID-P T)
+ (:URL "http://itc.ua/node/12016" :TIME 3491361525 :VALID-P T)
+ (:URL "http://avodonosov.blogspot.com/" :TIME 3491361598 :VALID-P T)
+ (:URL "http://catherinedevlin.blogspot.com/2005/10/cxoracle-and-ubuntu.html"
+  :TIME 3491361524 :VALID-P T)
+ (:URL "http://gettoknowlinux.blogspot.com/2008/12/aptitude_26.html" :TIME
+  3491361524 :VALID-P T)
+ (:URL "http://linuxforum.ru/index.php#entry1003440" :TIME 3491361524 :VALID-P
+  T)
+ (:URL "http://forum.codenet.ru/showthread.php?t=10697" :TIME 3491361524
+  :VALID-P T)
+ (:URL "http://trac.edgewall.org/wiki/TranslationRu" :TIME 3491361203 :VALID-P
+  T)
+ (:URL "http://www.vesti.ru/videos?vid=onair_sl" :TIME 3491361523 :VALID-P T)
+ (:URL "http://trac.edgewall.org/" :TIME 3491361552 :VALID-P T)
+ (:URL "http://www.mozilla.com/ru/firefox/about/" :TIME 3491361522 :VALID-P T)
+ (:URL "http://13-49-ru.blogspot.com/2010/02/blog-post_24.html" :TIME
+  3491361596 :VALID-P T)
+ (:URL "http://www.mozilla.com/ru/firefox/community/" :TIME 3491361522 :VALID-P
+  T)
+ (:URL "http://github.com/aerique/buclet#readme" :TIME 3491361280 :VALID-P T)
+ (:URL "http://13-49-ru.blogspot.com/2010/03/hugepages.html" :TIME 3491361595
+  :VALID-P T)
+ (:URL "http://www.mozilla.com/ru/firefox/customize/" :TIME 3491361522 :VALID-P
+  T)
+ (:URL "http://hub.opensolaris.org/bin/view/Project+jeos/200906+Prototype"
+  :TIME 3491361202 :VALID-P T)
+ (:URL "http://www.mozilla.com/en-US/firefox/community/" :TIME 3491361519
+  :VALID-P T)
+ (:URL "http://www.mozilla.com/en-US/firefox/customize/" :TIME 3491361518
+  :VALID-P T)
+ (:URL "http://archimag-dev.blogspot.com/2009/11/closure-templates.html" :TIME
+  3491361201 :VALID-P T)
+ (:URL "http://en-us.www.mozilla.com/en-US/firefox/about/" :TIME 3491361517
+  :VALID-P T)
+ (:URL "http://marcbelmont.com/projects/lisp-interpreter-javascript-jquery/"
+  :TIME 3491361592 :VALID-P T)
+ (:URL "http://lisper.ru/wiki/cookbook:regular-expressions" :TIME 3491361200
+  :VALID-P T)
+ (:URL "http://en-us.www.mozilla.com/en-US/firefox/community/" :TIME 3491361516
+  :VALID-P T)
+ (:URL "http://en-us.www.mozilla.com/en-US/firefox/help/" :TIME 3491361515
+  :VALID-P T)
+ (:URL "http://www.franz.com/newtolisp/index.lhtml" :TIME 3491361199 :VALID-P
+  T)
+ (:URL "http://www.franz.com/support/tutorials/index.lhtml" :TIME 3491361198
+  :VALID-P T)
+ (:URL "http://www.ubuntulinux.org/wiki/FrontPage" :TIME 3491361511 :VALID-P T)
+ (:URL "http://www.ubuntulinux.org/" :TIME 3491361511 :VALID-P T)
+ (:URL "https://en-us.add-ons.mozilla.com/en-US/firefox/bookmarks/" :TIME
+  3491361511 :VALID-P T)
+ (:URL "http://startubuntu.ru/" :TIME 3491361587 :VALID-P T)
+ (:URL "https://help.ubuntu.com/community/Installation/MinimalCD" :TIME
+  3491361586 :VALID-P T)
+ (:URL "http://www.crealabs.it/ubuntu-mini-remix/" :TIME 3491361585 :VALID-P T)
+ (:URL "http://www.cyberforum.ru/windows7/thread40059.html" :TIME 3491361585
+  :VALID-P T)
+ (:URL "http://www.winblog.ru/winvista/page,2,1147765604-09070801.html" :TIME
+  3491361584 :VALID-P T)
+ (:URL "http://channel9.msdn.com/posts/mikcher/Russinovich-Windows7-Russian/"
+  :TIME 3491361584 :VALID-P T)
+ (:URL "http://common-lisp.net/pipermail/cltl3-devel/2009-August/000017.html"
+  :TIME 3491361196 :VALID-P T)
+ (:URL "http://www.clforjava.org/?page=downloads" :TIME 3491361195 :VALID-P T)
+ (:URL "http://www-d0.fnal.gov/d0unix/emacs_ref.html" :TIME 3491361194 :VALID-P
+  T)
+ (:URL
+  "http://www.google.com/reader/view/#stream/feed%2Fhttp%3A%2F%2Fcommunity.livejournal.com%2Flisp%2Fdata%2Frss"
+  :TIME 3491361582 :VALID-P T)
+ (:URL
+  "http://vinf.net/2008/05/18/running-esx-35-and-3i-under-vmware-workstation-65-beta-build-91182/"
+  :TIME 3491361192 :VALID-P T)
+ (:URL "http://axiger.livejournal.com/17393.html?thread=70897" :TIME 3491361191
+  :VALID-P T)
+ (:URL "http://www.vmware.com/products/esx/index.html" :TIME 3491361191
+  :VALID-P T)
+ (:URL
+  "http://downloads.vmware.com/d/info/datacenter_downloads/vmware_vsphere_4/4#open_source"
+  :TIME 3491361190 :VALID-P T)
+ (:URL "http://lisper.ru/planet/" :TIME 3491361271 :VALID-P T)
+ (:URL "http://sursis.sourceforge.net/doc/sursis.html" :TIME 3491361190
+  :VALID-P T)
+ (:URL "http://ru.wikipedia.org/wiki/RSS" :TIME 3491361577 :VALID-P T)
+ (:URL "http://www.caseclub.ru/articles/webrss.html" :TIME 3491361577 :VALID-P
+  T)
+ (:URL "http://www.htmlbook.ru/css/font-size.html" :TIME 3491361577 :VALID-P T)
+ (:URL "http://common-lisp.net/pipermail/tbnl-devel/2009-October/004877.html"
+  :TIME 3491361186 :VALID-P T)
+ (:URL "http://www.sensational-seo.com/" :TIME 3491361576 :VALID-P T)
+ (:URL "http://www.vmware.com/ru/products/vi/overview.html" :TIME 3491361185
+  :VALID-P NIL)
+ (:URL "http://weitz.de/hunchentoot/" :TIME 3491361184 :VALID-P T)
+ (:URL "http://blog.postabon.com/a-simple-lisp-webapp-for-beginners" :TIME
+  3491361184 :VALID-P NIL)
+ (:URL "http://www.linux-kvm.org/page/HOWTO1" :TIME 3491361183 :VALID-P T)
+ (:URL "http://www.zachleat.com/Projects/firebugCodeCoverage/" :TIME 3491361573
+  :VALID-P T)
+ (:URL "https://sites.google.com/a/vm4.ru/vmware-vi-wiki/uda" :TIME 3491361182
+  :VALID-P T)
+ (:URL "http://habrahabr.ru/blogs/webdev/79038/" :TIME 3491361571 :VALID-P T)
+ (:URL "http://m.habrahabr.ru/post/80466/" :TIME 3491361571 :VALID-P T)
+ (:URL "http://www.robokassa.ru/" :TIME 3491361569 :VALID-P T)
+ (:URL "http://lisp.ru/forums.php?m=posts&q=275&n=last#bottom" :TIME 3491361180
+  :VALID-P T)
+ (:URL "http://ultimatewhitebox.com/" :TIME 3491361566 :VALID-P T)
+ (:URL "http://alexott.net/ru/writings/emacs-tex/" :TIME 3491361568 :VALID-P T)
+ (:URL "http://www.quizful.net/test" :TIME 3491361179 :VALID-P T)
+ (:URL "http://tuxray.blogspot.com/2009/04/emacs.html" :TIME 3491361567
+  :VALID-P T)
+ (:URL "http://www.linux.org.ru/books/GNU/emacs/emacs_toc.html" :TIME
+  3491361567 :VALID-P T)
+ (:URL
+  "http://stackoverflow.com/questions/1180796/how-to-use-gs-in-64-bit-windows-assembly-eg-porting-tls-code"
+  :TIME 3491361178 :VALID-P T)
+ (:URL "http://lisper.ru/forum/thread/80" :TIME 3491361566 :VALID-P T)
+ (:URL "http://netsago.org/ru/docs/2/11/" :TIME 3491361177 :VALID-P T)
+ (:URL "http://www.onlime.ru/" :TIME 3491361563 :VALID-P T)
+ (:URL "http://www.opennet.ru/openforum/vsluhforumID2/6528.html" :TIME
+  3491361563 :VALID-P NIL)
+ (:URL "http://www.ibm.com/developerworks/ru/library/l-git/" :TIME 3491361216
+  :VALID-P T)
+ (:URL "http://www.livechat.su/" :TIME 3491361563 :VALID-P T)
+ (:URL "http://progopedia.ru/thanks/" :TIME 3491361562 :VALID-P T)
+ (:URL "http://www.franz.com/success/customer_apps/data_mining/itastory.lhtml"
+  :TIME 3491361173 :VALID-P T)
+ (:URL "http://www.symbol.ru/authors.html" :TIME 3491361561 :VALID-P T)
+ (:URL "http://www.yaplakal.com/forum9/topic61423.html" :TIME 3491361561
+  :VALID-P T)
+ (:URL "http://www.yaplakal.com/forum9/" :TIME 3491361561 :VALID-P T)
+ (:URL "http://samolisov.blogspot.com/2010/07/schemescript-scheme-eclipse.html"
+  :TIME 3491361172 :VALID-P T)
+ (:URL "http://sbcl10.sbcl.org/#martin" :TIME 3491361172 :VALID-P T)
+ (:URL "http://www.alu.org/mop/dictionary.html" :TIME 3491361560 :VALID-P T)
+ (:URL "http://www.ozon.ru/context/detail/id/2544972/" :TIME 3491361171
+  :VALID-P T)
+ (:URL
+  "http://pcl.catap.ru/doku.php?id=pcl:%D1%81%D0%B8%D0%BD%D1%82%D0%B0%D0%BA%D1%81%D0%B8%D1%81%D0%B8%D1%81%D0%B5%D0%BC%D0%B0%D0%BD%D1%82%D0%B8%D0%BA%D0%B0"
+  :TIME 3491361559 :VALID-P T)
+ (:URL "http://firststeps.ru/" :TIME 3491361559 :VALID-P T)
+ (:URL
+  "http://www.google.ru/search?q=%D0%96%D0%96&ie=utf-8&oe=utf-8&aq=t&rls=com.ubuntu:en-US:official&client=firefox-a"
+  :TIME 3491361559 :VALID-P T)
+ (:URL "http://www.ozon.ru/context/detail/id/1871807/" :TIME 3491361171
+  :VALID-P T)
+ (:URL "http://www.ozon.ru/context/detail/id/1872063/" :TIME 3491361171
+  :VALID-P T)
+ (:URL
+  "http://createuniverses.blogspot.com/2009/06/embedding-lisp-interpreter-into-qt-app.html"
+  :TIME 3491361170 :VALID-P T)
+ (:URL
+  "http://download.oracle.com/docs/cd/B10501_01/server.920/a96521/ds_admin.htm"
+  :TIME 3491361556 :VALID-P T)
+ (:URL "http://bknr.net/html/home.html" :TIME 3491361170 :VALID-P T)
+ (:URL
+  "http://www.google.ru/search?q=oracle+configure+global+name&ie=utf-8&oe=utf-8&aq=t&rls=com.ubuntu:en-US:official&client=firefox-a"
+  :TIME 3491361556 :VALID-P T)
+ (:URL "http://www.sql.ru/forum/actualthread.aspx?tid=168400" :TIME 3491361556
+  :VALID-P T)
+ (:URL
+  "http://www.google.ru/search?hl=ru&client=firefox-a&rls=com.ubuntu%3Aen-US%3Aofficial&hs=teH&newwindow=1&q=%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0+instance_client+for+oracle&btnG=%D0%9F%D0%BE%D0%B8%D1%81%D0%BA&lr=&aq=f&oq="
+  :TIME 3491361556 :VALID-P T)
+ (:URL
+  "http://www.oracle.com/technology/software/tech/oci/instantclient/htdocs/winsoft.html"
+  :TIME 3491361556 :VALID-P T)
+ (:URL "http://trac.edgewall.org/wiki/TracDownload" :TIME 3491361555 :VALID-P
+  T)
+ (:URL
+  "http://www.franz.com/success/customer_apps/animation_graphics/naughtydog.lhtml"
+  :TIME 3491361204 :VALID-P T)
+ (:URL "http://trac.edgewall.org/wiki/TracGuide" :TIME 3491361554 :VALID-P T)
+ (:URL "http://eli.thegreenplace.net/category/programming/lisp/sicp/" :TIME
+  3491361167 :VALID-P T)
+ (:URL "http://github.com/aerique/okra#readme" :TIME 3491361280 :VALID-P T)
+ (:URL "http://www.bugzilla.org/" :TIME 3491361552 :VALID-P T)
+ (:URL "http://dmitry-vk.livejournal.com/28621.html" :TIME 3491361166 :VALID-P
+  T)
+ (:URL
+  "http://www.google.ru/search?hl=ru&newwindow=1&client=firefox-a&hs=vWC&rls=com.ubuntu%3Aen-US%3Aofficial&q=clsql+oracle+connect&btnG=%D0%9F%D0%BE%D0%B8%D1%81%D0%BA&lr=&aq=&oq=clsql+oracle+connec"
+  :TIME 3491361551 :VALID-P T)
+ (:URL "http://bc.tech.coop/blog/040608.html" :TIME 3491361551 :VALID-P T)
+ (:URL
+  "http://www.google.ru/search?hl=ru&newwindow=1&client=firefox-a&hs=0LC&rls=com.ubuntu%3Aen-US%3Aofficial&q=bill+blog+clsql+oracle&btnG=%D0%9F%D0%BE%D0%B8%D1%81%D0%BA&lr=&aq=f&oq="
+  :TIME 3491361551 :VALID-P T)
+ (:URL
+  "http://qip.ru/login/lost?retpath=http://mail.qip.ru%2Fmailbox%2Ffolder%2FINBOX.Sent%2F%3F%26rand%3D51973%26rand3%3D78457&init"
+  :TIME 3491361551 :VALID-P T)
+ (:URL
+  "http://qip.ru/login/lost?retpath=http://mail.qip.ru%2Fmailbox%2Fmessage%2Fview%2Fuid%2F2485%2Fmailbox%2FINBOX%2F&init"
+  :TIME 3491361551 :VALID-P T)
+ (:URL "http://www.oracloid.ru/" :TIME 3491361551 :VALID-P T)
+ (:URL "http://www.blogger.com/profile/16250437982151203601" :TIME 3491361233
+  :VALID-P T)
+ (:URL
+  "http://www.intuit.ru/department/supercomputing/inparllalg/class/free/2/test8177/"
+  :TIME 3491361551 :VALID-P T)
+ (:URL
+  "http://www.intuit.ru/department/supercomputing/inparllalg/class/free/2/"
+  :TIME 3491361550 :VALID-P T)
+ (:URL
+  "http://mail.yandex.ru/?retpath=http%3A%2F%2Fmail.yandex.ru%2Fneo%2Fmessage%3Fcurrent_folder%3D2040001010003043481%26ids%3D2040000000581374533"
+  :TIME 3491361550 :VALID-P T)
+ (:URL "http://home.pipeline.com/~hbaker1/Subtypep.html" :TIME 3491361166
+  :VALID-P T)
+ (:URL
+  "http://mail.yandex.ru/?retpath=http%3A%2F%2Fmail.yandex.ru%2Fneo%2Fmessages%3Fd%3Did19452249"
+  :TIME 3491361550 :VALID-P T)
+ (:URL "http://www.lispworks.com/documentation/lw44/LWRM/html/lwref-424.htm"
+  :TIME 3491361550 :VALID-P T)
+ (:URL "http://www.lispworks.com/documentation/lw44/LWUG/html/lwuser-204.htm"
+  :TIME 3491361550 :VALID-P T)
+ (:URL "http://www.linkedin.com/in/vsedach" :TIME 3491361165 :VALID-P T)
+ (:URL "http://common-lisp.net/project/bese/docs/arnesi/html/" :TIME 3491361164
+  :VALID-P T)
+ (:URL
+  "http://groups.google.com/group/fido7.ru.lisp/browse_thread/thread/58a91d8bcbf80ecf?hl=ru#"
+  :TIME 3491361162 :VALID-P T)
+ (:URL "http://lisplearn.blogspot.com/" :TIME 3491361238 :VALID-P T)
+ (:URL
+  "http://www.google.ru/search?hl=ru&newwindow=1&client=firefox-a&hs=3PH&rls=com.ubuntu%3Aen-US%3Aofficial&q=%D0%B8%D0%B5%D1%80%D0%B0%D1%80%D1%85%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B5+bookmarks+for+firefox&btnG=%D0%9F%D0%BE%D0%B8%D1%81%D0%BA&lr=&aq=f&oq="
+  :TIME 3491361546 :VALID-P T)
+ (:URL "http://lispnik.livejournal.com/tag/lisp" :TIME 3491361163 :VALID-P T)
+ (:URL
+  "http://www.google.ru/search?q=google+%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0+%D1%83%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F+%D0%B7%D0%B0%D0%BA%D0%BB%D0%B0%D0%B4%D0%BA%D0%B0%D0%BC%D0%B8&ie=utf-8&oe=utf-8&aq=t&rls=com.ubuntu:en-US:official&client=firefox-a"
+  :TIME 3491361546 :VALID-P T)
+ (:URL
+  "http://www.google.com/reader/view/#stream/feed%2Fhttp%3A%2F%2Fwww.developers.org.ua%2Ffeed%2F"
+  :TIME 3491361546 :VALID-P T)
+ (:URL
+  "http://www.google.ru/search?q=google+reader&ie=utf-8&oe=utf-8&aq=t&rls=com.ubuntu:en-US:official&client=firefox-a"
+  :TIME 3491361546 :VALID-P T)
+ (:URL "http://www.opennet.ru/tips/info/1768.shtml" :TIME 3491361221 :VALID-P
+  T)
+ (:URL
+  "http://www.google.ru/search?q=lisp+rss&ie=utf-8&oe=utf-8&aq=t&rls=com.ubuntu:en-US:official&client=firefox-a"
+  :TIME 3491361545 :VALID-P T)
+ (:URL "http://www.cliki.net/index" :TIME 3491361545 :VALID-P T)
+ (:URL "http://github.com/lisp/de.setf.amqp" :TIME 3491361221 :VALID-P T)
+ (:URL "http://cl-cad.blogspot.com/" :TIME 3491361158 :VALID-P T)
+ (:URL "http://sbcl-internals.cliki.net/Papers" :TIME 3491361220 :VALID-P T)
+ (:URL "http://article.gmane.org/gmane.lisp.steel-bank.devel/5579" :TIME
+  3491361543 :VALID-P T)
+ (:URL
+  "http://www.redhat.com/archives/fedora-extras-list/2005-September/msg01071.html"
+  :TIME 3491361542 :VALID-P T)
+ (:URL "http://rigidus.ru/articles/weblisp" :TIME 3491361156 :VALID-P T)
+ (:URL "http://lisper.ru/wiki/cookbook:syslog#fnt__1" :TIME 3491361156 :VALID-P
+  T)
+ (:URL "http://www.sql.ru/forum/actualthread.aspx?bid=3&tid=737592" :TIME
+  3491361541 :VALID-P T)
+ (:URL "http://fprog.ru/2010/issue5/vsevolod-dyomkin-lisp-philosophy/" :TIME
+  3491361156 :VALID-P T)
+ (:URL
+  "http://www.databasejournal.com/features/oracle/article.php/3092461/Connecting-with-Oracle.htm"
+  :TIME 3491361541 :VALID-P T)
+ (:URL "http://www.cliki.net/SLIME%20Tips" :TIME 3491361218 :VALID-P T)
+ (:URL
+  "http://www.google.ru/search?q=%D0%BD%D0%B5+%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D0%BA%D0%B0%D0%B5%D1%82%D1%81%D1%8F+plsql+developer+TNS%3Acould+not+resolve+the+connect+identifier+specified&ie=utf-8&oe=utf-8&aq=t&rls=com.ubuntu:en-US:official&client=firefox-a"
+  :TIME 3491361540 :VALID-P T)
+ (:URL "http://lisper.ru/forum/thread/134" :TIME 3491361155 :VALID-P T)
+ (:URL "http://love5an.livejournal.com/345371.html" :TIME 3491361155 :VALID-P
+  T)
+ (:URL "http://ora-12154.ora-code.com/" :TIME 3491361540 :VALID-P T)
+ (:URL
+  "http://www.google.ru/search?q=TNS%3Acould+not+resolve+the+connect+identifier+specified&ie=utf-8&oe=utf-8&aq=t&rls=com.ubuntu:en-US:official&client=firefox-a"
+  :TIME 3491361539 :VALID-P T)
+ (:URL
+  "http://www.google.ru/search?hl=ru&newwindow=1&client=firefox-a&hs=q79&rls=com.ubuntu%3Aen-US%3Aofficial&q=oracle+global+name+in+tnsnames&btnG=%D0%9F%D0%BE%D0%B8%D1%81%D0%BA&lr=&aq=f&oq="
+  :TIME 3491361539 :VALID-P T)
+ (:URL
+  "http://common-lisp.net/project/slime/doc/html/Connecting-to-a-remote-lisp.html#Connecting-to-a-remote-lisp"
+  :TIME 3491361216 :VALID-P T)
+ (:URL
+  "http://www.google.ru/search?hl=ru&newwindow=1&client=firefox-a&hs=EjU&rls=com.ubuntu%3Aen-US%3Aofficial&q=clsql+connection+type&btnG=%D0%9F%D0%BE%D0%B8%D1%81%D0%BA&lr=&aq=f&oq="
+  :TIME 3491361538 :VALID-P T)
+ (:URL "http://dmitry-vk.livejournal.com/32714.html" :TIME 3491361608 :VALID-P
+  T)
+ (:URL "http://www.oracle.com/technology/tech/oci/instantclient/index.html"
+  :TIME 3491361535 :VALID-P T)
+ (:URL "http://pcl.catap.ru/doku.php" :TIME 3491361606 :VALID-P T)
+ (:URL
+  "http://www.google.ru/search?q=oracle+documentation+configure+tns+names&ie=utf-8&oe=utf-8&aq=t&rls=com.ubuntu:en-US:official&client=firefox-a"
+  :TIME 3491361535 :VALID-P T)
+ (:URL "http://community.livejournal.com/lviv_it/2031.html" :TIME 3491361212
+  :VALID-P T)
+ (:URL
+  "http://www.ai.mit.edu/projects/iiip/doc/CommonLISP/HyperSpec/Body/mac_loop.html#loop"
+  :TIME 3491361534 :VALID-P T)
+ (:URL
+  "http://www.google.ru/search?q=common+lisp+hyperspec+loop&ie=utf-8&oe=utf-8&aq=t&rls=com.ubuntu:en-US:official&client=firefox-a"
+  :TIME 3491361534 :VALID-P T)
+ (:URL "http://hpcu.ru/schedule/49" :TIME 3491361534 :VALID-P T)
+ (:URL "http://www.slideshare.net/vseloved/common-lisp" :TIME 3491361606
+  :VALID-P T)
+ (:URL
+  "http://www.google.ru/search?q=%D0%BF%D0%B0%D1%80%D0%B0%D0%BB%D0%B5%D0%BB%D1%8C%D0%BD%D1%8B%D0%B5+%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%D1%8B&ie=utf-8&oe=utf-8&aq=t&rls=com.ubuntu:en-US:official&client=firefox-a"
+  :TIME 3491361534 :VALID-P T)
+ (:URL "http://trac.common-lisp.net/bordeaux-threads/wiki/ApiDocumentation"
+  :TIME 3491361534 :VALID-P T)
+ (:URL "http://common-lisp.net/project/bordeaux-threads/" :TIME 3491361533
+  :VALID-P T)
+ (:URL "http://risupu.blogspot.com/search/label/Lisp" :TIME 3491361533 :VALID-P
+  T)
+ (:URL
+  "http://groups.google.com/group/comp.lang.lisp/browse_frm/thread/4ec9f91d7711e41e?hl=en&lr=&ie=UTF-8&prev=/groups%3Fdq%3D%26num%3D25%26hl%3Den%26lr%3D%26ie%3DUTF-8%26group%3Dcomp.lang.lisp%26start%3D25"
+  :TIME 3491361603 :VALID-P T)
+ (:URL "http://community.livejournal.com/job_nsk/41716.html" :TIME 3491361208
+  :VALID-P T)
+ (:URL "http://bc.tech.coop/blog/041013.html" :TIME 3491361530 :VALID-P T)
+ (:URL "http://bc.tech.coop/blog/040922.html" :TIME 3491361602 :VALID-P T)
+ (:URL "http://yosefk.com/c++fqa/" :TIME 3491361207 :VALID-P T)
+ (:URL "http://www.cliki.net/Calispel" :TIME 3491361529 :VALID-P T)
+ (:URL "http://hh.ru/vacancy/2453290" :TIME 3491361207 :VALID-P T)
+ (:URL "http://common-lisp.net/project/cl-stm/" :TIME 3491361529 :VALID-P T)
+ (:URL "http://moikrug.ru/vacancies/637933049/" :TIME 3491361207 :VALID-P NIL)
+ (:URL "http://www.funkyjob.ru/vacancy/26026579.html" :TIME 3491361206 :VALID-P
+  T)
+ (:URL "http://lispnik.newmail.ru/lpvm/" :TIME 3491361528 :VALID-P T)
+ (:URL
+  "http://qip.ru/login/lost?retpath=http://mail.qip.ru%2Fmailbox%2Ffolder%2FINBOX%2F&init"
+  :TIME 3491361528 :VALID-P T)
+ (:URL
+  "http://mail.yandex.ru/?retpath=http%3A%2F%2Fmail.yandex.ru%2Fneo%2Fmessages%3Fd%3Did29344108"
+  :TIME 3491361528 :VALID-P T)
+ (:URL "http://axiger.livejournal.com/17393.html#comments" :TIME 3491361528
+  :VALID-P T)
+ (:URL "http://hh.ru/vacancy/2936668?from=jooble.ru" :TIME 3491361206 :VALID-P
+  T)
+ (:URL "http://trac.edgewall.org/wiki/TracFaq" :TIME 3491361555 :VALID-P T)
+ (:URL "http://exploring-lisp.blogspot.com/" :TIME 3491361597 :VALID-P T)
+ (:URL "http://bc.tech.coop/blog/060118.html" :TIME 3491361204 :VALID-P T)
+ (:URL "http://en.wikipedia.org/wiki/Game_Oriented_Assembly_Lisp" :TIME
+  3491361204 :VALID-P T)
+ (:URL
+  "http://www.google.ru/search?q=%D0%B4%D0%BE%D0%B1%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5+%D0%B4%D0%BE%D0%BC%D0%B5%D0%BD%D0%B0+%D1%80%D0%B5%D0%B4%D0%B0%D0%BA%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5+host.conf&ie=utf-8&oe=utf-8&aq=t&rls=com.ubuntu:en-US:official&client=firefox-a"
+  :TIME 3491361524 :VALID-P T)
+ (:URL "http://13-49-ru.blogspot.com/2010/06/blog-post_13.html" :TIME
+  3491361596 :VALID-P T)
+ (:URL
+  "http://www.google.ru/search?hl=ru&client=firefox-a&rls=com.ubuntu%3Aen-US%3Aofficial&hs=Agg&newwindow=1&q=%D0%BA%D0%B0%D0%BA+%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B8%D1%82%D1%8C+%D0%BF%D0%B0%D1%80%D0%B0%D0%BC%D0%B5%D1%82%D1%80%D1%8B+%D0%BB%D0%BE%D0%BA%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8+Toad&btnG=%D0%9F%D0%BE%D0%B8%D1%81%D0%BA&lr=&aq=f&oq="
+  :TIME 3491361523 :VALID-P T)
+ (:URL
+  "http://www.google.ru/search?q=ora+00942&ie=utf-8&oe=utf-8&aq=t&rls=com.ubuntu:en-US:official&client=firefox-a"
+  :TIME 3491361523 :VALID-P T)
+ (:URL "http://www.corbina.tv/" :TIME 3491361523 :VALID-P T)
+ (:URL "http://www.softpanorama.org/Lang/Cilorama/c_programming_style.shtml"
+  :TIME 3491361203 :VALID-P T)
+ (:URL "http://www.lisp.ru/forums.php?m=posts&q=153" :TIME 3491361594 :VALID-P
+  T)
+ (:URL "http://www.mozilla.com/ru/firefox/help/" :TIME 3491361520 :VALID-P T)
+ (:URL "http://www.mozilla.com/en-US/firefox/about/" :TIME 3491361519 :VALID-P
+  T)
+ (:URL "http://norvig.com/java-lisp.html" :TIME 3491361593 :VALID-P T)
+ (:URL "http://lisp.ru/forums.php?m=posts&q=32" :TIME 3491361201 :VALID-P T)
+ (:URL "http://www.mozilla.com/en-US/firefox/help/" :TIME 3491361518 :VALID-P
+  T)
+ (:URL "http://www.lisphacker.com/projects/sbcl-os/" :TIME 3491361591 :VALID-P
+  T)
+ (:URL "http://www.franz.com/emacs/slime.lhtml" :TIME 3491361199 :VALID-P T)
+ (:URL "http://en-us.www.mozilla.com/en-US/firefox/customize/" :TIME 3491361515
+  :VALID-P T)
+ (:URL "http://linuxopen.ru/2008/01/15/khitrosti-zapuska-sluzhb-v-linux..html"
+  :TIME 3491361590 :VALID-P T)
+ (:URL "http://www.debian.org/" :TIME 3491361514 :VALID-P T)
+ (:URL "http://www.fsf.org/" :TIME 3491361514 :VALID-P T)
+ (:URL "https://launchpad.net/distros/ubuntu/+addticket" :TIME 3491361513
+  :VALID-P T)
+ (:URL "https://help.ubuntu.com/community/JeOS" :TIME 3491361588 :VALID-P T)
+ (:URL "http://www.ubuntu.com/support" :TIME 3491361511 :VALID-P T)
+ (:URL "http://ocherk.com/index.php/2008/10/09/dostala-oshibka/" :TIME
+  3491361587 :VALID-P T)
+ (:URL "http://fprog.ru/planet/" :TIME 3491361234 :VALID-P T)
+ (:URL "http://opensource.franz.com/preamble.html" :TIME 3491361165 :VALID-P T)
+ (:URL "http://clsql.b9.com/documentation.html" :TIME 3491361549 :VALID-P T)
+ (:URL "http://www.tfeb.org/lisp/hax.html#HTOUT" :TIME 3491361164 :VALID-P T)
+ (:URL "http://www.international-lisp-conference.org/2007/contest" :TIME
+  3491361165 :VALID-P T)
+ (:URL "http://common-lisp.net/~dlw/LispSurvey.html" :TIME 3491361164 :VALID-P
+  T)
+ (:URL "http://rondam.blogspot.com/2009/08/global-variables-done-right.html"
+  :TIME 3491361196 :VALID-P T)) 

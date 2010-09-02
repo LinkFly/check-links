@@ -1,0 +1,4 @@
+(in-package :restas.check-links)
+
+(handler-case (sb-ext:with-timeout 1.0 (restas.check-links:check-link "http://badlink.ru"))
+	   (sb-ext:timeout () :timeout))

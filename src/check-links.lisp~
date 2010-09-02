@@ -1,0 +1,60 @@
+(in-package :restas.check-links)
+(deftestsuite check-links-tests () ())
+
+;(sb-ext:with-timeout 1.0 (sleep 100))
+;(sb-sys:with-deadline (:seconds 1) (read))
+(defun check-link (link &aux uri)  
+  (log-info "RESTAS.CHECK-LINKS: (check-link ~s) " link)
+  (setq uri (as-uri link))
+  (setq link (as-url-string link))
+  (if *enable-link-caching*  
+      (aif (get-link link)
+	   (return-from check-link (link-valid-p it))))
+  (log-info "RESTAS.CHECK-LINKS: link ~s not found in cache." link)
+  (let (valid-p 
+	(result-request 
+	 (ignore-errors 
+	   (multiple-value-list 
+	    (return-if-very-long *check-timeout* 
+				(drakma:http-request uri :want-stream t))))))
+ ;   (break "result-request: ~S" result-request)
+    (when (first result-request)     
+      (close (first result-request))
+      (setq valid-p (not (member (second result-request) '(404)))))
+    (if *enable-link-caching*
+	  (add-link link valid-p))
+    valid-p))
+
+(defun as-url-string (link)
+  (typecase link
+    (string link)
+    (uri (format nil "~A" link))))
+
+(defun as-uri (link)
+  (typecase link
+    (uri link)
+    (string (parse-uri (link-without-rest link)))))
+
+(defun link-without-rest (link)
+  (let* ((pos-last-fragment (position #\/ link :from-end t))
+	 (pos-sharp (position-if 
+		     #'(lambda (x) 
+			 (member x '(#\# #\?) :test #'char=))
+		     (subseq link pos-last-fragment))))
+    (if pos-sharp
+	(subseq link 0 (+ pos-last-fragment pos-sharp))
+	link)))
+
+(defun recheck-links ()
+  (dolist (link (storage-list-links *storage*))
+    (storage-update-link *storage* 
+			 link
+			 (check-link (link-url link)))))
+
+	       
+
+
+
+
+  
+    
