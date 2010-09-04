@@ -31,20 +31,63 @@
 	$("<div id='" + buffName + "' style='display: none'/>").appendTo("body");
 	buffName = "#" + buffName;
 
-	///////// Main work /////////////////
-
-	//Get all link urls
+	///////// Main work /////////////////	
+	/*
 	var universalEscape = function(url){
-	    //	    var changeStr = function
-	    var resStr = "";
-	    //	    $.each(resStr, function(index, ch){
-	    //		    resStr +=
+	    return 
+	      escape(unescape(url.trim(" ")))
+	        .replace(/[?]/g, "%3F")
+	        .replace(/[/]/g, "%2F");
+	}
+	*/
+
+	
+
+	var nonHex = function(ch){
+	    var hexSyms = ["0","1","2","3","4","5","6","7","8","9","A","B","C","D","F"];
+	    for(idx in hexSyms)
+		if (ch.toUpperCase() == hexSyms[idx]) return false;
+	    return true;
+	}; //function nonHex
+	
+	/*
+	var universalEscape = function(url){
+	    var prepStr = escape(url.trim(" ")).replace("%25", "%");	                            
+	    var prepStrLen = prepStr.length;
+	    var res = "";
+	    $.each(prepStr,		   
+	           function(index, ch){
+		       switch(ch){
+		       case "?": res += "%3F"; break;
+		       case "/": res += "%2F"; break;
+		       case "%": 
+			   if((index < prepStrLen - 2) 
+			      && nonHex(prepStr[index+1])
+			      && nonHex(prepStr[index+2]))
+			       {res += "%25"}; break; 
+		       default: res += ch;
+		       }; //switch		       
+		   }); //$.each
+	    return res;
+	}; //universalEscapeExp
+	*/	    
+	
+	
+	var universalEscape = function(url){
+	    return escape(unescape(url.trim(" ")))
+	             .replace(/[/]/g, "%2F");
+	};
+
+	/*
+	var universalEscape = function(url){
 	    return escape(url.trim(" "))
 	    .replace("%25","%")
 	    .replace(/[?]/g, "%3F")
 	    .replace(/[/]/g, "%2F");
 	};
+	*/
 
+	//Get all link urls
 	var allLinksHash = {};//new Array();
 	$("a").each(function(index, el){
 		allLinksHash[
@@ -96,14 +139,18 @@
 	    }
 	}); //$.each
 	arLinksParts.push(curLinksPart);
-
+	var i = 0;
 	var bIsMarking = -arLinksParts.length;
 	var asyncLoadBuff = function(servUrl, buffName, paramName, urls){	    
-	    $.getScript(servUrl + "?" + paramName + "=" + urls, function(data, textStatus){
+	    var xmlreq = null;
+	    xmlreq = $.getScript(servUrl + "?" + paramName + "=" + urls, function(data, textStatus, xhttp){
+		    //		    alert(xttp);
+		    //   console.log("data is: " + xmlreq.responseText);
+		    console.log("xhttp is: " + xhttp.responseText);
 		    $(buffName).append($(data));
 		    bIsMarking++;
 		    if(bIsMarking == 0) markingAllLinks();
-		}); //$.getScript  
+		    }); //$.getScript  
 	}; //function asyncLoadBuff
 
 	curLinksPart = "";	
