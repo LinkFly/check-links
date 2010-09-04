@@ -3,7 +3,7 @@
 (defclass drawer () ())
 
 (defmethod restas:render-object ((drawer drawer) object)
- ; (break "Render: ~S" object)
+ ;(break "(my)Render: ~S" object)
   (log-info "Start render-object.")
   (prog1
       (restas:render-object (find-package :check-links-view) object)

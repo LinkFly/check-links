@@ -6,7 +6,7 @@
 ;;;; Author: Katrevich Sergey
 
 (defsystem :check-links
-  :depends-on (:restas :drakma :anaphora :cl-who :split-sequence :lift :local-time :cl-fad :alexandria :puri)
+  :depends-on (:restas :drakma :anaphora :cl-who :split-sequence :lift :local-time :cl-fad :alexandria :puri :iterate)
   :serial t
   :components ((:module "src"
 			:components ((:file "check-links-defmodule")

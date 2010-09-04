@@ -71,10 +71,22 @@
    "<div class='check-links_result-data'><div class='check-links_link'><span class='link_url'>http://google.ru</span><span class='link_gap'>&nbsp;</span><span class='link_valid-p'>true</span></div><div class='check-links_link'><span class='link_url'>http://bad~link.ru</span><span class='link_gap'>&nbsp;</span><span class='link_valid-p'>true</span></div></div>"))
 
 (defun check-links-js-proxy (data)
-  (format nil "\"~a\";" (check-links-route data)))
+  (format nil "[\"~a\"]" (check-links-route data)))
 #|(defun test-check-links (data)
   (print-to-string data))
 |#
+
+(defun check-links-json (data)
+;  (break "this is check-links-json(view). data: ~S" data)
+  (let ((res (format nil "~A = \"~A\";" 
+		     (getf data :var-name)
+		     (check-links-route (getf data :data)))))
+;    (break "~s" res)
+    res))
+
+;hunchentoot:*http-error-handler*
+;(setq hunchentoot:*http-error-handler* (lambda (arg
+;hunchentoot:*handle-http-errors-p*
 
 #|(defun static-files (data)
   (break "data: ~S" data)

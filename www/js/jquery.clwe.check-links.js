@@ -141,24 +141,32 @@
 	arLinksParts.push(curLinksPart);
 	var i = 0;
 	var bIsMarking = -arLinksParts.length;
-	var asyncLoadBuff = function(servUrl, buffName, paramName, urls){	    
-	    var xmlreq = null;
-	    xmlreq = $.getScript(servUrl + "?" + paramName + "=" + urls, function(data, textStatus, xhttp){
-		    //		    alert(xttp);
+	document.results = {testkey: "data"};
+	var asyncLoadBuff = function(servUrl, buffName, paramName, urls, varNameForResult){	    
+	    servUrl = "http://localhost:81/check-links/json.js";
+	    $.getScript(servUrl + "?"
+				   + paramName + "=" + urls				 
+				   + "&varName=" + "document.results." + varNameForResult, 
+			function(data, textStatus, xhttp){
+			    //alert(document.results[varNameForResult]);
 		    //   console.log("data is: " + xmlreq.responseText);
-		    console.log("xhttp is: " + xhttp.responseText);
-		    $(buffName).append($(data));
+		    //console.log("xhttp is: " + xhttp.responseText);
+		    $(buffName).append($(document.results[varNameForResult]));
+		    document.results[varNameForResult] = undefined;
 		    bIsMarking++;
 		    if(bIsMarking == 0) markingAllLinks();
 		    }); //$.getScript  
 	}; //function asyncLoadBuff
 
 	curLinksPart = "";	
+	countStartLoadBuff = 0;
+	results = {};
 	while(null != (curLinksPart = arLinksParts.pop())){
 	    asyncLoadBuff(params.serviceUrl, 
 			  buffName,
 			  ops.postParamName,
-			  curLinksPart);
+			  curLinksPart,
+			  "result_" + i++);
 	}
     };
 })(jQuery);

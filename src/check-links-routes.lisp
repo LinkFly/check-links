@@ -6,6 +6,30 @@
   "<b>OK</b>")
 |#
 
+(restas:define-route check-links-json ("check-links/json.js"
+				       :method :get)
+; (break "this is check-links-json")
+  (let ((base-url (or (hunchentoot:get-parameter "base-url") (hunchentoot:referer)))
+	(var-name (hunchentoot:get-parameter "varName")))
+    (if (not (valid-var-name-p var-name)) (return-from check-links-json 400))
+    (list :var-name var-name
+	  :data (prog1 (create-plist-from-urls (hunchentoot:get-parameter "urls") base-url)
+		  (log-info "End handling route check-links/for-links.")))))
+
+
+(defun valid-var-name-p (var-name)
+;  (break "var-name: ~s" var-name)
+  (if (digit-char-p (elt var-name 0)) 
+      (return-from valid-var-name-p nil))
+  (iter (for char in-vector var-name)
+	(if (not 
+	     (or (char= char #\.)
+		 (char= char #\_)
+		 (alpha-char-p char)
+		 (digit-char-p char)))
+	    (return nil))
+	(finally (return t))))
+
 (restas:define-route check-links-js-proxy ("check-links/for-links-js-proxy.js"
 					   :method :get
 					   :requirement #'(lambda ()

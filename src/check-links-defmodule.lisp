@@ -1,7 +1,8 @@
 (restas:define-module :restas.check-links
     (:use :cl :drakma :anaphora 
 	  :split-sequence :lift :local-time
-	  :cl-fad :alexandria :puri)
+	  :cl-fad :alexandria :puri
+	  :iterate)
   (:shadowing-import-from :alexandria #:copy-stream #:copy-file)
   (:export   
    #:check-link
