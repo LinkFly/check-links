@@ -98,7 +98,7 @@
 
 (defmethod storage-update-link ((storage memory-storage) (link string) valid-p)
   (awhen (storage-get-link storage link)
-    (storage-update-link it)))
+    (storage-update-link storage it valid-p)))
 
 (defmethod storage-update-link ((storage memory-storage) (link link) valid-p)
   (setf (link-valid-p link) valid-p)

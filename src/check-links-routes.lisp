@@ -9,6 +9,7 @@
 (restas:define-route check-links-json ("check-links/json.js"
 				       :method :get)
 ; (break "this is check-links-json")
+;  (break "urls: ~S" (hunchentoot:get-parameter "urls"))
   (let ((base-url (or (hunchentoot:get-parameter "base-url") (hunchentoot:referer)))
 	(var-name (hunchentoot:get-parameter "varName")))
     (if (not (valid-var-name-p var-name)) (return-from check-links-json 400))
@@ -19,7 +20,8 @@
 
 (defun valid-var-name-p (var-name)
 ;  (break "var-name: ~s" var-name)
-  (if (digit-char-p (elt var-name 0)) 
+  (if (or (not var-name)
+	  (digit-char-p (elt var-name 0)))
       (return-from valid-var-name-p nil))
   (iter (for char in-vector var-name)
 	(if (not 
@@ -68,5 +70,6 @@
   (merge-pathnames (list-to-path path-list) (get-www-path)))
 
 (restas:define-route static-tests-files ("check-links/www-tests/*path-list")  
+  ;(break "path-list: ~S" path-list)
   (merge-pathnames (list-to-path path-list) (get-www-tests-path)))
 
