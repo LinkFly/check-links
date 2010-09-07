@@ -62,7 +62,7 @@
 		 (reverse res))	  
 	  ;(break "link: ~S" link)
 	  (push (list :url link
-		      :valid-p (check-link link base-url))
+		      :valid-p (check-link link :base-url base-url)) 
 		res)))
     (log-info "End create plist from POST parameter URLS.")))
 

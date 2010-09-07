@@ -50,12 +50,14 @@
 
 	//Get all link urls
 	var unEsc = this.universalEscape;
-	this.allLinksHash = {};//new Array();	
+	this.allLinksHash = {};//new Array();		
 	var allLnkHash = this.allLinksHash;
 	$("a").each(function(index, el){
-		allLnkHash[
-		   unEsc($(el).attr("href"))] = $(el);
-		  
+		var escLink = unEsc($(el).attr("href"));
+		if(allLnkHash[escLink] == undefined) 
+		    allLnkHash[escLink] = $("");
+		allLnkHash[escLink] = 
+		    allLnkHash[escLink].add($(el));  
 	    });
 	
 	ops = this.ops;
@@ -65,13 +67,13 @@
 	this.markingAllLinks = function(){
             $(bufferName + " " + ops.resultClass + " " + ops.linkClass)
               .each(function(index, el){
-		      // $("a[href=" + $(ops.linkUrl, el).html() + "]")
-		      var escLink = unEsc($(ops.linkUrl, el).text());
-					   
-		      if(allLnkHash[escLink] != undefined)
-			allLnkHash[escLink]
-			    .removeClass(ops.goodLinkClass + " " + ops.badLinkClass)
-			    .addClass($(".link_valid-p", el).html() == "true" ? "goodlink" : "badlink");
+		      var escLink = unEsc($(ops.linkUrl, el).text());					   
+		      if(allLnkHash[escLink] != undefined){
+			  allLnkHash[escLink].each(function(index, link){		  			     
+			    $(link).removeClass(ops.goodLinkClass + " " + ops.badLinkClass)
+				 .addClass($(".link_valid-p", el).html() == "true" ? "goodlink" : "badlink");
+			  });
+		      };
               }); //.each
 	}; //function this.markingAllLinks
 

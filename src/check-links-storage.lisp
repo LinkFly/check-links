@@ -12,11 +12,13 @@
 (defclass link ()
   ((url :initarg :url :initform nil :accessor link-url)
    (time :initarg :time :initform (get-universal-time) :accessor link-time)
-   (valid-p :initarg :valid-p :initform nil :accessor link-valid-p)))
+   (valid-p :initarg :valid-p :initform nil :accessor link-valid-p)
+   (base-url :initarg :base-url :initform nil :accessor link-base-url)))
 
 (defgeneric link-to-plist (link)
   (:method ((link link)) 
     (list :url (link-url link)
+	  :base-url (link-base-url link)
 	  :time (link-time link)
 	  :valid-p (link-valid-p link))))
 
@@ -24,6 +26,7 @@
   (:method ((link-plist list)) 
     (make-instance 'link 
 		   :url (getf link-plist :url)
+		   :base-url (getf link-plist :base-url)
 		   :time (getf link-plist :time)
 		   :valid-p (getf link-plist :valid-p))))
 
@@ -44,11 +47,11 @@
 
 (defgeneric storage-add-link (storage link))
 
-(defgeneric storage-remove-link (storage link))
+(defgeneric storage-remove-link (storage link base-url))
 
 (defgeneric storage-remove-obsolete-links (storage))
 
-(defgeneric storage-get-link (storage url))
+(defgeneric storage-get-link (storage url base-url))
 
 (defgeneric storage-update-link (storage link valid-p))
 
@@ -67,42 +70,42 @@
   (setf (memory-storage-links storage)
 	(alexandria:alist-hash-table
 	 (mapcar #'(lambda (link)
-		     (cons (link-url link) link))
+		     (cons (list (link-url link)
+				 (link-base-url link))
+			   link))
 		 links))))
 
-(defmethod storage-add-link ((storage memory-storage) link)
-  (setf (gethash (link-url link)
+(defmethod storage-add-link ((storage memory-storage) (link link))
+  (setf (gethash (list (link-url link)
+		       (link-base-url link))
 		 (memory-storage-links storage))
 	link))
 
-(defmethod storage-remove-link ((storage memory-storage) link)
+(defmethod storage-remove-link ((storage memory-storage) link base-url)
   (flet ((remove-link (url)
-	   (remhash url (memory-storage-links storage))))
+	   (remhash (list url base-url) (memory-storage-links storage))))
     (remove-link (typecase link
 		   (string link)
 		   (link (link-url link))))))
 
 (defmethod storage-remove-obsolete-links ((storage storage))
   (let ((hash-table (memory-storage-links storage)))
-    (dolist (url (alexandria:hash-table-keys hash-table))
-      (if (link-obsolete-p (gethash url hash-table))
-	  (remhash url hash-table)))))
+    (dolist (url/base-url (alexandria:hash-table-keys hash-table))
+      (if (link-obsolete-p (gethash url/base-url hash-table))
+	  (remhash url/base-url hash-table)))))
 
-(defmethod storage-get-link ((storage memory-storage) (url string))
+(defmethod storage-get-link ((storage memory-storage) (url string) (base-url string))
   (aif (gethash url (memory-storage-links storage))
        (if (not (link-obsolete-p it))
 	   it
 	   (progn 
-	     (storage-remove-link storage it)
+	     (storage-remove-link storage it base-url)
 	     nil))))
 
-(defmethod storage-update-link ((storage memory-storage) (link string) valid-p)
-  (awhen (storage-get-link storage link)
-    (storage-update-link storage it valid-p)))
-
 (defmethod storage-update-link ((storage memory-storage) (link link) valid-p)
-  (setf (link-valid-p link) valid-p)
-  (setf (link-time link) (get-universal-time)))
+  (awhen (storage-get-link storage (link-url link) (link-base-url link))
+    (setf (link-valid-p link) valid-p)
+    (setf (link-time link) (get-universal-time))))
 
 (defmethod storage-save ((storage memory-storage))
   (with-open-file (stream (get-pathname-for-save-storage) 
@@ -113,23 +116,24 @@
 
 (defmethod storage-load ((storage memory-storage))
   (setf (storage-list-links storage)
-	(mapcar #'plist-to-link 
+	(mapcar #'plist-to-link
 		(with-open-file (stream (get-pathname-last-for-load-storage))
 		  (read stream)))))
 
-(defun get-link (url)
-  (storage-get-link *storage* url))
+(defun get-link (url base-url)
+  (storage-get-link *storage* url base-url))
 
-(defun add-link (url valid-p)
-  (aif (storage-get-link *storage* url)
-       (storage-update-link *storage* url valid-p)
+(defun add-link (url valid-p base-url)
+  (aif (storage-get-link *storage* url base-url)
+       (storage-update-link *storage* it valid-p)
        (storage-add-link *storage* 
-			 (make-instance 'link 
+			 (make-instance 'link
 					:url url
-					:valid-p valid-p))))
+					:valid-p valid-p
+					:base-url base-url))))
 
-(defun remove-link (url)
-  (storage-remove-link *storage* url))
+(defun remove-link (url base-url)
+  (storage-remove-link *storage* url base-url))
 
 (defun links-save ()
   (storage-save *storage*))
