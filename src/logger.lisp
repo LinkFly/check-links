@@ -148,7 +148,7 @@
     `(progn 
        (defparameter *log-types-streams* nil)
        (defparameter *log-types-switches* 
-	 ,@(mapcan #'(lambda (type) (list type t))
+	 ',(mapcan #'(lambda (type) (list type t))
 		   log-types))
        (dolist (type ,disable-log-types)
 	 (setf (getf *log-types-switches* type) nil))
@@ -200,16 +200,7 @@
    '(PROGN
     (DEFPARAMETER *LOG-TYPES-STREAMS* NIL)
     (DEFPARAMETER *LOG-TYPES-SWITCHES*
-      :INFO
-      T
-      :WARN
-      T
-      :ERROR
-      T
-      :BAD-LINKS
-      T
-      :DETAILS
-      T)
+      '(:INFO T :WARN T :ERROR T :BAD-LINKS T :DETAILS T))
     (DOLIST (TYPE NIL) (SETF (GETF *LOG-TYPES-SWITCHES* TYPE) NIL))
     (DEFUN OPEN-LOG-STREAMS
            (&KEY
