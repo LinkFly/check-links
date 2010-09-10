@@ -76,6 +76,30 @@
 	      always (probe-file file))
 	 (close-log-types-streams types-streams))))))
 
+(defun for-test-created-logs (path &key prefix-logs (log-types '(:info :warn :error)))
+  (loop for file in (mapcar #'(lambda (type)
+				 (make-pathname :name
+						(concatenate 'string 
+							     prefix-logs
+							     (when prefix-logs "-")
+							     (string-downcase (as-string type)))
+						:defaults path))
+			    log-types)
+      always (probe-file file)))
+
+(defun for-test-generated-functions (types &optional prefix-functions)
+  (loop for function in (mapcar #'(lambda (type) 
+				    	  (symcat 
+					   prefix-functions
+					   (when prefix-functions "-")
+					   "LOG-"
+					   type))
+				types)
+     always (fboundp function)))
+			      
+			      
+			      
+
 (defun close-log-types-streams (log-types-streams &key (types '(:info :warn :error)))
 	 (loop for type in types 
 	    do (aif (getf log-types-streams type)
