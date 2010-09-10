@@ -11,7 +11,7 @@
 	   (finish-output it)
 	   ))
 
-(defun open-log-types-streams (log-types-streams &key place (types '(:info :warn :error)))  
+(defun open-log-types-streams (log-types-streams &key prefix-logs place (types '(:info :warn :error)))  
 ;  (break "place: ~S" place)
   (unless place (setf place *standard-output*))
   (close-log-types-streams log-types-streams :types types)
@@ -26,13 +26,16 @@
 	   ((or (typep place 'string)
 		(typep place 'pathname))
 	    place))))
-					;(break "place: ~S" place)	 
+  ;(break "place: ~S" place)	 
   (ensure-directories-exist place)
   (loop for type in types 
      unless (aif (getf log-types-streams :error)
 		 (open-stream-p it))
      do (setf (getf log-types-streams type)
-	      (open (merge-pathnames (string-downcase (symbol-name type))
+	      (open (merge-pathnames (concatenate 'string
+						  prefix-logs
+						  (when prefix-logs "-")
+						  (string-downcase (symbol-name type)))
 				     place)
 		    :direction :output
 		    :if-does-not-exist :create
@@ -64,9 +67,12 @@
 	 (mapc (compose #'delete-file #'pathname) 
 	       (remove-if #'keywordp types-streams)))))))
 
-(defmacro define-logging (place &key prefix (log-types '(:info :warn :error)))
+(defmacro define-logging (place &key 
+			  prefix-functions
+			  prefix-logs
+			  (log-types '(:info :warn :error)))
   (flet ((gen-fn-name (log-type)
-	   (symcat prefix (when prefix "-") "LOG-" log-type)))
+	   (symcat prefix-functions (when prefix-functions "-") "LOG-" log-type)))
 ;    (break "log-tp: ~s" log-types)
 ;    (setq log-types (replace-many :std-log-types '(:info :warn :error) log-types))					
     `(progn 
@@ -75,7 +81,8 @@
        (defun open-log-streams (&key (place ,place) (types ',log-types))
 	 (open-log-types-streams *log-types-streams* 
 				 :place place
-				 :types types))
+				 :types types
+				 :prefix-logs ,prefix-logs))
 
        (defun close-log-streams (&key (types ',log-types))
 	 (close-log-types-streams *log-types-streams* :types types))
@@ -87,14 +94,13 @@
 	    collect `(defun ,(gen-fn-name type) (fmt-message &rest args)
 		       (log-message ,type fmt-message args)))
 
-       (open-log-streams)
-       )))
-
+       (open-log-streams))))
 (addtest define-logging-test
   (ensure-same
    (macroexpand-1 '(define-logging
 		    (merge-pathnames "test-logs-dir" *default-pathname-defaults*)
-		    :log-types (:info :warn :error :bad-links :details)))
+		    :log-types (:info :warn :error :bad-links :details)
+		    :prefix-logs "check-links"))
    '(PROGN
     (DEFPARAMETER *LOG-TYPES-STREAMS* NIL)
     (DEFUN OPEN-LOG-STREAMS
@@ -102,7 +108,8 @@
             (PLACE
              (MERGE-PATHNAMES "test-logs-dir" *DEFAULT-PATHNAME-DEFAULTS*))
             (TYPES (QUOTE (:INFO :WARN :ERROR :BAD-LINKS :DETAILS))))
-      (OPEN-LOG-TYPES-STREAMS *LOG-TYPES-STREAMS* :PLACE PLACE :TYPES TYPES))
+      (OPEN-LOG-TYPES-STREAMS *LOG-TYPES-STREAMS* :PLACE PLACE :TYPES TYPES
+                              :PREFIX-LOGS "check-links"))
     (DEFUN CLOSE-LOG-STREAMS
            (&KEY (TYPES (QUOTE (:INFO :WARN :ERROR :BAD-LINKS :DETAILS))))
       (CLOSE-LOG-TYPES-STREAMS *LOG-TYPES-STREAMS* :TYPES TYPES))
@@ -119,6 +126,7 @@
     (DEFUN LOG-DETAILS (FMT-MESSAGE &REST ARGS)
       (LOG-MESSAGE :DETAILS FMT-MESSAGE ARGS))
     (OPEN-LOG-STREAMS))))
+
 
 ;;;; Utilities ;;;;;;;;;;;;;
 (defun replace-many (old-elem new-list list)
@@ -143,8 +151,7 @@
 (addtest symcat-test
   (ensure-same 
    (symcat "PREFIX" "-log-" :mykey)
-   'PREFIX-LOG-MYKEY))
-
+   'PREFIX-LOG-MYKEY))	  
 ;;;;;;;;;;;;;;;;;;;;;
 
 #|
