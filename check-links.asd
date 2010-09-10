@@ -12,6 +12,7 @@
   :serial t
   :components ((:module "src"
 			:components ((:file "packages")
+				     (:file "utilities")
 				     (:file "pathnames")
 				     (:file "check-links-defmodule")
 				     (:file "logger" :depends-on ("check-links-defmodule"))

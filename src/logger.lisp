@@ -4,24 +4,26 @@
   (:function 
    (get-test-data-path ()
 		       (cl-fad:pathname-as-directory
-			(merge-pathnames "test-logger" *default-pathname-defaults*)))
+			(merge-pathnames "test-logger" *default-pathname-defaults*))))
+  (:function 
    (delete-test-directory ()
 		       (cl-fad:delete-directory-and-files (get-test-data-path)))))
 
-(defun log-type-message (type log-types-streams fmt-message &rest args)
-	 (awhen (getf log-types-streams type)
-	   (format it
-		   "~&(:~A (~A) :time \"~A\")~%"
-		   (package-name (load-time-value *package*))
-		   (apply #'format nil fmt-message args)
-		   (local-time:now))
-	   (finish-output it)
-	   ))
+(defun log-type-message (type log-types-streams log-types-switches fmt-message &rest args)
+  (when (enable-log-type-p type log-types-switches)
+    (awhen (getf log-types-streams type)
+      (format it
+	      "~&(:~A (~A) :time \"~A\")~%"
+	      (package-name (load-time-value *package*))
+	      (apply #'format nil fmt-message args)
+	      (local-time:now))
+      (finish-output it)
+      )))
 (addtest log-type-message-test
   (ensure
    (list
     (subseq (with-output-to-string (s)
-	      (log-type-message :my-type `(:my-type ,s) "log-message. arg: ~a" 'is-arg))
+	      (log-type-message :my-type `(:my-type ,s) '(:my-type t) "log-message. arg: ~a" 'is-arg))
 	    0 44)
     "(:LOGGING (log-message. arg: IS-ARG) :time \"")))
 
@@ -71,8 +73,7 @@
 				:log-types types
 				:prefix-logs prefix)
        (close-log-types-streams types-streams)
-       (mapc #'delete-file 
-	     (remove-if #'keywordp types-streams))))))
+       (delete-test-directory)))))
 
 (defun close-log-types-streams (log-types-streams &key (types '(:info :warn :error)))
 	 (loop for type in types 
@@ -98,67 +99,12 @@
 	 (mapc (compose #'delete-file #'pathname) 
 	       (remove-if #'keywordp types-streams)))))))
 
-(defmacro define-logging (place &key 
-			  prefix-functions
-			  prefix-logs
-			  (log-types '(:info :warn :error)))
-  (flet ((gen-fn-name (log-type)
-	   (symcat prefix-functions (when prefix-functions "-") "LOG-" log-type)))
-;    (break "log-tp: ~s" log-types)
-;    (setq log-types (replace-many :std-log-types '(:info :warn :error) log-types))					
-    `(progn 
-       (defparameter *log-types-streams* nil)
+(defun switch-log-type (type value-p log-types-switches)
+  (setf (getf log-types-switches type) value-p)
+  log-types-switches)
 
-       (defun open-log-streams (&key (place ,place) (types ',log-types))
-	 (setf *log-types-streams* 
-	       (open-log-types-streams 
-		:place place
-		:types types
-		:prefix-logs ,prefix-logs)))
-
-       (defun close-log-streams (&key (types ',log-types))
-	 (close-log-types-streams *log-types-streams* :types types))
-	    
-       (defun log-message (type fmt-message &rest args)
-	 (apply #'log-type-message type *log-types-streams* fmt-message args))
-
-       ,@(loop for type in log-types 
-	    collect `(defun ,(gen-fn-name type) (fmt-message &rest args)
-		       (log-message ,type fmt-message args)))
-
-       (open-log-streams))))
-(addtest define-logging-test
-  (ensure-same
-   (macroexpand-1 '(define-logging
-		    (merge-pathnames "test-logs-dir" *default-pathname-defaults*)
-		    :log-types (:info :warn :error :bad-links :details)
-		    :prefix-logs "check-links"))
-   '(PROGN
-    (DEFPARAMETER *LOG-TYPES-STREAMS* NIL)
-    (DEFUN OPEN-LOG-STREAMS
-           (&KEY
-            (PLACE
-             (MERGE-PATHNAMES "test-logs-dir" *DEFAULT-PATHNAME-DEFAULTS*))
-            (TYPES (QUOTE (:INFO :WARN :ERROR :BAD-LINKS :DETAILS))))
-      (SETF *LOG-TYPES-STREAMS* 
-	    (OPEN-LOG-TYPES-STREAMS :PLACE PLACE :TYPES TYPES
-				    :PREFIX-LOGS "check-links")))
-    (DEFUN CLOSE-LOG-STREAMS
-           (&KEY (TYPES (QUOTE (:INFO :WARN :ERROR :BAD-LINKS :DETAILS))))
-      (CLOSE-LOG-TYPES-STREAMS *LOG-TYPES-STREAMS* :TYPES TYPES))
-    (DEFUN LOG-MESSAGE (TYPE FMT-MESSAGE &REST ARGS)
-      (APPLY #'LOG-TYPE-MESSAGE TYPE *LOG-TYPES-STREAMS* FMT-MESSAGE ARGS))
-    (DEFUN LOG-INFO (FMT-MESSAGE &REST ARGS)
-      (LOG-MESSAGE :INFO FMT-MESSAGE ARGS))
-    (DEFUN LOG-WARN (FMT-MESSAGE &REST ARGS)
-      (LOG-MESSAGE :WARN FMT-MESSAGE ARGS))
-    (DEFUN LOG-ERROR (FMT-MESSAGE &REST ARGS)
-      (LOG-MESSAGE :ERROR FMT-MESSAGE ARGS))
-    (DEFUN LOG-BAD-LINKS (FMT-MESSAGE &REST ARGS)
-      (LOG-MESSAGE :BAD-LINKS FMT-MESSAGE ARGS))
-    (DEFUN LOG-DETAILS (FMT-MESSAGE &REST ARGS)
-      (LOG-MESSAGE :DETAILS FMT-MESSAGE ARGS))
-    (OPEN-LOG-STREAMS))))
+(defun enable-log-type-p (type log-types-switches)
+  (getf log-types-switches type))
 
 (defun for-test-created-logs (path &key prefix-logs (log-types '(:info :warn :error)))
   (loop for file in (mapcar #'(lambda (type)
@@ -181,42 +127,141 @@
 				types)
      always (fboundp function)))
 
-;;;; Utilities ;;;;;;;;;;;;;
-(defun replace-many (old-elem new-list list)
-  (loop 
-     for type in list
-     if (eq type old-elem)
-     append new-list
-     else 
-     collect type))
-(addtest replace-many-test
-  (ensure-same
-   (replace-many :std-log-types '(:info :warn :error) '(a b :std-log-types c d))
-   '(a b :info :warn :error c d)))
+(defmacro define-logging (place &key 
+			  prefix-functions
+			  prefix-logs
+			  (log-types '(:info :warn :error))
+			  disable-log-types)
+  (labels ((get-prefix ()
+	     (concatenate 'string  prefix-functions (when prefix-functions "-")))
+	   (fn-gen-fn-name (&optional (prefix-before-log ""))
+	     #'(lambda (log-type)
+		 (symcat (get-prefix) 
+			 prefix-before-log
+			 (unless (zerop (length prefix-before-log)) "-")
+			 "LOG-"
+			 log-type)))
+	   (gen-fn-name-enable-p (log-type)
+	     (symcat (get-prefix) "LOG-" log-type "-ENABLE-P")))
+;    (break "log-tp: ~s" log-types)
+;    (setq log-types (replace-many :std-log-types '(:info :warn :error) log-types))					
+    `(progn 
+       (defparameter *log-types-streams* nil)
+       (defparameter *log-types-switches* 
+	 ,@(mapcan #'(lambda (type) (list type t))
+		   log-types))
+       (dolist (type ,disable-log-types)
+	 (setf (getf *log-types-switches* type) nil))
 
-(defun symcat (&rest syms)     
-;  (break "syms: ~S" syms)
-  (read-from-string (string-upcase
-		     (apply #'concatenate 'string
-			    (mapcar #'string 
-				    (remove nil syms))))))
-;(apply #'symcat '(NIL NIL "LOG-" :INFO))
-(addtest symcat-test
-  (ensure-same 
-   (symcat "PREFIX" "-log-" :mykey)
-   'PREFIX-LOG-MYKEY))	  
-;;;;;;;;;;;;;;;;;;;;;
+       (defun open-log-streams (&key (place ,place) (types ',log-types))
+	 (setf *log-types-streams* 
+	       (open-log-types-streams 
+		:place place
+		:types types
+		:prefix-logs ,prefix-logs)))
+
+       (defun close-log-streams (&key (types ',log-types))
+	 (close-log-types-streams *log-types-streams* :types types))
+	    
+       (defun log-message (type fmt-message &rest args)
+	 (apply #'log-type-message type *log-types-streams* *log-types-switches* fmt-message args))
+
+
+       ,@(loop for type in log-types 
+	    collect `(defun ,(funcall (fn-gen-fn-name) type) (fmt-message &rest args)
+		       (log-message ,type fmt-message args)))
 
 #|
-(defun log-info (msg &rest args) 
-  (when *log-stream*
-    (terpri *log-stream*)
-    (apply #'format
-	   *log-stream* 
-	   (concatenate 'string 
-			(format nil "(:~A " (package-name 
-					    (load-time-value *package*)))
-			(prepare-msg msg)
-			(format nil " :time ~A)" (local-time:now)))
-	   args)))
+       ,@(loop for (fn-type value-p) in '(("ENABLE" t) ("DISABLE" nil))
+	      (loop for type in log-types
+		 collect `(defun ,(funcall (fn-gen-fn-name "ENABLE") type) ()
+			 (switch-log-type ,type t *log-types-switches*))))
 |#
+
+       ,@(loop for type in log-types
+	    collect `(defun ,(funcall (fn-gen-fn-name "ENABLE") type) ()
+			 (switch-log-type ,type t *log-types-switches*)))
+
+       ,@(loop for type in log-types
+	    collect `(defun ,(funcall (fn-gen-fn-name "DISABLE") type) ()
+			 (switch-log-type ,type nil *log-types-switches*)))
+       
+       ,@(loop for type in log-types
+	    collect `(defun ,(gen-fn-name-enable-p type) ()
+			 (enable-log-type-p ,type *log-types-switches*)))
+       
+       (open-log-streams))))
+(addtest define-logging-test
+  (ensure-same
+   (macroexpand-1 '(define-logging
+		    (merge-pathnames "test-logs-dir" *default-pathname-defaults*)
+		    :log-types (:info :warn :error :bad-links :details)
+		    :prefix-logs "check-links"))
+   '(PROGN
+    (DEFPARAMETER *LOG-TYPES-STREAMS* NIL)
+    (DEFPARAMETER *LOG-TYPES-SWITCHES*
+      :INFO
+      T
+      :WARN
+      T
+      :ERROR
+      T
+      :BAD-LINKS
+      T
+      :DETAILS
+      T)
+    (DOLIST (TYPE NIL) (SETF (GETF *LOG-TYPES-SWITCHES* TYPE) NIL))
+    (DEFUN OPEN-LOG-STREAMS
+           (&KEY
+            (PLACE
+             (MERGE-PATHNAMES "test-logs-dir" *DEFAULT-PATHNAME-DEFAULTS*))
+            (TYPES (QUOTE (:INFO :WARN :ERROR :BAD-LINKS :DETAILS))))
+      (SETF *LOG-TYPES-STREAMS*
+              (OPEN-LOG-TYPES-STREAMS :PLACE PLACE :TYPES TYPES :PREFIX-LOGS
+                                      "check-links")))
+    (DEFUN CLOSE-LOG-STREAMS
+           (&KEY (TYPES (QUOTE (:INFO :WARN :ERROR :BAD-LINKS :DETAILS))))
+      (CLOSE-LOG-TYPES-STREAMS *LOG-TYPES-STREAMS* :TYPES TYPES))
+    (DEFUN LOG-MESSAGE (TYPE FMT-MESSAGE &REST ARGS)
+      (APPLY #'LOG-TYPE-MESSAGE TYPE *LOG-TYPES-STREAMS* *LOG-TYPES-SWITCHES* FMT-MESSAGE ARGS))
+    (DEFUN LOG-INFO (FMT-MESSAGE &REST ARGS)
+      (LOG-MESSAGE :INFO FMT-MESSAGE ARGS))
+    (DEFUN LOG-WARN (FMT-MESSAGE &REST ARGS)
+      (LOG-MESSAGE :WARN FMT-MESSAGE ARGS))
+    (DEFUN LOG-ERROR (FMT-MESSAGE &REST ARGS)
+      (LOG-MESSAGE :ERROR FMT-MESSAGE ARGS))
+    (DEFUN LOG-BAD-LINKS (FMT-MESSAGE &REST ARGS)
+      (LOG-MESSAGE :BAD-LINKS FMT-MESSAGE ARGS))
+    (DEFUN LOG-DETAILS (FMT-MESSAGE &REST ARGS)
+      (LOG-MESSAGE :DETAILS FMT-MESSAGE ARGS))
+    (DEFUN ENABLE-LOG-INFO () (SWITCH-LOG-TYPE :INFO T *LOG-TYPES-SWITCHES*))
+    (DEFUN ENABLE-LOG-WARN () (SWITCH-LOG-TYPE :WARN T *LOG-TYPES-SWITCHES*))
+    (DEFUN ENABLE-LOG-ERROR () (SWITCH-LOG-TYPE :ERROR T *LOG-TYPES-SWITCHES*))
+    (DEFUN ENABLE-LOG-BAD-LINKS ()
+      (SWITCH-LOG-TYPE :BAD-LINKS T *LOG-TYPES-SWITCHES*))
+    (DEFUN ENABLE-LOG-DETAILS ()
+      (SWITCH-LOG-TYPE :DETAILS T *LOG-TYPES-SWITCHES*))
+    (DEFUN DISABLE-LOG-INFO ()
+      (SWITCH-LOG-TYPE :INFO NIL *LOG-TYPES-SWITCHES*))
+    (DEFUN DISABLE-LOG-WARN ()
+      (SWITCH-LOG-TYPE :WARN NIL *LOG-TYPES-SWITCHES*))
+    (DEFUN DISABLE-LOG-ERROR ()
+      (SWITCH-LOG-TYPE :ERROR NIL *LOG-TYPES-SWITCHES*))
+    (DEFUN DISABLE-LOG-BAD-LINKS ()
+      (SWITCH-LOG-TYPE :BAD-LINKS NIL *LOG-TYPES-SWITCHES*))
+    (DEFUN DISABLE-LOG-DETAILS ()
+      (SWITCH-LOG-TYPE :DETAILS NIL *LOG-TYPES-SWITCHES*))
+    (DEFUN LOG-INFO-ENABLE-P () (ENABLE-LOG-TYPE-P :INFO *LOG-TYPES-SWITCHES*))
+    (DEFUN LOG-WARN-ENABLE-P () (ENABLE-LOG-TYPE-P :WARN *LOG-TYPES-SWITCHES*))
+    (DEFUN LOG-ERROR-ENABLE-P ()
+      (ENABLE-LOG-TYPE-P :ERROR *LOG-TYPES-SWITCHES*))
+    (DEFUN LOG-BAD-LINKS-ENABLE-P ()
+      (ENABLE-LOG-TYPE-P :BAD-LINKS *LOG-TYPES-SWITCHES*))
+    (DEFUN LOG-DETAILS-ENABLE-P ()
+      (ENABLE-LOG-TYPE-P :DETAILS *LOG-TYPES-SWITCHES*))
+    (OPEN-LOG-STREAMS))))
+
+
+
+
+
