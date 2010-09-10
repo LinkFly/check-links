@@ -1,6 +1,10 @@
 (in-package :logging)
 (deftestsuite logging-tests () ())
 
+(defun get-test-data-path ()
+  (cl-fad:pathname-as-directory
+   (merge-pathnames "test-logger" *default-pathname-defaults*)))
+
 (defun log-type-message (type log-types-streams fmt-message &rest args)
 	 (awhen (getf log-types-streams type)
 	   (format it
@@ -62,11 +66,11 @@
 	    (open (make-pathname :defaults (get-test-data-path) 
 				 :name (string file))
 		  :direction :output :if-does-not-exist :create :if-exists :append)))
+     (ensure-directories-exist (get-test-data-path))
      (let ((types-streams
 	    (mapcan #'(lambda (type)
 			(list type (open-test-file type)))
-		    '(:info :warn :error))))
-       (print types-streams)
+		    '(:info :warn :error))))       
        (close-log-types-streams types-streams)
        (prog1 
 	   (notany #'identity (mapcar #'open-stream-p 
