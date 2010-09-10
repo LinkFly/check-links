@@ -34,6 +34,15 @@
     :prefix-logs (string-downcase (as-string *package*)))
 (addtest generated-log-functions-test
   (ensure
+   (for-test-generated-functions '(:info :warn :error))))
+(addtest created-log-files-test
+  (ensure 
+   (for-test-created-logs (get-logs-path)
+			  :log-types '(:info :warn :error)
+			  :prefix-logs (string-downcase (as-string *package*)))))
+#|
+(addtest generated-log-functions-test
+  (ensure
    (loop for function in '(log-info log-warn log-error)
 	always (fboundp function))))
 (addtest created-log-files-test
@@ -46,6 +55,7 @@
 						:defaults (get-logs-path)))
 			     '(:info :warn :error))
       always (probe-file file))))
+|#
 
 ;;;;;; Utilities ;;;;;;;;;;;;
 (defun as-string (obj)

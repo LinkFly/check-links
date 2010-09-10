@@ -1,9 +1,10 @@
 (in-package :logging)
-(deftestsuite logging-tests () ())
-
-(defun get-test-data-path ()
-  (cl-fad:pathname-as-directory
-   (merge-pathnames "test-logger" *default-pathname-defaults*)))
+(deftestsuite logging-tests () 
+  ()
+  (:function 
+   (get-test-data-path ()
+		       (cl-fad:pathname-as-directory
+			(merge-pathnames "test-logger" *default-pathname-defaults*)))))
 
 (defun log-type-message (type log-types-streams fmt-message &rest args)
 	 (awhen (getf log-types-streams type)
