@@ -22,26 +22,29 @@
 	    0 44)
     "(:LOGGING (log-message. arg: IS-ARG) :time \"")))
 
-(defun open-log-types-streams (log-types-streams &key prefix-logs place (types '(:info :warn :error)))  
+(defun open-log-types-streams (&key log-types-streams prefix-logs place (types '(:info :warn :error)))  
 ;  (break "place: ~S" place)
   (unless place (setf place *standard-output*))
-  (close-log-types-streams log-types-streams :types types)
+  (when log-types-streams (close-log-types-streams log-types-streams :types types))
   (setq place
 	(cl-fad:pathname-as-directory
 	 (cond 
 	   ((typep place 'stream) 
-	    (setf log-types-streams
-		  (mapcan #'(lambda (type) (list type place))
-			  types))
-	    (return-from open-log-types-streams log-types-streams))
+	    (return-from open-log-types-streams
+	      (if (not log-types-streams)
+		  (mapcan #'(lambda (type) (list type place)) types)		  
+		  (dolist (type types log-types-streams)
+		    (setf (getf log-types-streams type) place)))))
 	   ((or (typep place 'string)
 		(typep place 'pathname))
-	    place))))
+	    (pathname place)))))
   ;(break "place: ~S" place)	 
   (ensure-directories-exist place)
-  (loop for type in types 
-     unless (aif (getf log-types-streams :error)
-		 (open-stream-p it))
+  (loop 
+     with log-types-streams = (or log-types-streams)
+     for type in types 
+;     unless (aif (getf log-types-streams type)
+;		 (open-stream-p it))
      do (setf (getf log-types-streams type)
 	      (open (merge-pathnames (concatenate 'string
 						  prefix-logs
@@ -53,6 +56,28 @@
 		    :if-exists :append))
      finally (return log-types-streams)))
 
+#|
+(addtest open-log-types-streams-test
+  (ensure
+   (let ((types-streams '()) (flet ((setter (var) (setf (getf var :key) 'value)))
+			       (let (var) (setter var) var))
+     (open-log-types-streams 
+   (flet ((open-test-file (file)
+	    (open (make-pathname :defaults (get-test-data-path) 
+				 :name (string file))
+		  :direction :output :if-does-not-exist :create :if-exists :append)))
+     (ensure-directories-exist (get-test-data-path))
+     (let ((types-streams
+	    (mapcan #'(lambda (type)
+			(list type (open-test-file type)))
+		    '(:info :warn :error))))       
+       (close-log-types-streams types-streams)
+       (prog1 
+	   (notany #'identity (mapcar #'open-stream-p 
+				      (remove-if #'keywordp types-streams)))
+	 (mapc (compose #'delete-file #'pathname) 
+	       (remove-if #'keywordp types-streams)))))))
+|#
 
 (defun close-log-types-streams (log-types-streams &key (types '(:info :warn :error)))
 	 (loop for type in types 
@@ -90,10 +115,11 @@
        (defparameter *log-types-streams* nil)
 
        (defun open-log-streams (&key (place ,place) (types ',log-types))
-	 (open-log-types-streams *log-types-streams* 
-				 :place place
-				 :types types
-				 :prefix-logs ,prefix-logs))
+	 (setf *log-types-streams* 
+	       (open-log-types-streams 
+		:place place
+		:types types
+		:prefix-logs ,prefix-logs)))
 
        (defun close-log-streams (&key (types ',log-types))
 	 (close-log-types-streams *log-types-streams* :types types))
@@ -119,8 +145,9 @@
             (PLACE
              (MERGE-PATHNAMES "test-logs-dir" *DEFAULT-PATHNAME-DEFAULTS*))
             (TYPES (QUOTE (:INFO :WARN :ERROR :BAD-LINKS :DETAILS))))
-      (OPEN-LOG-TYPES-STREAMS *LOG-TYPES-STREAMS* :PLACE PLACE :TYPES TYPES
-                              :PREFIX-LOGS "check-links"))
+      (SETF *LOG-TYPES-STREAMS* 
+	    (OPEN-LOG-TYPES-STREAMS :PLACE PLACE :TYPES TYPES
+				    :PREFIX-LOGS "check-links")))
     (DEFUN CLOSE-LOG-STREAMS
            (&KEY (TYPES (QUOTE (:INFO :WARN :ERROR :BAD-LINKS :DETAILS))))
       (CLOSE-LOG-TYPES-STREAMS *LOG-TYPES-STREAMS* :TYPES TYPES))
