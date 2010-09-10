@@ -56,28 +56,25 @@
 		    :if-exists :append))
      finally (return log-types-streams)))
 
-#|
 (addtest open-log-types-streams-test
   (ensure
-   (let ((types-streams '()) (flet ((setter (var) (setf (getf var :key) 'value)))
-			       (let (var) (setter var) var))
-     (open-log-types-streams 
-   (flet ((open-test-file (file)
-	    (open (make-pathname :defaults (get-test-data-path) 
-				 :name (string file))
-		  :direction :output :if-does-not-exist :create :if-exists :append)))
-     (ensure-directories-exist (get-test-data-path))
-     (let ((types-streams
-	    (mapcan #'(lambda (type)
-			(list type (open-test-file type)))
-		    '(:info :warn :error))))       
-       (close-log-types-streams types-streams)
-       (prog1 
-	   (notany #'identity (mapcar #'open-stream-p 
-				      (remove-if #'keywordp types-streams)))
-	 (mapc (compose #'delete-file #'pathname) 
-	       (remove-if #'keywordp types-streams)))))))
-|#
+   (let* ((prefix "test-prefix")
+	  (types '(:info :warn :my-type))
+	  (types-streams (open-log-types-streams 
+			  :place (get-test-data-path)
+			  :types types
+			  :prefix-logs prefix)))
+     (flet ((create-path (type)
+	      (make-pathname :defaults (get-test-data-path) 
+				   :name (concatenate 'string 
+						      prefix
+						      "-"
+						      (string-downcase
+						       (as-string type))))))
+       (prog1
+	   (loop for file in (mapcar #'create-path types)
+	      always (probe-file file))
+	 (close-log-types-streams types-streams))))))
 
 (defun close-log-types-streams (log-types-streams &key (types '(:info :warn :error)))
 	 (loop for type in types 
