@@ -4,7 +4,9 @@
   (:function 
    (get-test-data-path ()
 		       (cl-fad:pathname-as-directory
-			(merge-pathnames "test-logger" *default-pathname-defaults*)))))
+			(merge-pathnames "test-logger" *default-pathname-defaults*)))
+   (delete-test-directory ()
+		       (cl-fad:delete-directory-and-files (get-test-data-path)))))
 
 (defun log-type-message (type log-types-streams fmt-message &rest args)
 	 (awhen (getf log-types-streams type)
