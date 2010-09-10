@@ -55,50 +55,21 @@
 		    :if-does-not-exist :create
 		    :if-exists :append))
      finally (return log-types-streams)))
-
 (addtest open-log-types-streams-test
   (ensure
    (let* ((prefix "test-prefix")
 	  (types '(:info :warn :my-type))
-	  (types-streams (open-log-types-streams 
-			  :place (get-test-data-path)
-			  :types types
-			  :prefix-logs prefix)))
-     (flet ((create-path (type)
-	      (make-pathname :defaults (get-test-data-path) 
-				   :name (concatenate 'string 
-						      prefix
-						      "-"
-						      (string-downcase
-						       (as-string type))))))
-       (prog1
-	   (loop for file in (mapcar #'create-path types)
-	      always (probe-file file))
-	 (close-log-types-streams types-streams))))))
-
-(defun for-test-created-logs (path &key prefix-logs (log-types '(:info :warn :error)))
-  (loop for file in (mapcar #'(lambda (type)
-				 (make-pathname :name
-						(concatenate 'string 
-							     prefix-logs
-							     (when prefix-logs "-")
-							     (string-downcase (as-string type)))
-						:defaults path))
-			    log-types)
-      always (probe-file file)))
-
-(defun for-test-generated-functions (types &optional prefix-functions)
-  (loop for function in (mapcar #'(lambda (type) 
-				    	  (symcat 
-					   prefix-functions
-					   (when prefix-functions "-")
-					   "LOG-"
-					   type))
-				types)
-     always (fboundp function)))
-			      
-			      
-			      
+	  (types-streams 
+	   (open-log-types-streams :place (get-test-data-path)
+				   :types types
+				   :prefix-logs prefix)))
+     (prog1 
+	 (for-test-created-logs (get-test-data-path)
+				:log-types types
+				:prefix-logs prefix)
+       (close-log-types-streams types-streams)
+       (mapc #'delete-file 
+	     (remove-if #'keywordp types-streams))))))
 
 (defun close-log-types-streams (log-types-streams &key (types '(:info :warn :error)))
 	 (loop for type in types 
@@ -186,6 +157,26 @@
       (LOG-MESSAGE :DETAILS FMT-MESSAGE ARGS))
     (OPEN-LOG-STREAMS))))
 
+(defun for-test-created-logs (path &key prefix-logs (log-types '(:info :warn :error)))
+  (loop for file in (mapcar #'(lambda (type)
+				 (make-pathname :name
+						(concatenate 'string 
+							     prefix-logs
+							     (when prefix-logs "-")
+							     (string-downcase (as-string type)))
+						:defaults path))
+			    log-types)
+      always (probe-file file)))
+
+(defun for-test-generated-functions (types &optional prefix-functions)
+  (loop for function in (mapcar #'(lambda (type) 
+				    	  (symcat 
+					   prefix-functions
+					   (when prefix-functions "-")
+					   "LOG-"
+					   type))
+				types)
+     always (fboundp function)))
 
 ;;;; Utilities ;;;;;;;;;;;;;
 (defun replace-many (old-elem new-list list)
