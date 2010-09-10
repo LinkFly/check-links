@@ -10,6 +10,13 @@
 		   (local-time:now))
 	   (finish-output it)
 	   ))
+(addtest log-type-message-test
+  (ensure
+   (list
+    (subseq (with-output-to-string (s)
+	      (log-type-message :my-type `(:my-type ,s) "log-message. arg: ~a" 'is-arg))
+	    0 44)
+    "(:LOGGING (log-message. arg: IS-ARG) :time \"")))
 
 (defun open-log-types-streams (log-types-streams &key prefix-logs place (types '(:info :warn :error)))  
 ;  (break "place: ~S" place)
