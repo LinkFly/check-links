@@ -1,5 +1,5 @@
 
-(in-package :restas.check-links)
+(in-package :logging)
 
 (defun log-info (msg &rest args) 
   (when *log-stream*

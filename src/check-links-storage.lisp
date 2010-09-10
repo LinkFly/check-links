@@ -94,7 +94,7 @@
       (if (link-obsolete-p (gethash url/base-url hash-table))
 	  (remhash url/base-url hash-table)))))
 
-(defmethod storage-get-link ((storage memory-storage) (url string) (base-url string))
+(defmethod storage-get-link ((storage memory-storage) url base-url)
   (aif (gethash url (memory-storage-links storage))
        (if (not (link-obsolete-p it))
 	   it

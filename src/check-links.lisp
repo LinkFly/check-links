@@ -1,4 +1,4 @@
-(in-package :restas.check-links)
+(in-package :check-links)
 (deftestsuite check-links-tests () ())
 
 ;(sb-ext:with-timeout 1.0 (sleep 100))
@@ -21,24 +21,10 @@
 	   (ignore-errors 
 	     (tweak-http-request
 	      (as-absolute-url uri (or base-url "")))
-	     #|
-	     (multiple-value-list 
-	      (return-if-very-long *check-timeout* 
-				   (let ((chunga:*accept-bogus-eols* t))
-				     
-				     (drakma:http-request 
-				      (progn
-					(log-info
-					 "(drakma:http-request ~S :want-stream t)"
-					 (as-absolute-url uri (or base-url "")))
-					(as-absolute-url uri (or base-url "")))
-				      :want-stream t)
-				     )))|#				     
 	     )				;ignore-errors
 	    ))
-
       (when (first result-request)
-	(setq valid-p (member (second result-request) '(200))))
+	(setq valid-p (first (member (second result-request) '(200)))))
       (if *enable-link-caching*
 	  (progn 
 	    (log-info "(:url ~S :base-url ~S :valid-p ~S)" link base-url valid-p)
@@ -62,7 +48,23 @@
 	   (mapcar #'check-link
 		   (with-open-file (stream (get-test-data-pathname))
 		     (read stream)))))
+#|
+(mapcar #'(lambda (link) (when (check-link link) link))
+	(with-open-file (stream (get-test-data-pathname))
+	  (read stream)))
+
+
+(loop repeat 2   
+   collect (loop
+	      for link in (get-test-data)
+	      if (not (check-link link)) collect link))
+
+(defun get-test-data ()
+  (with-open-file (stream (get-test-data-pathname))
+    (read stream)))
+|#
 ;(seriouse-test-check-link)
+
 
 (defun tweak-http-request (uri &key (redirect 5) (*check-timeout* *check-timeout*))  
   (flet ((tries-http-request (uri &optional (referer nil))	   
@@ -144,12 +146,6 @@
 		     "http://anime.media.lan/cgi-bin/anime?find=%E0%EB%F5%E8%EC%E8%EA"
 		     "https://launchpad.net/distros/ubuntu/%20addticket"
 		     "http://swizard.livejournal.com/tag/dependent%20type")))))
-(defun seriouse-test-tweak-http-request ()
-  (every #'identity 
-	   (mapcar #'tweak-http-request
-		   (with-open-file (stream (get-test-data-pathname))
-		     (read stream)))))
-;(seriouse-test-tweak-http-request)
 
 (defun recheck-links ()
   (dolist (link (storage-list-links *storage*))

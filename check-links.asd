@@ -8,14 +8,16 @@
 (defsystem :check-links
   :depends-on (:restas :drakma :anaphora :cl-who :split-sequence
 	       :lift :local-time :cl-fad :alexandria :puri
-	       :iterate :cl-ppcre)
+	       :iterate :cl-ppcre :chunga :hunchentoot)
   :serial t
   :components ((:module "src"
-			:components ((:file "check-links-defmodule")
-				     (:file "log" :depends-on ("check-links-defmodule"))
+			:components ((:file "packages")
+				     (:file "pathnames")
+				     (:file "check-links-defmodule")
+				     (:file "logger" :depends-on ("check-links-defmodule"))
 				     (:file "check-links-storage" :depends-on ("check-links-defmodule"))
 				     (:file "port" :depends-on ("check-links-defmodule"))
-				     (:file "check-links" :depends-on ("check-links-defmodule"))
+				     (:file "check-links" :depends-on ("packages"))
 				     (:file "check-links-utilities" :depends-on ("check-links-defmodule"))
 				     (:file "check-links-routes" :depends-on ("check-links-defmodule"))
 				     (:file "check-links-view" :depends-on ("check-links-defmodule"))
