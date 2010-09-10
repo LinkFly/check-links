@@ -26,9 +26,7 @@
 (defparameter *check-timeout* 6)
 (defparameter *obsolete-time* 60)
 (defparameter *enable-link-caching* t)
-
 (defparameter *log-stream* nil)
-
 (defparameter *storage* nil)
 
 (define-logging (get-logs-path)
