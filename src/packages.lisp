@@ -18,21 +18,7 @@
    #:GET-TEST-DATA-PATH #:GET-STORAGE-PATH 
    #:GET-TEST-DATA-PATHNAME))
 
-(defpackage :logging 
-  (:use :cl :lift :utilities :cl-fad :local-time :iterate :anaphora :alexandria)
-  (:shadowing-import-from :cl-fad #:copy-stream #:copy-file)
-  (:export #:define-logging
-	   #:define-default-logs
-	   #:log-type-message
-	   #:open-log-types-streams
-	   #:close-log-types-streams
-	   #:switch-log-type
-	   #:enable-log-type
-	   #:for-test-created-logs
-	   #:for-test-generated-functions))
-
-
 (defpackage :check-links
-  (:use :cl :pathnames :chunga :logging :lift)
+  (:use :cl :logging :pathnames :chunga :logging :lift)
   (:export #:check-link))
 

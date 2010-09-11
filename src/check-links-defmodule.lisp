@@ -1,5 +1,5 @@
 (restas:define-module :restas.check-links
-    (:use :cl :utilities :pathnames :check-links :drakma :anaphora 
+    (:use :cl :logging :utilities :pathnames :check-links :drakma :anaphora 
 	  :split-sequence :lift :local-time
 	  :cl-fad :alexandria :puri
 	  :iterate :cl-ppcre :logging)
