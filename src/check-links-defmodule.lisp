@@ -22,6 +22,7 @@
 (defpackage :check-links-view (:use :cl :cl-who :lift))
 
 (in-package :restas.check-links)
+(deftestsuite restas.check-links-tests () ())
 
 (defparameter *check-timeout* 6)
 (defparameter *obsolete-time* 60)
@@ -29,9 +30,11 @@
 (defparameter *log-stream* nil)
 (defparameter *storage* nil)
 
-(define-logging (get-logs-path)
-    :log-types (:info :warn :error)
-    :prefix-logs (string-downcase (as-string *package*)))
+#|(setf *load-pathname*
+      (pathname
+       "/media/WORK_PARTITION/web-projects/dynserv/lisp-libs/user-libs/check-links/src/check-links-defmodule.lisp"))
+|#
+(define-default-logs :logs-pathname (get-logs-path))
 (addtest generated-log-functions-test
   (ensure
    (for-test-generated-functions '(:info :warn :error))))
@@ -40,3 +43,8 @@
    (for-test-created-logs (get-logs-path)
 			  :log-types '(:info :warn :error)
 			  :prefix-logs (string-downcase (as-string *package*)))))
+#|
+(define-logging (get-logs-path)
+    :log-types (:info :warn :error)
+    :prefix-logs (string-downcase (as-string *package*)))
+|#

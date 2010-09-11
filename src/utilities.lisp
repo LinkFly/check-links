@@ -33,4 +33,37 @@
   (ensure-same 
    (symcat "PREFIX" "-log-" :mykey)
    'PREFIX-LOG-MYKEY))	  
+
+(defun add-pkg-prefix (sym package)
+  (read-from-string 
+   (concatenate 'string (string-upcase (typecase package
+					 (package (package-name package))
+					 (string package))) "::" (symbol-name sym))))
+(addtest add-pkg-prefix-test
+  (ensure-same 
+   (add-pkg-prefix 'defun "logging")
+   'logging::defun))
+
+;;;!!! Not portability (not work on windows)
+(defun absolute-pathname-p (pathname)
+  (eq :absolute (first (pathname-directory pathname))))
+(addtest absolute-pathname-p-test
+  (ensure 
+   (and (not (absolute-pathname-p "media/WORK_PARTITION/sdf"))
+        (absolute-pathname-p "/media/WORK_PARTITION/sdf"))))
+
+#|
+(defmacro with-gensyms ((&rest syms) &body body)
+  `(let ,(loop for sym in syms
+	     collect `(,sym (gensym ,(concatenate 'string (symbol-name sym) "-"))))
+    ,@body))
+(addtest with-gensyms-test
+  (ensure-same 
+   (macroexpand-1 '(with-gensyms (arg1 arg2)
+		    (operation1 arg1 arg2)
+		    (operation2 arg1 arg2)))
+   '(LET ((ARG1 (GENSYM "ARG1-")) (ARG2 (GENSYM "ARG2-")))
+     (OPERATION1 ARG1 ARG2)
+     (OPERATION2 ARG1 ARG2))))
+|#
 ;;;;;;;;;;;;;;;;;;;;;

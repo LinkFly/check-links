@@ -7,7 +7,51 @@
 			(merge-pathnames "test-logger" *default-pathname-defaults*))))
   (:function 
    (delete-test-directory ()
-		       (cl-fad:delete-directory-and-files (get-test-data-path)))))
+		       (cl-fad:delete-directory-and-files (get-test-data-path))))
+  (:function
+   
+;(defun equal-with-ignore-unpackage-symbols (tree1 tree2)
+   (equal-with-ignore-unpackage-symbols
+    (tree1 tree2)
+    (labels ((both-syms-unpackaged (sym1 sym2)
+	       (and (null (symbol-package sym1))
+		    (null (symbol-package sym2))))
+	     (walk-trees (tree1 tree2 predicat)
+	       (cond 
+		 ((and (atom tree1) 
+		       (atom tree2))
+		  (funcall predicat tree1 tree2))
+		 ((and (consp tree1) 
+		       (consp tree2))
+		  (and (walk-trees (first tree1) (first tree2) predicat)
+		       (walk-trees (rest tree1) (rest tree2) predicat)))))
+	     (equal-without-unpkg-syms (x y)
+	       (cond
+		 ((and (symbolp x)
+		       (symbolp y))
+		  (if (both-syms-unpackaged x y)
+		      t
+		      (equal x y)))
+		 ((and (not (symbolp x))
+		       (not (symbolp y)))
+		  (equal x y)))))
+      (walk-trees tree1 tree2 #'equal-without-unpkg-syms)))
+
+#|(equal-with-ignore-unpackage-symbols 
+ '(DEFINE-LOGGING
+   (LET ((#:LOGS-DIR5241 "logs"))
+     (IF (ABSOLUTE-PATHNAME-P #:LOGS-DIR5241)
+	 #:LOGS-DIR5241
+	 (PATHNAME-AS-DIRECTORY
+	  (MERGE-PATHNAMES #:LOGS-DIR5241)))))
+ '(DEFINE-LOGGING
+   (LET ((#:LOGS-DIR23455241 "logs"))
+     (IF (ABSOLUTE-PATHNAME-P #:LOGS-DIR5241323)
+	 #:LOGS-DIR524134
+	 (PATHNAME-AS-DIRECTORY
+	  (MERGE-PATHNAMES #:LOGS-DIR524134))))))
+|#
+))
 
 (defun log-type-message (type log-types-streams log-types-switches fmt-message &rest args)
   (when (enable-log-type-p type log-types-switches)
@@ -142,55 +186,60 @@
 			 "LOG-"
 			 log-type)))
 	   (gen-fn-name-enable-p (log-type)
-	     (symcat (get-prefix) "LOG-" log-type "-ENABLE-P")))
+	     (symcat (get-prefix) "LOG-" log-type "-ENABLE-P"))
+	   (gen-true-symbol (symbol) 
+	     (add-pkg-prefix symbol *package*))
+	   (*log-types-streams* () (gen-true-symbol '*log-types-streams*))
+	   (*log-types-switches* () (gen-true-symbol '*log-types-switches*))
+	   (open-log-streams () (gen-true-symbol 'open-log-streams))
+	   (close-log-streams () (gen-true-symbol 'close-log-streams))
+	   (log-message () (gen-true-symbol 'log-message)))
+    
 ;    (break "log-tp: ~s" log-types)
 ;    (setq log-types (replace-many :std-log-types '(:info :warn :error) log-types))					
     `(progn 
-       (defparameter *log-types-streams* nil)
-       (defparameter *log-types-switches* 
+       (defparameter ,(*log-types-streams*) nil)
+       (defparameter ,(*log-types-switches*)
 	 ',(mapcan #'(lambda (type) (list type t))
 		   log-types))
        (dolist (type ,disable-log-types)
-	 (setf (getf *log-types-switches* type) nil))
-
-       (defun open-log-streams (&key (place ,place) (types ',log-types))
-	 (setf *log-types-streams* 
+	 (setf (getf ,(*log-types-switches*) type) nil))
+       
+       (defun ,(open-log-streams) (&key (place ,place) (types ',log-types))
+	 (setf ,(*log-types-streams*) 
 	       (open-log-types-streams 
 		:place place
 		:types types
 		:prefix-logs ,prefix-logs)))
 
-       (defun close-log-streams (&key (types ',log-types))
-	 (close-log-types-streams *log-types-streams* :types types))
+       (defun ,(close-log-streams) (&key (types ',log-types))
+	 (close-log-types-streams ,(*log-types-streams*) :types types))
 	    
-       (defun log-message (type fmt-message &rest args)
-	 (apply #'log-type-message type *log-types-streams* *log-types-switches* fmt-message args))
+       (defun ,(log-message) (type fmt-message &rest args)
+	 (apply #'log-type-message type ,(*log-types-streams*) ,(*log-types-switches*) fmt-message args))
 
 
        ,@(loop for type in log-types 
 	    collect `(defun ,(funcall (fn-gen-fn-name) type) (fmt-message &rest args)
 		       (log-message ,type fmt-message args)))
-
 #|
        ,@(loop for (fn-type value-p) in '(("ENABLE" t) ("DISABLE" nil))
 	      (loop for type in log-types
 		 collect `(defun ,(funcall (fn-gen-fn-name "ENABLE") type) ()
-			 (switch-log-type ,type t *log-types-switches*))))
+			 (switch-log-type ,type t ,(*log-types-switches*)))))
 |#
-
        ,@(loop for type in log-types
 	    collect `(defun ,(funcall (fn-gen-fn-name "ENABLE") type) ()
-			 (switch-log-type ,type t *log-types-switches*)))
+			 (switch-log-type ,type t ,(*log-types-switches*))))
 
        ,@(loop for type in log-types
 	    collect `(defun ,(funcall (fn-gen-fn-name "DISABLE") type) ()
-			 (switch-log-type ,type nil *log-types-switches*)))
+			 (switch-log-type ,type nil ,(*log-types-switches*))))
        
        ,@(loop for type in log-types
 	    collect `(defun ,(gen-fn-name-enable-p type) ()
-			 (enable-log-type-p ,type *log-types-switches*)))
-       
-       (open-log-streams))))
+			 (enable-log-type-p ,type ,(*log-types-switches*))))
+       (,(open-log-streams)))))
 (addtest define-logging-test
   (ensure-same
    (macroexpand-1 '(define-logging
@@ -214,7 +263,8 @@
            (&KEY (TYPES (QUOTE (:INFO :WARN :ERROR :BAD-LINKS :DETAILS))))
       (CLOSE-LOG-TYPES-STREAMS *LOG-TYPES-STREAMS* :TYPES TYPES))
     (DEFUN LOG-MESSAGE (TYPE FMT-MESSAGE &REST ARGS)
-      (APPLY #'LOG-TYPE-MESSAGE TYPE *LOG-TYPES-STREAMS* *LOG-TYPES-SWITCHES* FMT-MESSAGE ARGS))
+      (APPLY #'LOG-TYPE-MESSAGE TYPE *LOG-TYPES-STREAMS* *LOG-TYPES-SWITCHES*
+             FMT-MESSAGE ARGS))
     (DEFUN LOG-INFO (FMT-MESSAGE &REST ARGS)
       (LOG-MESSAGE :INFO FMT-MESSAGE ARGS))
     (DEFUN LOG-WARN (FMT-MESSAGE &REST ARGS)
@@ -252,7 +302,48 @@
       (ENABLE-LOG-TYPE-P :DETAILS *LOG-TYPES-SWITCHES*))
     (OPEN-LOG-STREAMS))))
 
+(defmacro define-default-logs (&key 
+			       (previous-dir-p nil)
+			       (logs-pathname "logs")
+			       extra-log-types)
+  (labels ((get-dir-code (pathname)
+	     `(make-pathname
+	       :name nil :type nil
+	       :defaults ,pathname))
+	   (if-previous-dir-p (pathname)
+	     (if previous-dir-p
+		 (get-dir-code `(cl-fad:pathname-as-file ,pathname))
+		 pathname)))		 
+    (with-gensyms (logs-dir)
+      `(define-logging
+	   (let ((,logs-dir ,logs-pathname))
+	     (if (absolute-pathname-p ,logs-dir) 
+		 ,logs-dir
+		 (cl-fad:pathname-as-directory 
+		  (merge-pathnames ,logs-dir
+				   ,(if-previous-dir-p 
+				     (get-dir-code 
+				      '(cl-fad:pathname-as-file
+					(or *load-pathname* *default-pathname-defaults*))))))))
+	   :log-types ,(append '(:info :warn :error) extra-log-types)
+	   :prefix-logs (string-downcase (package-name *package*))))))
 
-
-
-
+(addtest define-default-logs-test
+  (ensure
+   (equal-with-ignore-unpackage-symbols
+    (macroexpand-1 '(define-default-logs :previous-dir-p t :extra-log-types (:bad-links :details)))
+    '(DEFINE-LOGGING
+    (LET ((#:LOGS-DIR5432 "logs"))
+      (IF (ABSOLUTE-PATHNAME-P #:LOGS-DIR5432)
+          #:LOGS-DIR5432
+          (PATHNAME-AS-DIRECTORY
+           (MERGE-PATHNAMES #:LOGS-DIR5432
+                            (MAKE-PATHNAME :NAME NIL :TYPE NIL :DEFAULTS
+                                           (PATHNAME-AS-FILE
+                                            (MAKE-PATHNAME :NAME NIL :TYPE NIL
+                                                           :DEFAULTS
+                                                           (PATHNAME-AS-FILE
+                                                            (OR *LOAD-PATHNAME*
+                                                                *DEFAULT-PATHNAME-DEFAULTS*)))))))))
+    :LOG-TYPES (:INFO :WARN :ERROR :BAD-LINKS :DETAILS) :PREFIX-LOGS
+    (STRING-DOWNCASE (PACKAGE-NAME *PACKAGE*))))))

@@ -2,7 +2,11 @@
   (:use :cl :lift)
   (:export #:as-string
 	   #:replace-many
-	   #:symcat))
+	   #:symcat
+	   #:add-pkg-prefix
+	   ;#:with-gensyms
+	   #:absolute-pathname-p
+	   ))
 
 (defpackage :pathnames 
   (:use :cl :cl-fad)
@@ -18,6 +22,7 @@
   (:use :cl :lift :utilities :cl-fad :local-time :iterate :anaphora :alexandria)
   (:shadowing-import-from :cl-fad #:copy-stream #:copy-file)
   (:export #:define-logging
+	   #:define-default-logs
 	   #:log-type-message
 	   #:open-log-types-streams
 	   #:close-log-types-streams
