@@ -1,40 +1,48 @@
 (in-package :check-links)
 (deftestsuite check-links-tests () ())
-
+(define-default-logs 
+    :logs-pathname (get-logs-path) 
+  :extra-log-types (:bad-links :detailed))
+(create-memory-storage-interface)
+    
 ;(sb-ext:with-timeout 1.0 (sleep 100))
 ;(sb-sys:with-deadline (:seconds 1) (read))
-(defun check-link (link-or-uri &key base-url (*check-timeout* *check-timeout*))  
-  (log-info "(check-link ~s ~s) " link-or-uri base-url)
+(defun check-link (link-or-uri &key
+		   base-url
+		   (timeout 6)
+		   (enable-link-caching-p t))
+  (log-info "check-link ~s ~s" link-or-uri base-url)
   (destructuring-bind (link uri) 
       (link-to-link-and-uri link-or-uri)
     (log-info "link: ~S uri: ~S" link uri)
     (if (not (or link uri))
 	(return-from check-link nil))
 
-    (if *enable-link-caching*  
+    (if enable-link-caching-p
 	(aif (get-link link base-url)
 	     (return-from check-link (link-valid-p it))))
 
-    (log-info "RESTAS.CHECK-LINKS: link ~s not found in cache." link)
+    (log-info "link ~s not found in cache." link)
     (let (valid-p 
 	  (result-request 
 	   (ignore-errors 
 	     (tweak-http-request
-	      (as-absolute-url uri (or base-url "")))
+	      (as-absolute-url uri (or base-url ""))
+	      :timeout timeout)
 	     )				;ignore-errors
 	    ))
       (when (first result-request)
 	(setq valid-p (first (member (second result-request) '(200)))))
-      (if *enable-link-caching*
+      (if enable-link-caching-p
 	  (progn 
-	    (log-info "(:url ~S :base-url ~S :valid-p ~S)" link base-url valid-p)
+	    (log-info ":url ~S :base-url ~S :valid-p ~S" link base-url valid-p)
 	    (add-link link valid-p base-url)))
       valid-p)))
-(addtest tweak-http-request-test
+(addtest check-link-test
   (ensure
   ; (and 
     (every #'identity 
-	   (mapcar #'tweak-http-request
+	   (mapcar #'check-link
 		   '("http://www.mozilla.com/ru/firefox/about/"
 		     "http://www.slideshare.net/vseloved/common-lisp"
 		     "http://download.oracle.com/docs/cd/B28359_01/appdev.111/b31695/index.htm"
@@ -66,12 +74,12 @@
 ;(seriouse-test-check-link)
 
 
-(defun tweak-http-request (uri &key (redirect 5) (*check-timeout* *check-timeout*))  
+(defun tweak-http-request (uri &key (redirect 5) (timeout 6))  
   (flet ((tries-http-request (uri &optional (referer nil))	   
 	   (let ((result-request
 		  (multiple-value-list 
 		   (return-if-very-long 
-		    *check-timeout* 
+		    timeout
 		    (let ((chunga:*accept-bogus-eols* t)) 
 		      (format t "~%get page: ~a" uri) 
 		      (apply #'drakma:http-request uri 
@@ -85,21 +93,21 @@
       (with uri = uri)
       (with referer)      
       (terpri)
-      (format t "Requested uri: ~s)" uri)
+      (log-detailed "Requested uri: ~s)" uri)
 
-      (format t "~%referer: ~s" referer)
+      (log-detailed "~%referer: ~s" referer)
 
       (for was-space-p = (search "%20" (format nil "~A" uri)))
-      (format t "~%was-space-p: ~s" was-space-p)
+      (log-detailed "~%was-space-p: ~s" was-space-p)
 
       (for cur-redirect from redirect downto 0)
-      (format t "~%cur-redirect: ~s" cur-redirect)
+      (log-detailed "~%cur-redirect: ~s" cur-redirect)
 
       (for req-result = (tries-http-request uri referer))
-      ;(format t "~%req-result: ~s" (subseq (format nil "~s" req-result) 0 40))
+      ;(log-detailed "~%req-result: ~s" (subseq (format nil "~s" req-result) 0 40))
 
       (for status = (second req-result))
-      (format t "~%status: ~s" status)
+      (log-detailed "~%status: ~s" status)
 
       (cond 
 	((not (or req-result was-space-p)) 
@@ -118,14 +126,14 @@
 
       (for location = (header-value :location 
 				    (third req-result)))
-      (format t "~%location: ~s" location)      
+      (log-detailed "~%location: ~s" location)      
 
       (when (not (member status '(300 301 302 303 305)))
-	;(format t "~%Now exit. req-resut: ~s" (subseq (format nil "~s" req-result) 0 40))
+	;(log-detailed "~%Now exit. req-resut: ~s" (subseq (format nil "~s" req-result) 0 40))
 	(leave req-result))
 
       (when (plusp cur-redirect)	    
-	(print "Now redirect. New href: ")
+	(log-detailed "Now redirect. New href: ")
 	(setf uri (merge-uris (princ (prepare-uri-from-str location))
 			      uri)	      
 	      referer (fourth req-result))))))
@@ -148,10 +156,9 @@
 		     "http://swizard.livejournal.com/tag/dependent%20type")))))
 
 (defun recheck-links ()
-  (dolist (link (storage-list-links *storage*))
-    (storage-update-link *storage* 
-			 link
-			 (check-link (link-url link) :base-url (link-base-url link)))))
+  (dolist (link (list-links))
+    (update-link link    
+		 (check-link (link-url link) :base-url (link-base-url link)))))
 
 ;;; Utitilities
 (defun link-to-link-and-uri (link-or-uri &aux link)

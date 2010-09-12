@@ -1,13 +1,24 @@
-
-(in-package :restas.check-links)
+(in-package :check-links)
 
 (defclass storage () ())
 (defclass memory-storage (storage)
   ((links :initarg :links 
 	  :initform (make-hash-table :test 'equal)
-	  :accessor memory-storage-links)))
+	  :accessor memory-storage-links)
+   (backup-path :initarg :backup-path
+		:initform (cl-fad:pathname-as-directory 
+			   (merge-pathnames "check-links-backup-memory-storage"))
+		:accessor memory-storage-backup-path)
+   (obsolete-time :initarg :obsolete-time 
+		  :initform 60
+		  :writer (setf memory-storage-obsolete-time)
+		  :reader memory-storage-obsolete-time)))
 
-(setf *storage* (make-instance 'memory-storage))
+(defmethod memory-storage-obsolete-time ((storage memory-storage))
+  (let ((obsolete-time (slot-value storage 'obsolete-time)))
+    (if (symbolp obsolete-time)
+	(symbol-value obsolete-time)
+	obsolete-time)))
 
 (defclass link ()
   ((url :initarg :url :initform nil :accessor link-url)
@@ -30,12 +41,6 @@
 		   :time (getf link-plist :time)
 		   :valid-p (getf link-plist :valid-p))))
 
-(defgeneric link-obsolete-p (link)
-  (:method ((link link))
-    (> (- (get-universal-time) (link-time link))
-       *obsolete-time*)))
-
-
 (defmethod print-object ((link link) stream)
   (print-unreadable-object (link stream :type t :identity nil)
     (format stream "~S" (link-to-plist link))))
@@ -47,7 +52,11 @@
 
 (defgeneric storage-add-link (storage link))
 
+(defgeneric storage-add-or-update-link (storage url valid-p &optional base-url))
+
 (defgeneric storage-remove-link (storage link base-url))
+
+(defgeneric storage-link-obsolete-p (storage link))
 
 (defgeneric storage-remove-obsolete-links (storage))
 
@@ -58,6 +67,8 @@
 (defgeneric storage-save (storage))
 
 (defgeneric storage-load (storage))
+
+(defgeneric storage-links-history-clear (storage))
 
 ;;; Methods 
 (defmethod storage-count-links ((storage memory-storage))
@@ -81,6 +92,15 @@
 		 (memory-storage-links storage))
 	link))
 
+(defmethod storage-add-or-update-link ((storage memory-storage) url valid-p &optional base-url)
+  (aif (storage-get-link storage url base-url)
+       (storage-update-link storage it valid-p)
+       (storage-add-link storage
+			 (make-instance 'link
+					:url url
+					:valid-p valid-p
+					:base-url base-url))))
+
 (defmethod storage-remove-link ((storage memory-storage) link base-url)
   (flet ((remove-link (url)
 	   (remhash (list url base-url) (memory-storage-links storage))))
@@ -88,15 +108,19 @@
 		   (string link)
 		   (link (link-url link))))))
 
+(defmethod storage-link-obsolete-p ((storage memory-storage) link)
+    (> (- (get-universal-time) (link-time link))
+       (funcall (memory-storage-obsolete-time storage))))
+
 (defmethod storage-remove-obsolete-links ((storage storage))
   (let ((hash-table (memory-storage-links storage)))
     (dolist (url/base-url (alexandria:hash-table-keys hash-table))
-      (if (link-obsolete-p (gethash url/base-url hash-table))
+      (if (storage-link-obsolete-p storage (gethash url/base-url hash-table))
 	  (remhash url/base-url hash-table)))))
 
 (defmethod storage-get-link ((storage memory-storage) url base-url)
   (aif (gethash url (memory-storage-links storage))
-       (if (not (link-obsolete-p it))
+       (if (not (storage-link-obsolete-p storage it))
 	   it
 	   (progn 
 	     (storage-remove-link storage it base-url)
@@ -107,8 +131,9 @@
     (setf (link-valid-p link) valid-p)
     (setf (link-time link) (get-universal-time))))
 
-(defmethod storage-save ((storage memory-storage))
-  (with-open-file (stream (get-pathname-for-save-storage) 
+(defmethod storage-save ((storage memory-storage) &aux dir)
+  (setf dir (memory-storage-backup-path storage))
+  (with-open-file (stream (get-pathname-for-save-storage dir) 
 			  :direction :output)    
     (print (mapcar #'link-to-plist
 		 (storage-list-links storage))
@@ -120,41 +145,87 @@
 		(with-open-file (stream (get-pathname-last-for-load-storage))
 		  (read stream)))))
 
-(defun get-link (url base-url)
-  (storage-get-link *storage* url base-url))
-
-(defun add-link (url valid-p base-url)
-  (aif (storage-get-link *storage* url base-url)
-       (storage-update-link *storage* it valid-p)
-       (storage-add-link *storage* 
-			 (make-instance 'link
-					:url url
-					:valid-p valid-p
-					:base-url base-url))))
-
-(defun remove-link (url base-url)
-  (storage-remove-link *storage* url base-url))
-
-(defun links-save ()
-  (storage-save *storage*))
-
-(defun links-load ()
-  (storage-load *storage*))
-
-(defun links-history-clear ()
+(defmethod storage-links-history-clear ((storage memory-storage) &aux dir)
+  (setf dir (memory-storage-backup-path storage))
   (dolist (pathname (remove 
-		     (get-pathname-last-for-load-storage)
-		     (cl-fad:list-directory (get-storage-path))
+		     (get-pathname-last-for-load-storage dir)
+		     (cl-fad:list-directory dir)
 		     :test #'equal))
-    (delete-file pathname)))
+    (delete-file pathname)))  
+;;;;;;;;;;;;;;;;;;;;;;;;; Create interface ;;;;;;;;;;;;;;;;;;;;;;;;
 
-(defun get-pathname-for-save-storage ()
+(defmacro create-storage-interface (&optional storage-create-form)
+  `(progn
+     (defparameter ,(add-package-prefix *package* '*storage*) ,storage-create-form)
+     ,@(mapcar #'(lambda (sexpr)		 
+		 (destructuring-bind (defun function-name args
+				       (method-name storage-dyn-var &rest rest))
+		     sexpr
+		   (declare (ignore defun))
+		   (flet ((function-name () 
+			    (add-package-prefix *package* function-name))
+			  (storage-dyn-var ()
+			    (add-package-prefix *package* storage-dyn-var)))
+		     `(defun ,(function-name) ,args
+			(,method-name ,(storage-dyn-var) ,@rest)))))
+	     '((defun list-links ()
+		 (storage-list-links *storage*))
+
+	       (defun get-link (url &optional base-url)
+		 (storage-get-link *storage* url base-url))
+
+	       (defun link-obsolete-p (link)
+		 (storage-link-obsolete-p *storage* link))
+
+	       (defun update-link (link value-p)
+		 (storage-update-link *storage* link value-p))
+
+	       (defun add-link (url valid-p &optional base-url)
+		 (storage-add-or-update-link *storage* url valid-p base-url))
+
+	       (defun remove-link (url &optional base-url)
+		 (storage-remove-link *storage* url base-url))
+
+	       (defun links-save ()
+		 (storage-save *storage*))
+
+	       (defun links-load ()
+		 (storage-load *storage*))
+
+	       (defun links-history-clear ()
+		 (storage-links-history-clear *storage*))))))
+(addtest create-storage-interface-test
+  (ensure-same
+   (macroexpand-1 '(create-storage-interface (make-instance 'memory-storage)))
+   '(PROGN
+    (DEFPARAMETER *STORAGE* (MAKE-INSTANCE 'MEMORY-STORAGE))
+    (DEFUN LIST-LINKS () (STORAGE-LIST-LINKS *STORAGE*))
+    (DEFUN GET-LINK (URL &OPTIONAL BASE-URL)
+      (STORAGE-GET-LINK *STORAGE* URL BASE-URL))
+     (defun link-obsolete-p (link)
+		 (storage-link-obsolete-p *storage* link))
+    (DEFUN UPDATE-LINK (LINK VALUE-P)
+      (STORAGE-UPDATE-LINK *STORAGE* LINK VALUE-P))
+    (DEFUN ADD-LINK (URL VALID-P &OPTIONAL BASE-URL)
+      (STORAGE-ADD-OR-UPDATE-LINK *STORAGE* URL VALID-P BASE-URL))
+    (DEFUN REMOVE-LINK (URL &OPTIONAL BASE-URL)
+      (STORAGE-REMOVE-LINK *STORAGE* URL BASE-URL))
+    (DEFUN LINKS-SAVE () (STORAGE-SAVE *STORAGE*))
+    (DEFUN LINKS-LOAD () (STORAGE-LOAD *STORAGE*))
+    (DEFUN LINKS-HISTORY-CLEAR () (STORAGE-LINKS-HISTORY-CLEAR *STORAGE*)))))
+
+(defmacro create-memory-storage-interface ()
+  `(create-storage-interface (make-instance 'memory-storage)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defun get-pathname-for-save-storage (dir)
   (merge-pathnames (escape-filename
 		    (local-time:format-timestring nil (local-time:now)))
-		   (get-storage-path)))
+		   dir))
 
-(defun get-pathname-last-for-load-storage ()
-  (let* ((storage-path (get-storage-path))
+(defun get-pathname-last-for-load-storage (dir)
+  (let* ((storage-path (cl-fad:pathname-as-directory dir))
 	 (storage-files (cl-fad:list-directory storage-path)))
     (unless storage-files 
       (error "Not files for storage load in ~S" storage-path))    
@@ -163,7 +234,7 @@
 				       #'local-time:parse-timestring
 				       #'unescape-filename
 				       #'file-namestring)
-		   (cl-fad:list-directory (get-storage-path)))))
+		   storage-files)))
       (nth (position (apply #'max universal-times) universal-times)
 	   storage-files))))
 

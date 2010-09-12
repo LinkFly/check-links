@@ -3,10 +3,12 @@
   (:export #:as-string
 	   #:replace-many
 	   #:symcat
-	   #:add-pkg-prefix
-	   ;#:with-gensyms
-	   #:absolute-pathname-p
-	   ))
+	   #:add-package-prefix))
+
+(defpackage :utilities-port
+  (:use :cl :lift)
+  (:export #:absolute-pathname-p
+	   #:return-if-very-long))
 
 (defpackage :pathnames 
   (:use :cl :cl-fad)
@@ -14,11 +16,13 @@
    #:*LOGS-DIR* #:*TEST-DATA-DIR* #:*SYSTEM-NAME* #:*SRC-DIR*
    #:*WWW-TESTS-DIR* #:*WWW-DIR* #:*TEST-DATA-FILE* #:*STORAGE-DIR*
    #:GET-WWW-PATH #:GET-LOGS-PATH #:GET-WWW-TESTS-PATH
-   #:GET-SYSTEM-PATH #:GET-SRC-PATH #:RES
+   #:GET-SYSTEM-PATH #:GET-SRC-PATH
    #:GET-TEST-DATA-PATH #:GET-STORAGE-PATH 
    #:GET-TEST-DATA-PATHNAME))
 
 (defpackage :check-links
-  (:use :cl :logging :pathnames :chunga :logging :lift)
-  (:export #:check-link))
+  (:use :cl :puri :logging :pathnames :chunga 
+	:logging :lift :alexandria :anaphora
+	:utilities :utilities-port)
+  (:export #:check-link #:*storage* #:memory-storage-obsolete-time))
 

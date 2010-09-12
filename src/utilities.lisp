@@ -34,23 +34,15 @@
    (symcat "PREFIX" "-log-" :mykey)
    'PREFIX-LOG-MYKEY))	  
 
-(defun add-pkg-prefix (sym package)
+(defun add-package-prefix (package sym)
   (read-from-string 
    (concatenate 'string (string-upcase (typecase package
 					 (package (package-name package))
 					 (string package))) "::" (symbol-name sym))))
-(addtest add-pkg-prefix-test
+(addtest add-package-prefix-test
   (ensure-same 
-   (add-pkg-prefix 'defun "logging")
+   (add-package-prefix "logging" 'defun)
    'logging::defun))
-
-;;;!!! Not portability (not work on windows)
-(defun absolute-pathname-p (pathname)
-  (eq :absolute (first (pathname-directory pathname))))
-(addtest absolute-pathname-p-test
-  (ensure 
-   (and (not (absolute-pathname-p "media/WORK_PARTITION/sdf"))
-        (absolute-pathname-p "/media/WORK_PARTITION/sdf"))))
 
 #|
 (defmacro with-gensyms ((&rest syms) &body body)

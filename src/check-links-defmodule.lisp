@@ -2,6 +2,7 @@
     (:use :cl :logging :utilities :pathnames :check-links :drakma :anaphora 
 	  :split-sequence :lift :local-time
 	  :cl-fad :alexandria :puri
+	  ;:check-links-storage
 	  :iterate :cl-ppcre :logging)
   (:shadowing-import-from :alexandria #:copy-stream #:copy-file)
   (:export   
@@ -27,14 +28,16 @@
 (defparameter *check-timeout* 6)
 (defparameter *obsolete-time* 60)
 (defparameter *enable-link-caching* t)
-(defparameter *log-stream* nil)
-(defparameter *storage* nil)
+
+(setf (memory-storage-obsolete-time *storage*) '*obsolete-time*)
 
 #|(setf *load-pathname*
       (pathname
        "/media/WORK_PARTITION/web-projects/dynserv/lisp-libs/user-libs/check-links/src/check-links-defmodule.lisp"))
 |#
+
 (define-default-logs :logs-pathname (get-logs-path))
+;(macroexpand-1 (macroexpand-1 '(define-default-logs :logs-pathname (get-logs-path))))
 (addtest generated-log-functions-test
   (ensure
    (for-test-generated-functions '(:info :warn :error))))
@@ -43,8 +46,11 @@
    (for-test-created-logs (get-logs-path)
 			  :log-types '(:info :warn :error)
 			  :prefix-logs (string-downcase (as-string *package*)))))
+ 
 #|
 (define-logging (get-logs-path)
     :log-types (:info :warn :error)
     :prefix-logs (string-downcase (as-string *package*)))
 |#
+
+
