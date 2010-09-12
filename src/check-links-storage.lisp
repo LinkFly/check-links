@@ -6,13 +6,11 @@
 	  :initform (make-hash-table :test 'equal)
 	  :accessor memory-storage-links)
    (backup-path :initarg :backup-path
-		:initform (cl-fad:pathname-as-directory 
-			   (merge-pathnames "check-links-backup-memory-storage"))
+		:initform (merge-pathnames "check-links-backup-memory-storage/")
 		:accessor memory-storage-backup-path)
    (obsolete-time :initarg :obsolete-time 
 		  :initform 60
-		  :writer (setf memory-storage-obsolete-time)
-		  :reader memory-storage-obsolete-time)))
+		  :writer (setf memory-storage-obsolete-time))))
 
 (defmethod memory-storage-obsolete-time ((storage memory-storage))
   (let ((obsolete-time (slot-value storage 'obsolete-time)))
@@ -43,11 +41,14 @@
 
 (defmethod print-object ((link link) stream)
   (print-unreadable-object (link stream :type t :identity nil)
-    (format stream "~S" (link-to-plist link))))
+    (format stream 
+	    "~A"
+	    (string-trim "()" (format nil "~S" (link-to-plist link))))))
 
 (defgeneric storage-count-links (storage))
 
 (defgeneric storage-list-links (storage))
+
 (defgeneric (setf storage-list-links) (links storage))
 
 (defgeneric storage-add-link (storage link))
@@ -152,8 +153,8 @@
 		     (cl-fad:list-directory dir)
 		     :test #'equal))
     (delete-file pathname)))  
-;;;;;;;;;;;;;;;;;;;;;;;;; Create interface ;;;;;;;;;;;;;;;;;;;;;;;;
 
+;;;;;;;;;;;;;;;;;;;;;;;;; Create interface ;;;;;;;;;;;;;;;;;;;;;;;;
 (defmacro create-storage-interface (&optional storage-create-form)
   `(progn
      (defparameter ,(add-package-prefix *package* '*storage*) ,storage-create-form)

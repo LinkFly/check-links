@@ -1,0 +1,226 @@
+(:LOGGING (Requested uri: "https://adwords.google.com/select/snapshot")) :time "2010-09-12T22:57:20.987896+04:00")
+(:LOGGING (
+referer: NIL) :time "2010-09-12T22:57:20.988142+04:00")
+(:LOGGING (
+was-space-p: NIL) :time "2010-09-12T22:57:20.988241+04:00")
+(:LOGGING (
+cur-redirect: 5) :time "2010-09-12T22:57:20.988313+04:00")
+(:LOGGING (
+get page: https://adwords.google.com/select/snapshot) :time "2010-09-12T22:57:20.988506+04:00")
+(:LOGGING (Requested uri: "https://adwords.google.com/select/snapshot")) :time "2010-09-12T22:57:26.664765+04:00")
+(:LOGGING (
+referer: NIL) :time "2010-09-12T22:57:26.664928+04:00")
+(:LOGGING (
+was-space-p: NIL) :time "2010-09-12T22:57:26.665026+04:00")
+(:LOGGING (
+cur-redirect: 5) :time "2010-09-12T22:57:26.665098+04:00")
+(:LOGGING (
+get page: https://adwords.google.com/select/snapshot) :time "2010-09-12T22:57:26.665197+04:00")
+(:LOGGING (
+status: NIL) :time "2010-09-12T22:57:26.989677+04:00")
+(:LOGGING (Requested uri: "http://anime.media.lan/cgi-bin/anime%3Ffind=àëõèìèê")) :time "2010-09-12T22:57:26.989858+04:00")
+(:LOGGING (
+referer: NIL) :time "2010-09-12T22:57:26.989937+04:00")
+(:LOGGING (
+was-space-p: NIL) :time "2010-09-12T22:57:26.990052+04:00")
+(:LOGGING (
+cur-redirect: 5) :time "2010-09-12T22:57:26.990124+04:00")
+(:LOGGING (
+get page: http://anime.media.lan/cgi-bin/anime%3Ffind=àëõèìèê) :time "2010-09-12T22:57:26.990216+04:00")
+(:LOGGING (
+status: 404) :time "2010-09-12T22:57:27.205118+04:00")
+(:LOGGING (
+status: NIL) :time "2010-09-12T22:57:32.666890+04:00")
+(:LOGGING (Requested uri: "http://anime.media.lan/cgi-bin/anime%3Ffind=àëõèìèê")) :time "2010-09-12T22:57:32.667123+04:00")
+(:LOGGING (
+referer: NIL) :time "2010-09-12T22:57:32.667214+04:00")
+(:LOGGING (
+was-space-p: NIL) :time "2010-09-12T22:57:32.667325+04:00")
+(:LOGGING (
+cur-redirect: 5) :time "2010-09-12T22:57:32.667409+04:00")
+(:LOGGING (
+get page: http://anime.media.lan/cgi-bin/anime%3Ffind=àëõèìèê) :time "2010-09-12T22:57:32.667531+04:00")
+(:LOGGING (
+status: 404) :time "2010-09-12T22:57:32.701682+04:00")
+(:LOGGING (Requested uri: "https://adwords.google.com/select/snapshot")) :time "2010-09-12T22:59:16.830410+04:00")
+(:LOGGING (
+referer: NIL) :time "2010-09-12T22:59:16.830612+04:00")
+(:LOGGING (
+was-space-p: NIL) :time "2010-09-12T22:59:16.830696+04:00")
+(:LOGGING (
+cur-redirect: 5) :time "2010-09-12T22:59:16.830754+04:00")
+(:LOGGING (
+get page: https://adwords.google.com/select/snapshot) :time "2010-09-12T22:59:16.830894+04:00")
+(:LOGGING (
+status: NIL) :time "2010-09-12T22:59:22.832254+04:00")
+(:LOGGING (Requested uri: "http://anime.media.lan/cgi-bin/anime%3Ffind=àëõèìèê")) :time "2010-09-12T22:59:22.832547+04:00")
+(:LOGGING (
+referer: NIL) :time "2010-09-12T22:59:22.832648+04:00")
+(:LOGGING (
+was-space-p: NIL) :time "2010-09-12T22:59:22.832770+04:00")
+(:LOGGING (
+cur-redirect: 5) :time "2010-09-12T22:59:22.832858+04:00")
+(:LOGGING (
+get page: http://anime.media.lan/cgi-bin/anime%3Ffind=àëõèìèê) :time "2010-09-12T22:59:22.833051+04:00")
+(:LOGGING (
+status: 404) :time "2010-09-12T22:59:22.845465+04:00")
+(:LOGGING (
+location: NIL) :time "2010-09-12T22:59:22.845602+04:00")
+(:LOGGING (Requested uri: "http://anime.media.lan/cgi-bin/anime?find=àëõèìèê")) :time "2010-09-12T22:59:22.845707+04:00")
+(:LOGGING (
+referer: NIL) :time "2010-09-12T22:59:22.845794+04:00")
+(:LOGGING (
+was-space-p: NIL) :time "2010-09-12T22:59:22.845901+04:00")
+(:LOGGING (
+cur-redirect: 5) :time "2010-09-12T22:59:22.845986+04:00")
+(:LOGGING (
+get page: http://anime.media.lan/cgi-bin/anime?find=àëõèìèê) :time "2010-09-12T22:59:22.846107+04:00")
+(:LOGGING (
+status: 200) :time "2010-09-12T22:59:23.368922+04:00")
+(:LOGGING (
+location: NIL) :time "2010-09-12T22:59:23.369083+04:00")
+(:LOGGING (Requested uri: "http://axiger.livejournal.com/tag/lisp")) :time "2010-09-12T22:59:23.369178+04:00")
+(:LOGGING (
+referer: NIL) :time "2010-09-12T22:59:23.369273+04:00")
+(:LOGGING (
+was-space-p: NIL) :time "2010-09-12T22:59:23.369369+04:00")
+(:LOGGING (
+cur-redirect: 5) :time "2010-09-12T22:59:23.369462+04:00")
+(:LOGGING (
+get page: http://axiger.livejournal.com/tag/lisp) :time "2010-09-12T22:59:23.369572+04:00")
+(:LOGGING (
+status: NIL) :time "2010-09-12T22:59:29.370276+04:00")
+(:LOGGING (Requested uri: "http://mail.yandex.ru/?retpath=http%3A%2F%2Fmail.yandex.ru%2Fneo%2Fmessages%3Fd%3Did29344108")) :time "2010-09-12T22:59:29.370455+04:00")
+(:LOGGING (
+referer: NIL) :time "2010-09-12T22:59:29.370544+04:00")
+(:LOGGING (
+was-space-p: NIL) :time "2010-09-12T22:59:29.370657+04:00")
+(:LOGGING (
+cur-redirect: 5) :time "2010-09-12T22:59:29.370739+04:00")
+(:LOGGING (
+get page: http://mail.yandex.ru/?retpath=http%3A%2F%2Fmail.yandex.ru%2Fneo%2Fmessages%3Fd%3Did29344108) :time "2010-09-12T22:59:29.370861+04:00")
+(:LOGGING (
+status: NIL) :time "2010-09-12T22:59:35.372473+04:00")
+(:LOGGING (Requested uri: "https://addons.mozilla.org/en-US/firefox")) :time "2010-09-12T22:59:35.372648+04:00")
+(:LOGGING (
+referer: NIL) :time "2010-09-12T22:59:35.372737+04:00")
+(:LOGGING (
+was-space-p: NIL) :time "2010-09-12T22:59:35.372845+04:00")
+(:LOGGING (
+cur-redirect: 5) :time "2010-09-12T22:59:35.372928+04:00")
+(:LOGGING (
+get page: https://addons.mozilla.org/en-US/firefox) :time "2010-09-12T22:59:35.373047+04:00")
+(:LOGGING (
+status: NIL) :time "2010-09-12T22:59:41.373657+04:00")
+(:LOGGING (Requested uri: "http://www.google.com/reader/view/#stream/feed%2Fhttp%3A%2F%2Fwww.developers.org.ua%2Ffeed%2F")) :time "2010-09-12T22:59:41.373880+04:00")
+(:LOGGING (
+referer: NIL) :time "2010-09-12T22:59:41.373971+04:00")
+(:LOGGING (
+was-space-p: NIL) :time "2010-09-12T22:59:41.374081+04:00")
+(:LOGGING (
+cur-redirect: 5) :time "2010-09-12T22:59:41.374173+04:00")
+(:LOGGING (
+get page: http://www.google.com/reader/view/#stream/feed%2Fhttp%3A%2F%2Fwww.developers.org.ua%2Ffeed%2F) :time "2010-09-12T22:59:41.374290+04:00")
+(:LOGGING (
+status: NIL) :time "2010-09-12T22:59:47.375445+04:00")
+(:LOGGING (Requested uri: "http://mail.yandex.ru/?retpath=http%3A%2F%2Fmail.yandex.ru%2Fneo%2Fmessages%3Fd%3Did19452249")) :time "2010-09-12T22:59:47.375619+04:00")
+(:LOGGING (
+referer: NIL) :time "2010-09-12T22:59:47.375708+04:00")
+(:LOGGING (
+was-space-p: NIL) :time "2010-09-12T22:59:47.375819+04:00")
+(:LOGGING (
+cur-redirect: 5) :time "2010-09-12T22:59:47.375941+04:00")
+(:LOGGING (
+get page: http://mail.yandex.ru/?retpath=http%3A%2F%2Fmail.yandex.ru%2Fneo%2Fmessages%3Fd%3Did19452249) :time "2010-09-12T22:59:47.376054+04:00")
+(:LOGGING (
+status: NIL) :time "2010-09-12T22:59:53.377686+04:00")
+(:LOGGING (Requested uri: "http://swizard.livejournal.com/tag/dependent%20type")) :time "2010-09-12T22:59:53.377849+04:00")
+(:LOGGING (
+referer: NIL) :time "2010-09-12T22:59:53.377939+04:00")
+(:LOGGING (
+was-space-p: 44) :time "2010-09-12T22:59:53.378044+04:00")
+(:LOGGING (
+cur-redirect: 5) :time "2010-09-12T22:59:53.378126+04:00")
+(:LOGGING (
+get page: http://swizard.livejournal.com/tag/dependent%20type) :time "2010-09-12T22:59:53.378246+04:00")
+(:LOGGING (
+status: NIL) :time "2010-09-12T22:59:59.379279+04:00")
+(:LOGGING (Requested uri: #<URI http://swizard.livejournal.com/tag/dependent+type>)) :time "2010-09-12T22:59:59.403453+04:00")
+(:LOGGING (
+referer: NIL) :time "2010-09-12T22:59:59.403590+04:00")
+(:LOGGING (
+was-space-p: NIL) :time "2010-09-12T22:59:59.403690+04:00")
+(:LOGGING (
+cur-redirect: 4) :time "2010-09-12T22:59:59.403785+04:00")
+(:LOGGING (
+get page: http://swizard.livejournal.com/tag/dependent+type) :time "2010-09-12T22:59:59.403902+04:00")
+(:LOGGING (
+status: NIL) :time "2010-09-12T23:00:05.405297+04:00")
+(:LOGGING (Requested uri: "http://swizard.livejournal.com/tag/dependent+type")) :time "2010-09-12T23:00:05.405473+04:00")
+(:LOGGING (
+referer: NIL) :time "2010-09-12T23:00:05.405563+04:00")
+(:LOGGING (
+was-space-p: NIL) :time "2010-09-12T23:00:05.405695+04:00")
+(:LOGGING (
+cur-redirect: 5) :time "2010-09-12T23:00:05.405782+04:00")
+(:LOGGING (
+get page: http://swizard.livejournal.com/tag/dependent+type) :time "2010-09-12T23:00:05.405902+04:00")
+(:LOGGING (
+status: NIL) :time "2010-09-12T23:00:11.407477+04:00")
+(:LOGGING (Requested uri: "http://anime.media.lan/cgi-bin/anime?find=%E0%EB%F5%E8%EC%E8%EA")) :time "2010-09-12T23:00:11.407661+04:00")
+(:LOGGING (
+referer: NIL) :time "2010-09-12T23:00:11.407768+04:00")
+(:LOGGING (
+was-space-p: NIL) :time "2010-09-12T23:00:11.407878+04:00")
+(:LOGGING (
+cur-redirect: 5) :time "2010-09-12T23:00:11.407959+04:00")
+(:LOGGING (
+get page: http://anime.media.lan/cgi-bin/anime?find=%E0%EB%F5%E8%EC%E8%EA) :time "2010-09-12T23:00:11.408084+04:00")
+(:LOGGING (
+status: 200) :time "2010-09-12T23:00:16.246118+04:00")
+(:LOGGING (
+location: NIL) :time "2010-09-12T23:00:16.246261+04:00")
+(:LOGGING (Requested uri: "https://launchpad.net/distros/ubuntu/%20addticket")) :time "2010-09-12T23:00:16.246334+04:00")
+(:LOGGING (
+referer: NIL) :time "2010-09-12T23:00:16.246398+04:00")
+(:LOGGING (
+was-space-p: 37) :time "2010-09-12T23:00:16.246469+04:00")
+(:LOGGING (
+cur-redirect: 5) :time "2010-09-12T23:00:16.246531+04:00")
+(:LOGGING (
+get page: https://launchpad.net/distros/ubuntu/%20addticket) :time "2010-09-12T23:00:16.246619+04:00")
+(:LOGGING (
+status: NIL) :time "2010-09-12T23:00:22.247669+04:00")
+(:LOGGING (Requested uri: #<URI https://launchpad.net/distros/ubuntu/+addticket>)) :time "2010-09-12T23:00:22.247978+04:00")
+(:LOGGING (
+referer: NIL) :time "2010-09-12T23:00:22.248050+04:00")
+(:LOGGING (
+was-space-p: NIL) :time "2010-09-12T23:00:22.248124+04:00")
+(:LOGGING (
+cur-redirect: 4) :time "2010-09-12T23:00:22.248185+04:00")
+(:LOGGING (
+get page: https://launchpad.net/distros/ubuntu/+addticket) :time "2010-09-12T23:00:22.248277+04:00")
+(:LOGGING (
+status: NIL) :time "2010-09-12T23:00:28.249984+04:00")
+(:LOGGING (Requested uri: "http://swizard.livejournal.com/tag/dependent%20type")) :time "2010-09-12T23:00:28.250142+04:00")
+(:LOGGING (
+referer: NIL) :time "2010-09-12T23:00:28.250223+04:00")
+(:LOGGING (
+was-space-p: 44) :time "2010-09-12T23:00:28.250347+04:00")
+(:LOGGING (
+cur-redirect: 5) :time "2010-09-12T23:00:28.250430+04:00")
+(:LOGGING (
+get page: http://swizard.livejournal.com/tag/dependent%20type) :time "2010-09-12T23:00:28.250547+04:00")
+(:LOGGING (
+status: NIL) :time "2010-09-12T23:00:34.251291+04:00")
+(:LOGGING (Requested uri: #<URI http://swizard.livejournal.com/tag/dependent+type>)) :time "2010-09-12T23:00:34.251595+04:00")
+(:LOGGING (
+referer: NIL) :time "2010-09-12T23:00:34.251669+04:00")
+(:LOGGING (
+was-space-p: NIL) :time "2010-09-12T23:00:34.251766+04:00")
+(:LOGGING (
+cur-redirect: 4) :time "2010-09-12T23:00:34.251861+04:00")
+(:LOGGING (
+get page: http://swizard.livejournal.com/tag/dependent+type) :time "2010-09-12T23:00:34.251960+04:00")
+(:LOGGING (
+status: NIL) :time "2010-09-12T23:00:40.254214+04:00")

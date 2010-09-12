@@ -1,0 +1,40 @@
+This software purpose for service up for checking internet urls (links).
+
+Dependecies.
+
+
+Using.
+Server side:
+1.Load ASDF system, as usual or by this new way:
+ 
+        (asdf:load-system :check-links)
+
+2.Service up by RESTAS (it is important part of this lib):
+
+	(restas:start :restas.check-links :port <your_port>)
+
+NOTE: if your_port > 1023 you must have root rights.
+
+Client side:
+1.For automate checking all links on html page 
+  insert the follow code into <head></head>:
+
+----------------------------------------
+    <script type="text/javascript" src="<your server path>/check-links/js/lib/jquery.js"></script>
+    <script type="text/javascript" src="<your server path>/check-links/js/jquery.clwe.check-links.js"></script>
+    <script type="text/javascript">
+      $(function(){
+        $("#check-all-links").click(function(){
+          $.checkLinks.start({serviceUrl: "<your server path>/check-links/js/check-links.js"});	  
+        });
+      });
+    </script>
+-------------------------------------------
+
+   <your server path> means url on which your service was up.
+  
+2.For more information look throuth tests on urls:
+
+       <your server path>/check-links/www-tests/test1.html
+       <your server path>/check-links/www-tests/test2.html
+       <your server path>/check-links//www-tests/test3.html

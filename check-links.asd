@@ -10,17 +10,17 @@
   :depends-on (:restas :drakma :anaphora :cl-who :split-sequence
 	       :lift :local-time :cl-fad :alexandria :puri
 	       :iterate :cl-ppcre :chunga :hunchentoot :cl-logging)
-  :serial t
   :components ((:module "src"
 			:components ((:file "packages")
-				     (:file "utilities")
+				     (:file "check-links-utilities")
+				     (:file "check-links-utilities-port")
 				     (:file "pathnames")
+				     (:file "check-links-storage")
 				     (:file "check-links-defmodule" :depends-on ("packages" "pathnames" "check-links"))
-				     (:file "check-links-storage" :depends-on ())
-				     (:file "port" :depends-on ("check-links-defmodule"))
-				     (:file "check-links" :depends-on ("packages" "check-links-storage" "utilities"))
-				     (:file "check-links-utilities" :depends-on ("check-links-defmodule"))
+				     (:file "check-links" :depends-on ("packages" 
+								       "check-links-storage"
+								       "check-links-utilities"
+								       "check-links-utilities-port"))
 				     (:file "check-links-routes" :depends-on ("check-links-defmodule"))
 				     (:file "check-links-view" :depends-on ("check-links-defmodule"))
 				     (:file "check-links-drawer" :depends-on ("check-links-defmodule"))))))
-

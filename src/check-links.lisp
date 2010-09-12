@@ -5,8 +5,6 @@
   :extra-log-types (:bad-links :detailed))
 (create-memory-storage-interface)
     
-;(sb-ext:with-timeout 1.0 (sleep 100))
-;(sb-sys:with-deadline (:seconds 1) (read))
 (defun check-link (link-or-uri &key
 		   base-url
 		   (timeout 6)
@@ -28,9 +26,7 @@
 	   (ignore-errors 
 	     (tweak-http-request
 	      (as-absolute-url uri (or base-url ""))
-	      :timeout timeout)
-	     )				;ignore-errors
-	    ))
+	      :timeout timeout))))
       (when (first result-request)
 	(setq valid-p (first (member (second result-request) '(200)))))
       (if enable-link-caching-p
@@ -40,7 +36,6 @@
       valid-p)))
 (addtest check-link-test
   (ensure
-  ; (and 
     (every #'identity 
 	   (mapcar #'check-link
 		   '("http://www.mozilla.com/ru/firefox/about/"
@@ -51,16 +46,17 @@
 		     "http://sbcl10.sbcl.org/materials/ndl"
 		     "http://www.sbcl.org/manual/index.html#Debugger-Policy-Control"
 		     "http://posix.ru/freenotes/linux/51")))))
+
+#|
 (defun seriouse-test-check-link ()
   (every #'identity 
 	   (mapcar #'check-link
 		   (with-open-file (stream (get-test-data-pathname))
 		     (read stream)))))
-#|
+
 (mapcar #'(lambda (link) (when (check-link link) link))
 	(with-open-file (stream (get-test-data-pathname))
 	  (read stream)))
-
 
 (loop repeat 2   
    collect (loop
@@ -70,9 +66,9 @@
 (defun get-test-data ()
   (with-open-file (stream (get-test-data-pathname))
     (read stream)))
-|#
-;(seriouse-test-check-link)
 
+(seriouse-test-check-link)
+|#
 
 (defun tweak-http-request (uri &key (redirect 5) (timeout 6))  
   (flet ((tries-http-request (uri &optional (referer nil))	   
@@ -81,7 +77,7 @@
 		   (return-if-very-long 
 		    timeout
 		    (let ((chunga:*accept-bogus-eols* t)) 
-		      (format t "~%get page: ~a" uri) 
+		      (log-detailed "~%get page: ~a" uri) 
 		      (apply #'drakma:http-request uri 
 			     :redirect nil
 			     :want-stream t
@@ -92,9 +88,8 @@
     (iter 
       (with uri = uri)
       (with referer)      
-      (terpri)
-      (log-detailed "Requested uri: ~s)" uri)
 
+      (log-detailed "Requested uri: ~s)" uri)
       (log-detailed "~%referer: ~s" referer)
 
       (for was-space-p = (search "%20" (format nil "~A" uri)))
@@ -104,8 +99,6 @@
       (log-detailed "~%cur-redirect: ~s" cur-redirect)
 
       (for req-result = (tries-http-request uri referer))
-      ;(log-detailed "~%req-result: ~s" (subseq (format nil "~s" req-result) 0 40))
-
       (for status = (second req-result))
       (log-detailed "~%status: ~s" status)
 
@@ -121,17 +114,12 @@
 					    (princ-to-string uri)
 					    "+")))
 	 (next-iteration)))
-
-
-
-      (for location = (header-value :location 
+      (for location = (drakma:header-value :location 
 				    (third req-result)))
       (log-detailed "~%location: ~s" location)      
 
       (when (not (member status '(300 301 302 303 305)))
-	;(log-detailed "~%Now exit. req-resut: ~s" (subseq (format nil "~s" req-result) 0 40))
 	(leave req-result))
-
       (when (plusp cur-redirect)	    
 	(log-detailed "Now redirect. New href: ")
 	(setf uri (merge-uris (princ (prepare-uri-from-str location))
@@ -190,21 +178,6 @@
     "http://anime.media.lan/?cgi-bin/anime?find=àëõèìèê#blablabla")
     #U"http://anime.media.lan/?cgi-bin/anime%3Ffind=àëõèìèê"
     :test #'puri:uri=))
-
-#|
-					     (defun as-url-string (link)
-(typecase link
-(string link)
-(uri (format nil "~A" link))))
-
-					     (defun as-uri (link)
-(typecase link
-(uri link)
-(string 
-(#-debug ignore-errors  
-#+debug identity	      
-(parse-uri (link-without-rest (url-escape link)))))))
-					     |#
 
 (defmacro reverse-esc-code (esc-code)
   `(quote ,(reverse (coerce esc-code 'list))))

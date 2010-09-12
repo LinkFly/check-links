@@ -1,4 +1,4 @@
-(in-package :utilities-port)
+(in-package :check-links-utilities-port)
 
 ;;;;;;;;;;;;;;;;;;;;;;; Not portability ;;;;;;;;;;;
 ;;; Using sb-ext:with-timeout and sb-ext:timeout

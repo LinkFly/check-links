@@ -1,16 +1,6 @@
 (function ($){
     $.checkLinks = {};
-    //    $.checkLinks.start = function(params){alert(params);};
-    
       $.checkLinks.start = function(params){
-	
-	
-	//Test on bad request (delete)
-	//	$.getScript("http://localhost:81/check-links/json.js?urls=http://anime.media.lan/cgi-bin/anime%3Ffind=%7D")
-	//	$.getScript("http://localhost:81/check-links/json.js?urls=" 
-	//		    + escape("http://anime.media.lan/cgi-bin/anime%3Ffind=%7D"));
-	
-
 	// Options for configurations (dependence of server side)
 	this.ops = {resultClass: "check-links_result-data",
 		   linkClass: "check-links_link",
@@ -30,7 +20,7 @@
 	// Parameters checking
 	if(params.serviceUrl == undefined) {
 	    alert("check-links: bad call parameters");
-	    return;
+	    debugger;
 	}
 	/////////////
 
@@ -62,8 +52,6 @@
 	
 	ops = this.ops;
 	bufferName = this.buffName;
-	//allLnkHash;
-	//unEsc;
 	this.markingAllLinks = function(){
             $(bufferName + " " + ops.resultClass + " " + ops.linkClass)
               .each(function(index, el){
@@ -113,14 +101,10 @@
 	document.results = {};
 	var markAllLnk = this.markingAllLinks;
 	this.asyncLoadBuff = function(servUrl, buffName, paramName, urls, varNameForResult){	    
-	    servUrl = "http://localhost:81/check-links/json.js";
 	    $.getScript(servUrl + "?"
 				   + paramName + "=" + urls				 
 				   + "&varName=" + "document.results." + varNameForResult, 
 			function(data, textStatus, xhttp){
-			    //alert(document.results[varNameForResult]);
-		    //   console.log("data is: " + xmlreq.responseText);
-		    //console.log("xhttp is: " + xhttp.responseText);
 		    $(buffName).append($(document.results[varNameForResult]));
 		    document.results[varNameForResult] = undefined;
 		    bIsMarking++;
