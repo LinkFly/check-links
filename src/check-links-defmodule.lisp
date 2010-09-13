@@ -14,8 +14,8 @@
    #:links-save
    #:links-load
    #:links-history-clear
-   #:CHECK-LINKS-JS-PROXY
-   #:CHECK-LINKS-JSON
+   #:CHECK-LINKS-JSON #:CHECK-LINKS-JS-PROXY
+   #:check-links.js
    ))
 
 ;;; For xhtml generations

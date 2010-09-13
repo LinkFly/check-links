@@ -3,7 +3,8 @@
   (:export #:as-string
 	   #:replace-many
 	   #:symcat
-	   #:add-package-prefix))
+	   #:add-package-prefix
+	   #:list-to-path))
 
 (defpackage :check-links-utilities-port
   (:use :cl :lift)

@@ -42,5 +42,6 @@
    (add-package-prefix "logging" 'defun)
    'logging::defun))
 
-
+(defun list-to-path (path-list)
+  (format nil "~{~A~^/~}" path-list))
 

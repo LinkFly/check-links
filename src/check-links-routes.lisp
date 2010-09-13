@@ -5,7 +5,7 @@
   (log-info "Start handling route check-links/json.js")
   (let ((base-url (or (hunchentoot:get-parameter "base-url") (hunchentoot:referer)))
 	(var-name (hunchentoot:get-parameter "varName")))
-    (if (not (valid-var-name-p var-name)) (return-from check-links-json 400))
+    (if (not (valid-var-name-p var-name)) (return-from check-links.js 400))
     (list :var-name var-name
 	  :data (prog1 (create-plist-from-urls (hunchentoot:get-parameter "urls") base-url)
 		  (log-info "End handling route check-links/json.js")))))
@@ -51,6 +51,6 @@
 (restas:define-route static-files ("check-links/www/*path-list")  
   (merge-pathnames (list-to-path path-list) (get-www-path)))
 
-(restas:define-route static-tests-files ("check-links/www-tests/*path-list")  
+(restas:define-route static-tests-files ("check-links/www-tests/*path-list")
   (merge-pathnames (list-to-path path-list) (get-www-tests-path)))
 
