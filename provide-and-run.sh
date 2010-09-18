@@ -1,0 +1,1 @@
+./provide-all.sh;./run.sh
