@@ -1,1 +1,1 @@
-../../../../dependencies/jquery.js
+../../../../deps/jquery.js

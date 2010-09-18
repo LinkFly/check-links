@@ -1,3 +1,6 @@
 *.*~
 *.fasl
 logs/*
+deps-dev
+deps/*
+deps-lisp-libs/*

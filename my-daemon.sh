@@ -1,1 +1,1 @@
-dependencies/my-daemon.sh
+deps/my-daemon.sh

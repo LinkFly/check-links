@@ -1,1 +1,1 @@
-dependencies/sbclrc-for-daemon.lisp
+deps/sbclrc-for-daemon.lisp

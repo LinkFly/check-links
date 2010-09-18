@@ -1,1 +1,0 @@
-/media/WORK_PARTITION/web-projects/share/www/js-libs/jquery-1.4.2.min.js

@@ -1,1 +1,1 @@
-dependencies/my-restas-daemon.lisp
+deps/my-restas-daemon.lisp

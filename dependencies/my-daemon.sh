@@ -1,1 +1,0 @@
-/media/WORK_PARTITION/dynserv/my-daemon.sh
